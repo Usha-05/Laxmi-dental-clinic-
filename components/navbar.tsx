@@ -422,11 +422,12 @@ export default function Navbar({ onAppointmentClick }: { onAppointmentClick: () 
       <nav className={`fixed top-0 left-0 right-0 z-[9999] w-full bg-gradient-to-r from-[#020b07]/95 via-[#062116]/95 to-[#0d3a27]/95 backdrop-blur-md transition-all duration-300 ${
         isScrolled ? 'shadow-2xl border-b-2 border-teal-700 bg-gradient-to-r from-[#020b07]/95 via-[#0a2f1f]/95 to-[#125336]/95' : 'shadow-xl border-b border-teal-800/80'
       }`} style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 9999 }}>
-        <div className="w-full px-2 sm:px-4 lg:px-6">
-          <div className="max-w-screen-xl mx-auto flex justify-between items-center h-20 sm:h-24 md:h-24 lg:h-24 gap-4">
+        <div className="w-full px-0">
+          <div className="max-w-screen-xl mx-auto flex items-center h-20 sm:h-24 md:h-24 lg:h-24 gap-4 w-full">
             <Link
               href="/"
-              className="flex items-center hover:opacity-90 transition-all hover:scale-[1.015] -translate-x-1 sm:-translate-x-2 lg:-translate-x-3"
+              className="flex items-center hover:opacity-90 transition-all hover:scale-[1.015] flex-shrink-0"
+              style={{ marginLeft: "min(calc((1280px - 100vw) / 2), 0px)" }}
             >
               <div className="relative w-[150px] h-[48px] sm:w-[190px] sm:h-[64px] md:w-[215px] md:h-[72px] lg:w-[235px] lg:h-[80px] xl:w-[250px] xl:h-[88px] drop-shadow-lg max-w-full">
                 {!logoError ? (
@@ -446,159 +447,161 @@ export default function Navbar({ onAppointmentClick }: { onAppointmentClick: () 
               </div>
             </Link>
 
-            {/* Desktop Menu */}
-            <div className="hidden lg:flex items-center gap-1.5">
-              {navLinks.map((link) => {
-                const isActive = activeLink === link.href || (link.href === "#home" && !activeLink)
-                return (
-                  <a
-                    key={link.label}
-                    href={link.href}
-                    className={`px-2.5 py-1.5 text-white hover:text-white/80 transition-all text-[15px] font-semibold relative group ${
-                      isActive ? "text-white" : ""
-                    }`}
-                    onClick={(e) => handleNavClick(e, link.href)}
-                  >
-                    {link.label}
-                    <span className={`absolute bottom-0 left-3 h-[3px] bg-white transition-all duration-300 rounded-full ${
-                      isActive ? "w-[calc(100%-1.5rem)]" : "w-0 group-hover:w-[calc(100%-1.5rem)]"
-                    }`} />
-                  </a>
-                )
-              })}
+            <div className="flex-1 flex items-center justify-between gap-4 px-2 sm:px-4 lg:px-6">
+              {/* Desktop Menu */}
+              <div className="hidden lg:flex items-center gap-1.5">
+                {navLinks.map((link) => {
+                  const isActive = activeLink === link.href || (link.href === "#home" && !activeLink)
+                  return (
+                    <a
+                      key={link.label}
+                      href={link.href}
+                      className={`px-2.5 py-1.5 text-white hover:text-white/80 transition-all text-[15px] font-semibold relative group ${
+                        isActive ? "text-white" : ""
+                      }`}
+                      onClick={(e) => handleNavClick(e, link.href)}
+                    >
+                      {link.label}
+                      <span className={`absolute bottom-0 left-3 h-[3px] bg-white transition-all duration-300 rounded-full ${
+                        isActive ? "w-[calc(100%-1.5rem)]" : "w-0 group-hover:w-[calc(100%-1.5rem)]"
+                      }`} />
+                    </a>
+                  )
+                })}
 
-              {/* Assess Yourself Dropdown */}
-              <div className="relative group ml-1.5">
-                <button className="px-3 py-1.5 text-white hover:text-white/80 transition-all text-base font-semibold flex items-center gap-1.5 relative">
-                  Assess Yourself
-                  <ChevronDown
-                    size={16}
-                    className="group-hover:rotate-180 transition-transform duration-300 text-white"
-                  />
-                </button>
+                {/* Assess Yourself Dropdown */}
+                <div className="relative group ml-1.5">
+                  <button className="px-3 py-1.5 text-white hover:text-white/80 transition-all text-base font-semibold flex items-center gap-1.5 relative">
+                    Assess Yourself
+                    <ChevronDown
+                      size={16}
+                      className="group-hover:rotate-180 transition-transform duration-300 text-white"
+                    />
+                  </button>
 
-                <div className="absolute left-0 top-full mt-2 w-44 bg-gradient-to-b from-white/98 via-emerald-50/95 to-emerald-800/20 backdrop-blur-xl border border-emerald-700/70 rounded-2xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 p-3 -translate-y-2 group-hover:translate-y-0 z-50">
-                  <ul className="space-y-2">
-                    {assessYourselfItems.map((item) => (
-                      <li key={item.label}>
-                        <Link
-                          href={isTreatmentPage ? `/${item.href}` : item.href}
-                          className="block px-3 py-1.5 text-sm font-semibold text-black hover:text-black/80 hover:bg-emerald-200/60 rounded-lg transition-all duration-200 group/item"
+                  <div className="absolute left-0 top-full mt-2 w-44 bg-gradient-to-b from-white/98 via-emerald-50/95 to-emerald-800/20 backdrop-blur-xl border border-emerald-700/70 rounded-2xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 p-3 -translate-y-2 group-hover:translate-y-0 z-50">
+                    <ul className="space-y-2">
+                      {assessYourselfItems.map((item) => (
+                        <li key={item.label}>
+                          <Link
+                            href={isTreatmentPage ? `/${item.href}` : item.href}
+                            className="block px-3 py-1.5 text-sm font-semibold text-black hover:text-black/80 hover:bg-emerald-200/60 rounded-lg transition-all duration-200 group/item"
+                          >
+                            <span className="flex items-center gap-2">
+                              <ChevronRight
+                                size={16}
+                                className="text-black opacity-0 group-hover/item:opacity-100 group-hover/item:translate-x-1 transition-all duration-200"
+                              />
+                              <span className="flex-1">{item.label}</span>
+                            </span>
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+                {/* Treatments Dropdown */}
+                <div className="relative group ml-1.5">
+                  <button className="px-3 py-1.5 text-white hover:text-white/80 transition-all text-base font-semibold flex items-center gap-1.5 relative">
+                    Treatments
+                    <ChevronDown
+                      size={16}
+                      className="group-hover:rotate-180 transition-transform duration-300 text-white"
+                    />
+                  </button>
+
+                  <div className="absolute left-0 top-full mt-2 w-[440px] max-h-[65vh] overflow-y-auto bg-gradient-to-b from-white/98 via-emerald-50/95 to-emerald-800/20 backdrop-blur-xl border border-emerald-700/70 rounded-2xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 p-4 -translate-y-2 group-hover:translate-y-0 z-50">
+                    <Accordion
+                      type="single"
+                      collapsible
+                      value={openCategory || undefined}
+                      onValueChange={(value) => setOpenCategory(value || null)}
+                      className="w-full"
+                    >
+                      {treatmentCategories.map((category) => (
+                        <AccordionItem
+                          key={category}
+                          value={category}
+                          className="border-b border-emerald-100 last:border-b-0"
                         >
-                          <span className="flex items-center gap-2">
-                            <ChevronRight
-                              size={16}
-                              className="text-black opacity-0 group-hover/item:opacity-100 group-hover/item:translate-x-1 transition-all duration-200"
-                            />
-                            <span className="flex-1">{item.label}</span>
-                          </span>
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
+                          <AccordionTrigger className="py-1.5 text-left font-semibold text-base text-black hover:text-black/80 transition-colors [&[data-state=open]]:text-black">
+                            <div className="flex items-center gap-3">
+                              {renderCategoryIcon(category)}
+                              <span>{category}</span>
+                            </div>
+                          </AccordionTrigger>
+                          <AccordionContent className="pb-4 pt-2">
+                            <ul className="space-y-2">
+                              {treatmentData[category as keyof typeof treatmentData].map((treatment) => (
+                                <li key={treatment}>
+                                  <Link
+                                    href={generateRoute(category, treatment)}
+                                    className="block px-3 py-2.5 text-xl font-semibold text-black hover:text-black/80 hover:bg-emerald-200/60 rounded-lg transition-all duration-200 group/item"
+                                  >
+                                    <span className="flex items-center gap-2">
+                                      <ChevronRight
+                                        size={18}
+                                        className="text-black opacity-0 group-hover/item:opacity-100 group-hover/item:translate-x-1 transition-all duration-200"
+                                      />
+                                      <span className="flex-1">{treatment}</span>
+                                    </span>
+                                  </Link>
+                                </li>
+                              ))}
+                            </ul>
+                          </AccordionContent>
+                        </AccordionItem>
+                      ))}
+                    </Accordion>
+                  </div>
                 </div>
               </div>
 
-              {/* Treatments Dropdown */}
-              <div className="relative group ml-1.5">
-                <button className="px-3 py-1.5 text-white hover:text-white/80 transition-all text-base font-semibold flex items-center gap-1.5 relative">
-                  Treatments
-                  <ChevronDown
-                    size={16}
-                    className="group-hover:rotate-180 transition-transform duration-300 text-white"
-                  />
+              <div className="hidden lg:flex items-center gap-2">
+                {/* Search Icon */}
+                <button
+                  className="p-2.5 text-white hover:text-white/80 hover:bg-white/20 rounded-xl transition-all duration-200 group"
+                  aria-label="Search"
+                  onClick={() => setIsSearchOpen(true)}
+                >
+                  <Search size={24} className="transition-transform group-hover:scale-110" />
                 </button>
-
-                <div className="absolute left-0 top-full mt-2 w-[440px] max-h-[65vh] overflow-y-auto bg-gradient-to-b from-white/98 via-emerald-50/95 to-emerald-800/20 backdrop-blur-xl border border-emerald-700/70 rounded-2xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 p-4 -translate-y-2 group-hover:translate-y-0 z-50">
-                  <Accordion
-                    type="single"
-                    collapsible
-                    value={openCategory || undefined}
-                    onValueChange={(value) => setOpenCategory(value || null)}
-                    className="w-full"
-                  >
-                    {treatmentCategories.map((category) => (
-                      <AccordionItem
-                        key={category}
-                        value={category}
-                        className="border-b border-emerald-100 last:border-b-0"
-                      >
-                        <AccordionTrigger className="py-1.5 text-left font-semibold text-base text-black hover:text-black/80 transition-colors [&[data-state=open]]:text-black">
-                          <div className="flex items-center gap-3">
-                            {renderCategoryIcon(category)}
-                            <span>{category}</span>
-                          </div>
-                        </AccordionTrigger>
-                        <AccordionContent className="pb-4 pt-2">
-                          <ul className="space-y-2">
-                            {treatmentData[category as keyof typeof treatmentData].map((treatment) => (
-                              <li key={treatment}>
-                                <Link
-                                  href={generateRoute(category, treatment)}
-                                  className="block px-3 py-2.5 text-xl font-semibold text-black hover:text-black/80 hover:bg-emerald-200/60 rounded-lg transition-all duration-200 group/item"
-                                >
-                                  <span className="flex items-center gap-2">
-                                    <ChevronRight
-                                      size={18}
-                                      className="text-black opacity-0 group-hover/item:opacity-100 group-hover/item:translate-x-1 transition-all duration-200"
-                                    />
-                                    <span className="flex-1">{treatment}</span>
-                                  </span>
-                                </Link>
-                              </li>
-                            ))}
-                          </ul>
-                        </AccordionContent>
-                      </AccordionItem>
-                    ))}
-                  </Accordion>
-                </div>
+                
+                {/* CTA Button */}
+                <Button
+                  onClick={onAppointmentClick}
+                  className="bg-gradient-to-r from-amber-500 via-amber-600 to-orange-500 hover:from-amber-600 hover:via-amber-700 hover:to-orange-600 text-white px-4 py-2 rounded-lg shadow-xl hover:shadow-2xl hover:-translate-y-[2px] transition-all duration-300 font-semibold text-sm tracking-wide uppercase"
+                >
+                  Book Appointment
+                </Button>
               </div>
-            </div>
 
-            <div className="hidden lg:flex items-center gap-2">
-              {/* Search Icon */}
+              {/* Tablet & Small Desktop Actions */}
+              <div className="hidden sm:flex lg:hidden items-center gap-3">
+                <button
+                  className="p-4 text-white hover:text-white/80 hover:bg-white/20 rounded-lg transition-all duration-200 group"
+                  aria-label="Search"
+                  onClick={() => setIsSearchOpen(true)}
+                >
+                  <Search size={32} className="transition-transform group-hover:scale-125" />
+                </button>
+                <Button
+                  onClick={onAppointmentClick}
+                  className="bg-gradient-to-r from-amber-500 via-amber-600 to-orange-500 hover:from-amber-600 hover:via-amber-700 hover:to-orange-600 text-white px-3 py-2 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 font-semibold text-sm uppercase tracking-wide"
+                >
+                  Book Appointment
+                </Button>
+              </div>
+
+              {/* Mobile Menu Button */}
               <button
-                className="p-2.5 text-white hover:text-white/80 hover:bg-white/20 rounded-xl transition-all duration-200 group"
-                aria-label="Search"
-                onClick={() => setIsSearchOpen(true)}
+                className="lg:hidden p-2 hover:bg-white/20 rounded-lg transition-colors ml-auto"
+                onClick={() => setIsOpen(!isOpen)}
               >
-                <Search size={24} className="transition-transform group-hover:scale-110" />
+                {isOpen ? <X size={24} className="text-white" /> : <Menu size={24} className="text-white" />}
               </button>
-              
-              {/* CTA Button */}
-              <Button
-                onClick={onAppointmentClick}
-                className="bg-gradient-to-r from-amber-500 via-amber-600 to-orange-500 hover:from-amber-600 hover:via-amber-700 hover:to-orange-600 text-white px-4 py-2 rounded-lg shadow-xl hover:shadow-2xl hover:-translate-y-[2px] transition-all duration-300 font-semibold text-sm tracking-wide uppercase"
-              >
-                Book Appointment
-              </Button>
             </div>
-
-            {/* Tablet & Small Desktop Actions */}
-            <div className="hidden sm:flex lg:hidden items-center gap-3">
-              <button
-                className="p-4 text-white hover:text-white/80 hover:bg-white/20 rounded-lg transition-all duration-200 group"
-                aria-label="Search"
-                onClick={() => setIsSearchOpen(true)}
-              >
-                <Search size={32} className="transition-transform group-hover:scale-125" />
-              </button>
-              <Button
-                onClick={onAppointmentClick}
-                className="bg-gradient-to-r from-amber-500 via-amber-600 to-orange-500 hover:from-amber-600 hover:via-amber-700 hover:to-orange-600 text-white px-3 py-2 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 font-semibold text-sm uppercase tracking-wide"
-              >
-                Book Appointment
-              </Button>
-            </div>
-
-            {/* Mobile Menu Button */}
-            <button
-              className="lg:hidden p-2 hover:bg-white/20 rounded-lg transition-colors"
-              onClick={() => setIsOpen(!isOpen)}
-            >
-              {isOpen ? <X size={24} className="text-white" /> : <Menu size={24} className="text-white" />}
-            </button>
           </div>
 
           {/* Mobile Menu */}
