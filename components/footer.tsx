@@ -7,11 +7,11 @@ import Image from "next/image"
 export default function Footer() {
   return (
     <footer className="bg-[#1E603F] text-white">
-      <div className="w-full px-2 sm:px-4 lg:px-6 pt-6 md:pt-8 pb-6 md:pb-8 footer-text-xl">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-6 md:mb-8">
+      <div className="w-full px-2 sm:px-4 lg:px-6 pt-5 md:pt-7 pb-5 md:pb-7 text-sm sm:text-base leading-relaxed">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 mb-5 md:mb-6">
           {/* About */}
           <div>
-            <div className="relative w-full max-w-[320px] h-[120px] mb-4">
+            <div className="relative w-full max-w-[240px] h-[90px] mb-3">
               <Image
                 src="/finalclinicc.jpg"
                 alt="Laxmi Face and Multispeciality Dental Hospital"
@@ -19,15 +19,15 @@ export default function Footer() {
                 className="object-contain"
               />
             </div>
-            <p className="opacity-90 leading-relaxed">
+            <p className="opacity-90">
               Transforming Smiles, Enhancing Lives: Your Trusted Destination for Complete Dental & Facial Care.
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-bold mb-4">Quick Links</h4>
-            <ul className="space-y-3">
+            <h4 className="text-base sm:text-lg font-semibold mb-3">Quick Links</h4>
+            <ul className="space-y-2.5">
               <li>
                 <a href="#treatments" className="opacity-90 hover:opacity-100 transition">
                   Treatments
@@ -48,8 +48,8 @@ export default function Footer() {
 
           {/* Treatments */}
           <div>
-            <h4 className="font-bold mb-4">Treatments</h4>
-            <ul className="space-y-3">
+            <h4 className="text-base sm:text-lg font-semibold mb-3">Treatments</h4>
+            <ul className="space-y-2.5">
               <li>
                 <Link href="/treatments/orthodontics/aligners-invisalign" className="opacity-90 hover:opacity-100 transition">
                   Orthodontics
@@ -80,22 +80,22 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="font-bold mb-4">Contact</h4>
+            <h4 className="text-base sm:text-lg font-semibold mb-3">Contact</h4>
             <div className="space-y-4">
               <div className="flex gap-3">
-                <Phone size={24} className="flex-shrink-0 mt-0.5" />
+                <Phone size={22} className="flex-shrink-0 mt-0.5" />
                 <a href="tel:+917794879535" className="opacity-90 hover:opacity-100 transition">
                   +91 77948 79535
                 </a>
               </div>
               <div className="flex gap-3">
-                <Mail size={24} className="flex-shrink-0 mt-0.5" />
+                <Mail size={22} className="flex-shrink-0 mt-0.5" />
                 <a href="mailto:laxmidentalhospital0@gmail.com" className="opacity-90 hover:opacity-100 transition break-all">
                   laxmidentalhospital0@gmail.com
                 </a>
               </div>
               <div className="flex gap-3">
-                <MapPin size={24} className="flex-shrink-0 mt-0.5" />
+                <MapPin size={22} className="flex-shrink-0 mt-0.5" />
                 <a 
                   href="https://maps.app.goo.gl/WSmG37qqRPK42Lpt8?g_st=iw"
                   target="_blank"
@@ -110,35 +110,35 @@ export default function Footer() {
         </div>
 
         {/* Social Links */}
-        <div className="border-t border-primary-foreground/20 pt-5 md:pt-6 flex flex-col md:flex-row justify-between items-center gap-4 md:gap-6">
+        <div className="border-t border-primary-foreground/20 pt-4 md:pt-5 flex flex-col md:flex-row justify-between items-center gap-3 md:gap-5 text-xs sm:text-sm">
           <p className="opacity-90 text-center md:text-left">&copy; 2025 Laxmi Face and Multispeciality Dental Hospital. All rights reserved.</p>
-          <div className="flex gap-4">
+          <div className="flex gap-3">
             <a
               href="https://www.facebook.com/share/17eD4vZyRb/"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2.5 rounded-xl hover:bg-primary-foreground/10 transition"
+              className="p-2 rounded-xl hover:bg-primary-foreground/10 transition"
               aria-label="Follow us on Facebook"
             >
-              <Facebook size={26} />
+              <Facebook size={22} />
             </a>
             <a 
               href="https://www.instagram.com/laxmifaceanddentalhospital/" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="p-2.5 rounded-xl hover:bg-primary-foreground/10 transition"
+              className="p-2 rounded-xl hover:bg-primary-foreground/10 transition"
               aria-label="Follow us on Instagram"
             >
-              <Instagram size={26} />
+              <Instagram size={22} />
             </a>
             <a
               href="https://youtube.com/@laxmifaceandmultispecialityden?si=191g3rMvkxapmZJX"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2.5 rounded-xl hover:bg-primary-foreground/10 transition"
+              className="p-2 rounded-xl hover:bg-primary-foreground/10 transition"
               aria-label="Watch us on YouTube"
             >
-              <Youtube size={26} />
+              <Youtube size={22} />
             </a>
           </div>
         </div>
