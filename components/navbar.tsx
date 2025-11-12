@@ -422,8 +422,8 @@ export default function Navbar({ onAppointmentClick }: { onAppointmentClick: () 
       <nav className={`fixed top-0 left-0 right-0 z-[9999] w-full bg-gradient-to-r from-[#020b07]/95 via-[#062116]/95 to-[#0d3a27]/95 backdrop-blur-md transition-all duration-300 ${
         isScrolled ? 'shadow-2xl border-b-2 border-teal-700 bg-gradient-to-r from-[#020b07]/95 via-[#0a2f1f]/95 to-[#125336]/95' : 'shadow-xl border-b border-teal-800/80'
       }`} style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 9999 }}>
-        <div className="w-full px-0">
-          <div className="max-w-screen-xl w-full mr-auto flex justify-between items-center h-20 sm:h-24 md:h-24 lg:h-24 gap-4 px-2 sm:px-4 lg:px-6">
+        <div className="w-full pl-0 pr-2 sm:pl-0 sm:pr-4 lg:pl-0 lg:pr-6">
+          <div className="max-w-screen-xl mx-auto flex justify-between items-center h-20 sm:h-24 md:h-24 lg:h-24 gap-4">
             <Link href="/" className="flex items-center hover:opacity-90 transition-all hover:scale-[1.015] ml-0">
               <div className="relative w-[150px] h-[48px] sm:w-[190px] sm:h-[64px] md:w-[215px] md:h-[72px] lg:w-[235px] lg:h-[80px] xl:w-[250px] xl:h-[88px] drop-shadow-lg max-w-full">
                 {!logoError ? (

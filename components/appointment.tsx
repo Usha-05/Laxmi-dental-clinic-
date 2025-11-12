@@ -309,7 +309,7 @@ export default function Appointment({ isOpen, onClose }: AppointmentProps) {
 
   const modalContent = (
     <div 
-      className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-[10000] px-6 md:px-8 lg:px-12 py-4" 
+      className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-[10000] px-4 md:px-6 py-6" 
       style={{ 
         position: 'fixed', 
         top: 0, 
@@ -327,7 +327,7 @@ export default function Appointment({ isOpen, onClose }: AppointmentProps) {
       }}
     >
       <div 
-        className="bg-white rounded-xl max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl w-full shadow-2xl border-2 border-gray-200 max-h-[90vh] overflow-y-auto my-auto z-[10001] flex-shrink-0" 
+        className="bg-white rounded-2xl max-w-xl sm:max-w-2xl lg:max-w-3xl w-full shadow-2xl border border-gray-200 max-h-[88vh] overflow-y-auto my-auto z-[10001] flex-shrink-0" 
         style={{ 
           backgroundColor: '#ffffff', 
           boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(0, 0, 0, 0.05)',
@@ -340,9 +340,9 @@ export default function Appointment({ isOpen, onClose }: AppointmentProps) {
         }}
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="flex justify-between items-center p-6 border-b border-border bg-green-600 text-white rounded-t-xl">
-          <div className="flex items-center gap-4">
-            <div className="relative w-[280px] h-[98px] hidden sm:block">
+        <div className="flex justify-between items-center p-4 sm:p-5 border-b border-border bg-green-600 text-white rounded-t-2xl">
+          <div className="flex items-center gap-4 sm:gap-5">
+            <div className="relative w-[200px] h-[70px] hidden sm:block">
               <Image
                 src="/finalclinicc.jpg"
                 alt="Laxmi Face and Multispeciality Dental Hospital"
@@ -350,17 +350,17 @@ export default function Appointment({ isOpen, onClose }: AppointmentProps) {
                 className="object-contain"
               />
             </div>
-            <h3 className="text-3xl md:text-4xl font-bold text-white">Book Appointment</h3>
+            <h3 className="text-2xl md:text-3xl font-bold text-white">Book Appointment</h3>
           </div>
-          <button onClick={onClose} className="p-1 hover:bg-green-700 rounded-lg">
+          <button onClick={onClose} className="p-1.5 hover:bg-green-700 rounded-lg">
             <X size={24} className="text-white" />
           </button>
         </div>
 
-        <form onSubmit={handleSubmit} className="p-6 space-y-3 form-text-xl appointment-form">
-          {error && <div className="text-red-600 text-lg md:text-xl font-medium">{error}</div>}
+        <form onSubmit={handleSubmit} className="px-4 sm:px-6 py-5 space-y-4 form-text-xl appointment-form">
+          {error && <div className="text-red-600 text-base md:text-lg font-medium">{error}</div>}
           {success && (
-            <div className="text-green-600 text-lg md:text-xl font-medium">
+            <div className="text-green-600 text-base md:text-lg font-medium">
               Appointment saved! Details have been sent to WhatsApp and email.
             </div>
           )}
