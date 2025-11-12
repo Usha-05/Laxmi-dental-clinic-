@@ -1,0 +1,907 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Enhanced green color palette with premium shades */
+  --background: transparent;
+  --foreground: oklch(0.12 0.01 142);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.12 0.01 142);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.12 0.01 142);
+  --primary: oklch(0.58 0.17 142); /* Rich emerald green */
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.92 0.03 142); /* Soft mint */
+  --secondary-foreground: oklch(0.2 0.01 142);
+  --muted: oklch(0.92 0.01 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.75 0.16 142); /* Vibrant green accent */
+  --accent-foreground: oklch(0.1 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.577 0.245 27.325);
+  --border: oklch(0.9 0.02 142); /* Subtle green border */
+  --input: oklch(0.96 0.01 142);
+  --ring: oklch(0.58 0.17 142);
+  --chart-1: oklch(0.58 0.17 142);
+  --chart-2: oklch(0.68 0.14 142);
+  --chart-3: oklch(0.52 0.16 142);
+  --chart-4: oklch(0.65 0.15 142);
+  --chart-5: oklch(0.72 0.13 142);
+  --radius: 0.625rem;
+  --app-font-body: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --app-font-heading: "Georgia", "Times New Roman", serif;
+  --app-font-ui: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --sidebar: oklch(0.98 0.01 142);
+  --sidebar-foreground: oklch(0.12 0.01 142);
+  --sidebar-primary: oklch(0.58 0.17 142);
+  --sidebar-primary-foreground: oklch(0.99 0 0);
+  --sidebar-accent: oklch(0.75 0.16 142);
+  --sidebar-accent-foreground: oklch(0.1 0 0);
+  --sidebar-border: oklch(0.9 0.02 142);
+  --sidebar-ring: oklch(0.58 0.17 142);
+}
+
+.dark {
+  --background: oklch(0.12 0.01 142);
+  --foreground: oklch(0.99 0 0);
+  --card: oklch(0.15 0.01 142);
+  --card-foreground: oklch(0.99 0 0);
+  --popover: oklch(0.15 0.01 142);
+  --popover-foreground: oklch(0.99 0 0);
+  --primary: oklch(0.68 0.16 142);
+  --primary-foreground: oklch(0.12 0.01 142);
+  --secondary: oklch(0.3 0.02 142);
+  --secondary-foreground: oklch(0.99 0 0);
+  --muted: oklch(0.3 0 0);
+  --muted-foreground: oklch(0.7 0 0);
+  --accent: oklch(0.8 0.15 142);
+  --accent-foreground: oklch(0.12 0.01 142);
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --border: oklch(0.25 0.02 142);
+  --input: oklch(0.25 0.02 142);
+  --ring: oklch(0.68 0.16 142);
+  --chart-1: oklch(0.68 0.16 142);
+  --chart-2: oklch(0.75 0.15 142);
+  --chart-3: oklch(0.62 0.15 142);
+  --chart-4: oklch(0.72 0.14 142);
+  --chart-5: oklch(0.78 0.13 142);
+  --sidebar: oklch(0.18 0.01 142);
+  --sidebar-foreground: oklch(0.99 0 0);
+  --sidebar-primary: oklch(0.68 0.16 142);
+  --sidebar-primary-foreground: oklch(0.99 0 0);
+  --sidebar-accent: oklch(0.8 0.15 142);
+  --sidebar-accent-foreground: oklch(0.12 0.01 142);
+  --sidebar-border: oklch(0.25 0.02 142);
+  --sidebar-ring: oklch(0.68 0.16 142);
+}
+
+@theme inline {
+  --font-sans: var(--app-font-body);
+  --font-heading: var(--app-font-heading);
+  --font-ui: var(--app-font-ui);
+  --font-mono: "Geist Mono", "Geist Mono Fallback";
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+    font-size: clamp(16.5px, 1.15vw, 19px);
+  }
+  body {
+    @apply bg-background text-foreground;
+    background-color: transparent;
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+    font-size: clamp(1.05rem, 1vw + 0.2rem, 1.2rem);
+    font-feature-settings: "kern" 1, "liga" 1;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: var(--app-font-body);
+    line-height: 1.65;
+  }
+  
+  /* Enhanced Typography Styles with rem units */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+    line-height: 1.18;
+    font-family: var(--app-font-heading);
+  }
+  
+  h1 {
+    font-size: clamp(2.65rem, 5.8vw, 4.6rem);
+    letter-spacing: -0.015em;
+    margin-bottom: 0.75rem;
+  }
+  
+  h2 {
+    font-size: clamp(2.3rem, 5vw, 3.8rem);
+    letter-spacing: -0.01em;
+    margin-bottom: 0.625rem;
+  }
+  
+  h3 {
+    font-size: clamp(1.95rem, 4.3vw, 3.1rem);
+    margin-bottom: 0.5rem;
+  }
+  
+  h4 {
+    font-size: clamp(1.65rem, 3.4vw, 2.6rem);
+    margin-bottom: 0.5rem;
+  }
+  
+  h5 {
+    font-size: clamp(1.45rem, 3vw, 2.1rem);
+    margin-bottom: 0.5rem;
+  }
+  
+  h6 {
+    font-size: clamp(1.28rem, 2.6vw, 1.8rem);
+    margin-bottom: 0.5rem;
+  }
+  
+  p {
+    font-size: clamp(1.05rem, 1.35vw, 1.3rem);
+    line-height: 1.7;
+    margin-bottom: 0.5rem;
+    font-family: var(--app-font-body);
+  }
+  
+  /* Improved readability for body text */
+  .text-body {
+    font-size: clamp(1.1rem, 1.6vw, 1.4rem);
+    line-height: 1.72;
+    font-family: var(--app-font-body);
+  }
+  
+  /* Enhanced card text */
+  .card-title {
+    font-size: clamp(1.5rem, 2.6vw, 2.1rem);
+    line-height: 1.32;
+    font-weight: 600;
+    font-family: var(--app-font-heading);
+  }
+  
+  .card-description {
+    font-size: clamp(1.1rem, 1.6vw, 1.4rem);
+    line-height: 1.65;
+    font-family: var(--app-font-body);
+  }
+  
+  /* Increased button padding and sizing */
+  button,
+  .btn,
+  [role="button"] {
+    font-size: clamp(1rem, 1.7vw, 1.2rem);
+    padding: clamp(0.8rem, 1.9vw, 1.2rem) clamp(1.3rem, 3.1vw, 2rem);
+    min-height: clamp(3rem, 5.2vw, 3.8rem);
+    font-family: var(--app-font-ui);
+  }
+  
+  /* Increased input field padding and sizing */
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="date"],
+  input[type="time"],
+  input[type="number"],
+  input[type="password"],
+  textarea,
+  select {
+    font-size: clamp(1rem, 1.6vw, 1.2rem);
+    padding: clamp(0.8rem, 1.8vw, 1.15rem) clamp(1.2rem, 2.8vw, 1.8rem);
+    min-height: clamp(3rem, 5.2vw, 3.85rem);
+    line-height: 1.55;
+    font-family: var(--app-font-body);
+  }
+  
+  textarea {
+    min-height: 6rem;
+    padding: 1rem 1.125rem;
+  }
+  
+  /* Increased card padding and margins */
+  [class*="card"],
+  [class*="Card"] {
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* Increased section spacing */
+  section {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: clamp(2rem, 4vw, 3rem);
+    padding-bottom: clamp(2rem, 4vw, 3rem);
+  }
+  
+  /* Responsive section spacing for mobile */
+  @media (max-width: 768px) {
+    html {
+      font-size: 15px;
+    }
+    
+    body {
+      font-size: 0.98rem;
+    }
+    
+    section {
+      margin-top: 0;
+      margin-bottom: 0;
+      padding-top: clamp(1.5rem, 4vw, 2rem);
+      padding-bottom: clamp(1.5rem, 4vw, 2rem);
+    }
+    
+    h1 {
+      font-size: clamp(2.25rem, 8.5vw, 3.1rem);
+    }
+    
+    h2 {
+      font-size: clamp(1.95rem, 7.5vw, 2.7rem);
+    }
+    
+    h3 {
+      font-size: clamp(1.6rem, 6.5vw, 2.25rem);
+    }
+    
+    p {
+      font-size: clamp(0.95rem, 4.5vw, 1.15rem);
+    }
+    
+    button,
+    .btn,
+    [role="button"] {
+      font-size: clamp(0.9rem, 4.2vw, 1.1rem);
+      padding: clamp(0.65rem, 4vw, 0.9rem) clamp(1.15rem, 6.2vw, 1.6rem);
+      min-height: clamp(2.6rem, 8.5vw, 3.3rem);
+    }
+    
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="date"],
+    input[type="time"],
+    input[type="number"],
+    input[type="password"],
+    textarea,
+    select {
+      font-size: clamp(0.9rem, 4.2vw, 1.1rem);
+      padding: clamp(0.65rem, 4vw, 0.9rem) clamp(1rem, 5.2vw, 1.45rem);
+      min-height: clamp(2.6rem, 8.5vw, 3.4rem);
+    }
+  }
+  
+  /* Ensure proper scaling on larger screens */
+  @media (min-width: 1920px) {
+    html {
+      font-size: 22px;
+    }
+  }
+}
+
+@layer components {
+  .form-text-xl label,
+  .form-text-xl legend,
+  .form-text-xl .form-label,
+  .form-text-xl .form-heading {
+    @apply text-xl md:text-2xl leading-snug;
+  }
+
+  .form-text-xl p,
+  .form-text-xl .helper-text,
+  .form-text-xl .text-sm,
+  .form-text-xl small {
+    @apply text-lg md:text-xl leading-relaxed;
+  }
+
+  .form-text-xl :is(input, textarea, select, option, [data-slot="input"], [data-slot="textarea"], [data-slot="select-trigger"], [data-slot="select-value"]) {
+    font-size: clamp(1.2rem, 2vw, 1.45rem) !important;
+    line-height: 1.7;
+    min-height: clamp(3.35rem, 5vw, 4rem);
+  }
+
+  .form-text-xl :is(button, [role="button"]) {
+    font-size: clamp(1.1rem, 1.75vw, 1.5rem);
+    line-height: 1.6;
+    font-weight: 600;
+  }
+
+  .form-text-xl input[type="date"],
+  .form-text-xl input[type="time"],
+  .form-text-xl select {
+    padding: clamp(0.95rem, 2.2vw, 1.3rem) clamp(1.15rem, 3.2vw, 2rem) !important;
+  }
+
+  .form-text-xl input[type="date"]::-webkit-datetime-edit,
+  .form-text-xl input[type="date"]::-webkit-datetime-edit-fields-wrapper,
+  .form-text-xl input[type="date"]::-webkit-datetime-edit-text,
+  .form-text-xl input[type="date"]::-webkit-datetime-edit-month-field,
+  .form-text-xl input[type="date"]::-webkit-datetime-edit-day-field,
+  .form-text-xl input[type="date"]::-webkit-datetime-edit-year-field,
+  .form-text-xl input[type="time"]::-webkit-datetime-edit,
+  .form-text-xl input[type="time"]::-webkit-datetime-edit-text,
+  .form-text-xl input[type="time"]::-webkit-datetime-edit-hour-field,
+  .form-text-xl input[type="time"]::-webkit-datetime-edit-minute-field,
+  .form-text-xl input[type="time"]::-webkit-datetime-edit-ampm-field {
+    font-size: clamp(1.2rem, 2vw, 1.45rem) !important;
+    padding: 4px 6px;
+  }
+
+  .form-text-xl input[type="date"]::-webkit-calendar-picker-indicator,
+  .form-text-xl input[type="time"]::-webkit-clear-button,
+  .form-text-xl input[type="time"]::-webkit-inner-spin-button {
+    transform: scale(1.3);
+  }
+
+  .form-text-xl select option {
+    font-size: clamp(1.2rem, 2vw, 1.45rem) !important;
+  }
+
+  .appointment-form label,
+  .appointment-form legend,
+  .appointment-form .form-label,
+  .appointment-form .form-heading {
+    @apply text-3xl md:text-4xl leading-tight;
+  }
+
+  .appointment-form p,
+  .appointment-form .helper-text,
+  .appointment-form .text-sm,
+  .appointment-form small {
+    @apply text-2xl md:text-[2.75rem] leading-relaxed;
+  }
+
+  .appointment-form :is(
+      input,
+      textarea,
+      select,
+      option,
+      [data-slot="input"],
+      [data-slot="textarea"],
+      [data-slot="select-trigger"],
+      [data-slot="select-value"]
+    ) {
+    font-size: clamp(1.6rem, 3vw, 2rem) !important;
+    line-height: 1.8;
+    min-height: clamp(3.9rem, 5.5vw, 4.6rem);
+  }
+
+  .appointment-form :is(button, [role="button"]) {
+    font-size: clamp(1.45rem, 2.6vw, 1.95rem);
+    line-height: 1.7;
+    font-weight: 600;
+  }
+
+  .appointment-form input[type="date"],
+  .appointment-form input[type="time"],
+  .appointment-form select {
+    padding: clamp(1.15rem, 2.6vw, 1.5rem) clamp(1.55rem, 3.8vw, 2.4rem) !important;
+  }
+
+  .appointment-form input[type="date"]::-webkit-datetime-edit,
+  .appointment-form input[type="date"]::-webkit-datetime-edit-fields-wrapper,
+  .appointment-form input[type="date"]::-webkit-datetime-edit-text,
+  .appointment-form input[type="date"]::-webkit-datetime-edit-month-field,
+  .appointment-form input[type="date"]::-webkit-datetime-edit-day-field,
+  .appointment-form input[type="date"]::-webkit-datetime-edit-year-field,
+  .appointment-form input[type="time"]::-webkit-datetime-edit,
+  .appointment-form input[type="time"]::-webkit-datetime-edit-text,
+  .appointment-form input[type="time"]::-webkit-datetime-edit-hour-field,
+  .appointment-form input[type="time"]::-webkit-datetime-edit-minute-field,
+  .appointment-form input[type="time"]::-webkit-datetime-edit-ampm-field {
+    font-size: clamp(1.6rem, 3vw, 2rem) !important;
+    padding: 5px 8px;
+  }
+
+  .appointment-form input[type="date"]::-webkit-calendar-picker-indicator,
+  .appointment-form input[type="time"]::-webkit-clear-button,
+  .appointment-form input[type="time"]::-webkit-inner-spin-button {
+    transform: scale(1.5);
+  }
+
+  .appointment-form select option {
+    font-size: clamp(1.6rem, 3vw, 2rem) !important;
+  }
+
+  .footer-text-xl {
+    font-size: 1.25rem;
+    line-height: 1.7;
+  }
+
+  @media (min-width: 640px) {
+    .footer-text-xl {
+      font-size: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .footer-text-xl {
+      font-size: 1.75rem;
+    }
+  }
+
+  .footer-text-xl h4 {
+    font-size: clamp(2rem, 2vw, 2.6rem);
+    line-height: 1.2;
+  }
+
+  .footer-text-xl a,
+  .footer-text-xl p,
+  .footer-text-xl li {
+    font-size: inherit;
+  }
+
+  .footer-text-xl .lucide {
+    width: clamp(1.8rem, 2.4vw, 2.4rem);
+    height: clamp(1.8rem, 2.4vw, 2.4rem);
+  }
+}
+
+.calendar-popover {
+  --cell-size: 3.5rem;
+  width: 100%;
+}
+
+.calendar-popover [data-slot="calendar"] {
+  width: 100%;
+}
+
+.calendar-popover .rdp-months,
+.calendar-popover .rdp-month {
+  width: 100%;
+}
+
+.calendar-popover .rdp-table {
+  width: 100%;
+}
+
+.calendar-popover .rdp-caption_label,
+.calendar-popover .rdp-dropdowns {
+  font-size: 1rem;
+}
+
+.calendar-popover .rdp-weekday {
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.calendar-popover .rdp-day button {
+  font-size: 1.05rem;
+}
+
+.calendar-popover .rdp-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  width: 100%;
+}
+
+.calendar-popover .rdp-week {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  width: 100%;
+}
+
+/* Premium green gradient backgrounds based on logo color #1E603F */
+.hero-gradient {
+  background: linear-gradient(135deg, #1E603F 0%, #289660 25%, #34d399 50%, #6ee7b7 75%, #d1fae5 100%);
+}
+
+.gradient-emerald-mint {
+  background: linear-gradient(135deg, #1E603F 0%, #289660 50%, #34d399 100%);
+}
+
+.gradient-mint-light {
+  background: linear-gradient(135deg, #34d399 0%, #6ee7b7 50%, #d1fae5 100%);
+}
+
+.clinic-view-card {
+  @apply relative overflow-hidden rounded-lg shadow-md transition-all duration-300 hover:shadow-xl;
+}
+
+.circular-image {
+  @apply rounded-full object-cover border-8 border-primary/20;
+}
+
+.treatments-header {
+  @apply text-center space-y-4 mb-16;
+}
+
+/* Enhanced treatment card styling with premium green accents */
+.treatment-card-premium {
+  @apply relative rounded-2xl overflow-hidden transition-all duration-500 hover:shadow-2xl border border-green-100 hover:border-green-300;
+}
+
+.treatment-card-image-premium {
+  @apply relative h-64 overflow-hidden bg-gradient-to-br from-emerald-100 via-green-50 to-teal-100;
+}
+
+/* Premium hover effects */
+.premium-hover-effect {
+  @apply transition-all duration-500 hover:shadow-xl hover:-translate-y-2;
+}
+
+/* Premium card hover effects */
+.treatment-card {
+  @apply relative rounded-2xl overflow-hidden transition-all duration-500 hover:shadow-2xl;
+}
+
+.treatment-card-image {
+  @apply relative h-56 overflow-hidden bg-gradient-to-br from-green-200 to-green-100;
+}
+
+/* Green text gradients based on logo color */
+.text-green-gradient {
+  background: linear-gradient(135deg, #1E603F 0%, #289660 50%, #34d399 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Smooth transitions for UI elements */
+.nav-link-underline {
+  @apply relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-green-500 hover:after:w-full after:transition-all after:duration-300;
+}
+
+/* Accordion animations */
+@keyframes accordion-down {
+  from {
+    height: 0;
+    opacity: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+    opacity: 1;
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+    opacity: 1;
+  }
+  to {
+    height: 0;
+    opacity: 0;
+  }
+}
+
+.animate-accordion-down {
+  animation: accordion-down 0.3s ease-out;
+}
+
+.animate-accordion-up {
+  animation: accordion-up 0.3s ease-out;
+}
+
+/* Animated background effects - subtle rotation and scale animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translateY(-15px) rotate(5deg) scale(1.05);
+  }
+}
+
+@keyframes float-reverse {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translateY(15px) rotate(-5deg) scale(0.95);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: float-reverse 8s ease-in-out infinite;
+}
+
+/* Ensure dialog portal is always positioned correctly relative to viewport */
+[data-slot="dialog-portal"] {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10000;
+  pointer-events: none;
+}
+
+[data-slot="dialog-content"] {
+  pointer-events: auto;
+}
+
+/* Prevent scroll jump when modal opens */
+body[data-scroll-locked] {
+  touch-action: none;
+  -webkit-overflow-scrolling: none;
+}
+
+/* Ensure navbar stays fixed at the top */
+nav[class*="fixed"] {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 9999 !important;
+}
+
+/* Fix select dropdown visibility in appointment and consultation modals */
+/* Note: Native select dropdowns are rendered by the browser and may need browser-specific styling */
+select[class*="border-border"],
+select {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  font-size: 1.125rem !important;
+  padding: 0.875rem 2.5rem 0.875rem 1.125rem !important;
+  min-height: 3rem !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+  border: 1px solid #e5e7eb !important;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 0.75rem center !important;
+  background-size: 1.5em 1.5em !important;
+}
+
+select[class*="border-border"] option,
+select option {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  padding: 0.875rem 1.125rem !important;
+  font-size: 1.125rem !important;
+  display: block !important;
+  line-height: 1.5 !important;
+  font-weight: normal !important;
+  min-height: 3rem !important;
+}
+
+/* Force visibility of all option elements */
+select option:not(:disabled) {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Ensure select dropdown is visible and properly styled in modals */
+[data-slot="dialog-content"] select,
+.fixed select {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  font-size: 1.125rem !important;
+  padding: 0.875rem 1.125rem !important;
+  min-height: 3rem !important;
+  z-index: 100 !important;
+}
+
+[data-slot="dialog-content"] select option,
+.fixed select option {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  font-size: 1.125rem !important;
+  padding: 0.875rem 1.125rem !important;
+  line-height: 1.5 !important;
+}
+
+/* Ensure select dropdown options are visible when opened */
+select:focus option,
+select:active option,
+select option:checked,
+select option:hover {
+  background-color: #f3f4f6 !important;
+  color: #000000 !important;
+}
+
+/* Webkit specific fixes for select dropdown */
+select::-webkit-list-button {
+  background-color: #ffffff !important;
+}
+
+/* Fix SelectTrigger dropdown arrow positioning */
+[data-slot="select-trigger"] {
+  padding-right: 2.5rem !important;
+  position: relative !important;
+}
+
+[data-slot="select-trigger"] svg {
+  position: absolute !important;
+  right: 0.75rem !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  pointer-events: none !important;
+  flex-shrink: 0 !important;
+}
+
+/* Ensure SelectTrigger arrow doesn't overflow */
+[data-slot="select-trigger"] *[data-slot="select-value"] {
+  padding-right: 0 !important;
+  margin-right: 0 !important;
+}
+
+select::-webkit-dropdown-menu {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+/* Firefox specific fixes */
+select:-moz-focusring {
+  color: transparent !important;
+  text-shadow: 0 0 0 #000000 !important;
+}
+
+/* Fix time input dropdown visibility in consultation modal */
+input[type="time"] {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  font-size: 1.125rem !important;
+  border: 1px solid #e5e7eb !important;
+  padding: 0.875rem 1.125rem !important;
+  min-height: 3rem !important;
+}
+
+/* Webkit browsers (Chrome, Safari, Edge) */
+input[type="time"]::-webkit-calendar-picker-indicator {
+  filter: invert(0) !important;
+  cursor: pointer !important;
+  opacity: 1 !important;
+  background-color: transparent !important;
+}
+
+/* Ensure time input text fields are visible */
+input[type="time"]::-webkit-datetime-edit-text,
+input[type="time"]::-webkit-datetime-edit-hour-field,
+input[type="time"]::-webkit-datetime-edit-minute-field,
+input[type="time"]::-webkit-datetime-edit-ampm-field {
+  color: #000000 !important;
+  background-color: #ffffff !important;
+  padding: 2px 4px !important;
+}
+
+input[type="time"]::-webkit-datetime-edit-hour-field:focus,
+input[type="time"]::-webkit-datetime-edit-minute-field:focus,
+input[type="time"]::-webkit-datetime-edit-ampm-field:focus {
+  background-color: #f3f4f6 !important;
+  color: #000000 !important;
+}
+
+/* Firefox time input */
+input[type="time"]::-moz-placeholder {
+  color: #000000 !important;
+}
+
+/* Ensure time input dropdown list is visible (browser-specific) */
+input[type="time"]::-webkit-datetime-edit {
+  color: #000000 !important;
+}
+
+/* Ensure modal doesn't clip time input dropdown - be more specific */
+[data-slot="dialog-content"].max-w-md {
+  overflow: visible !important;
+  position: relative !important;
+}
+
+[data-slot="dialog-content"].max-w-md > div {
+  overflow-y: auto !important;
+  overflow-x: visible !important;
+  position: relative !important;
+}
+
+/* Ensure time input container allows dropdown to be visible */
+[data-slot="dialog-content"] input[type="time"] {
+  position: relative !important;
+  z-index: 10 !important;
+}
+
+/* Ensure select dropdown is not clipped by modal overflow */
+.fixed select,
+[data-slot="dialog-content"] select,
+.bg-white select {
+  position: relative !important;
+  z-index: 100 !important;
+}
+
+/* Ensure select dropdown options appear above modal content */
+select:focus {
+  z-index: 101 !important;
+}
+
+/* Prevent modal from clipping select dropdown - be more specific */
+.bg-white.rounded-xl.max-w-md {
+  overflow-y: auto !important;
+  overflow-x: visible !important;
+}
+
+.bg-white.rounded-xl.max-w-md > form {
+  overflow: visible !important;
+  position: relative !important;
+}
+
+.bg-white.rounded-xl.max-w-md > form > div {
+  position: relative !important;
+  overflow: visible !important;
+}
+
+/* Ensure appointment modal form content is visible */
+.fixed.inset-0.bg-black\/70 > .bg-white.rounded-xl {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
+  position: relative !important;
+  z-index: 10001 !important;
+}
+
+/* Ensure consultation modal dialog content is visible when open */
+[data-slot="dialog-content"][data-state="open"] {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: grid !important;
+  z-index: 10001 !important;
+}
+
+[data-slot="dialog-overlay"][data-state="open"] {
+  opacity: 1 !important;
+  visibility: visible !important;
+  z-index: 10000 !important;
+}
