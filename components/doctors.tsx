@@ -67,16 +67,16 @@ export default function Doctors() {
 
   return (
     <section id="doctors" className="py-8 md:py-12 lg:py-16 bg-gradient-to-b from-white via-[#ecfdf5] to-[#d1fae5]">
-      <div className="w-full px-2 sm:px-4 lg:px-6">
-        <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-8 md:mb-12">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">Our Doctors</h2>
-          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto px-4 leading-relaxed">
-            Experienced specialists dedicated to your care.
-          </p>
-        </div>
+      <div className="w-full px-3 sm:px-5 lg:px-6">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-8 md:mb-10">
+            <h2 className="text-3xl sm:text-4xl md:text-[2.5rem] font-bold mb-3">Our Doctors</h2>
+            <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto px-4 leading-relaxed">
+              Experienced specialists dedicated to your care.
+            </p>
+          </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 w-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
           {doctors.map((doc) => {
             const imageSrc = imageErrors[doc.name]
               ? getDoctorPlaceholderImage(400, 400, doc.name.split(" ")[0])
@@ -84,9 +84,9 @@ export default function Doctors() {
             const isVishnuPortrait = doc.photo === "/vishnu-gowtham.jpg"
             
             return (
-              <article key={doc.name} className="rounded-2xl bg-white border border-border overflow-hidden shadow-sm h-full flex flex-col">
+              <article key={doc.name} className="rounded-2xl bg-white border border-border/70 overflow-hidden shadow-sm h-full flex flex-col">
                 <div className="flex flex-1 items-stretch gap-0">
-                  <div className="relative hidden md:block bg-gray-100 w-36 lg:w-40 min-h-[220px] max-h-[300px]">
+                  <div className="relative hidden md:block bg-gray-100 w-32 lg:w-36 min-h-[210px] max-h-[260px]">
                     {!imageErrors[doc.name] ? (
                       <Image
                         src={imageSrc}
@@ -95,7 +95,7 @@ export default function Doctors() {
                         className={`object-cover transition-transform duration-300 hover:scale-105 ${
                           isVishnuPortrait ? "object-top" : "object-center"
                         }`}
-                        sizes="(max-width: 640px) 160px, 224px"
+                        sizes="(max-width: 640px) 140px, 200px"
                         priority={doc.name === "Vishnu Gowtham Marella"}
                         onError={() => handleImageError(doc.name)}
                       />
@@ -107,37 +107,37 @@ export default function Doctors() {
                       />
                     )}
                   </div>
-                  <div className="p-6 flex-1 flex flex-col gap-4 text-base md:text-lg leading-relaxed">
-                    <div className="space-y-2">
-                      <h3 className="text-2xl md:text-3xl font-bold text-foreground">{doc.name}</h3>
-                      <p className="text-base md:text-lg font-semibold text-primary">{doc.degrees}</p>
-                      <p className="text-base md:text-lg text-emerald-700 font-semibold">{doc.title}</p>
+                  <div className="p-5 flex-1 flex flex-col gap-3 text-sm md:text-base leading-relaxed">
+                    <div className="space-y-1.5">
+                      <h3 className="text-xl md:text-2xl font-bold text-foreground">{doc.name}</h3>
+                      <p className="text-sm md:text-base font-semibold text-primary">{doc.degrees}</p>
+                      <p className="text-sm md:text-base text-emerald-700 font-semibold">{doc.title}</p>
                     </div>
 
                     {doc.description && (
-                      <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+                      <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
                         {doc.description}
                       </p>
                     )}
 
-                    <div className="space-y-2 mt-2">
+                    <div className="space-y-1.5 mt-1.5">
                       {doc.education.map((line, i) => (
-                        <p key={i} className="text-base md:text-lg text-muted-foreground">{line}</p>
+                        <p key={i} className="text-sm md:text-base text-muted-foreground">{line}</p>
                       ))}
                     </div>
 
                     {doc.experience && (
-                      <div className="space-y-2 mt-4">
+                      <div className="space-y-1.5 mt-3">
                         {doc.experience.map((line, i) => (
-                          <p key={i} className="text-base md:text-lg text-muted-foreground">{line}</p>
+                          <p key={i} className="text-sm md:text-base text-muted-foreground">{line}</p>
                         ))}
                       </div>
                     )}
 
                     {doc.expertise && (
-                      <ul className="list-disc pl-5 mt-4 space-y-1.5">
+                      <ul className="list-disc pl-4 mt-3 space-y-1">
                         {doc.expertise.map((item, i) => (
-                          <li key={i} className="text-base md:text-lg text-muted-foreground">{item}</li>
+                          <li key={i} className="text-sm md:text-base text-muted-foreground">{item}</li>
                         ))}
                       </ul>
                     )}
