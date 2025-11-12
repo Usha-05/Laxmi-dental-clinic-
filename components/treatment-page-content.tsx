@@ -147,7 +147,7 @@ export default function TreatmentPageContent({ slug, onAppointmentClick, onConsu
                       <img
                         src={item.image}
                         alt={item.title}
-                        className="w-full h-[550px] md:h-[650px] lg:h-[700px] object-cover transition-transform duration-300 hover:scale-105"
+                        className="w-full h-56 md:h-60 lg:h-64 object-cover transition-transform duration-300 hover:scale-105"
                         onError={() => setProcessImageErrors((prev) => ({ ...prev, [index]: true }))}
                       />
                     ) : (
@@ -156,7 +156,7 @@ export default function TreatmentPageContent({ slug, onAppointmentClick, onConsu
                         alt={item.title}
                         width={900}
                         height={700}
-                        className="w-full h-[550px] md:h-[650px] lg:h-[700px] object-cover transition-transform duration-300 hover:scale-105"
+                        className="w-full h-56 md:h-60 lg:h-64 object-cover transition-transform duration-300 hover:scale-105"
                         placeholder="blur"
                         blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQADAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
                         onError={() => setProcessImageErrors((prev) => ({ ...prev, [index]: true }))}
@@ -166,7 +166,7 @@ export default function TreatmentPageContent({ slug, onAppointmentClick, onConsu
                     <img
                       src={imageSrc}
                       alt={item.title}
-                      className="w-full h-[550px] md:h-[650px] lg:h-[700px] object-cover transition-transform duration-300 hover:scale-105"
+                      className="w-full h-56 md:h-60 lg:h-64 object-cover transition-transform duration-300 hover:scale-105"
                       onError={(e) => {
                         // If even placeholder fails, use a simple colored background
                         const target = e.target as HTMLImageElement
