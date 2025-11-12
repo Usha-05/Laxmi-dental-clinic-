@@ -9,7 +9,10 @@ export default function Hero({ onAppointmentClick }: { onAppointmentClick: () =>
   const primaryHeroImage = "/headerr.png"
 
   return (
-    <section id="home" className="pt-38 md:pt-42 lg:pt-46 pb-8 md:pb-12 lg:pb-16 relative overflow-hidden bg-gradient-to-b from-[#1E603F] via-[#289660] via-[#34d399] to-[#6ee7b7]">
+    <section
+      id="home"
+      className="pt-10 sm:pt-12 md:pt-16 lg:pt-20 pb-8 md:pb-12 lg:pb-16 relative overflow-hidden bg-gradient-to-b from-[#1E603F] via-[#289660] via-[#34d399] to-[#6ee7b7]"
+    >
       <div className="w-full px-2 sm:px-4 lg:px-6 relative">
         <div className="grid md:grid-cols-2 gap-6 md:gap-8 items-center">
           {/* Left Content */}
