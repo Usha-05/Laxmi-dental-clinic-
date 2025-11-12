@@ -68,6 +68,7 @@ export default function Doctors() {
   return (
     <section id="doctors" className="py-8 md:py-12 lg:py-16 bg-gradient-to-b from-white via-[#ecfdf5] to-[#d1fae5]">
       <div className="w-full px-2 sm:px-4 lg:px-6">
+        <div className="max-w-6xl mx-auto">
         <div className="text-center mb-8 md:mb-12">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">Our Doctors</h2>
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto px-4 leading-relaxed">
@@ -75,7 +76,7 @@ export default function Doctors() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 w-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 w-full">
           {doctors.map((doc) => {
             const imageSrc = imageErrors[doc.name]
               ? getDoctorPlaceholderImage(400, 400, doc.name.split(" ")[0])
@@ -85,7 +86,7 @@ export default function Doctors() {
             return (
               <article key={doc.name} className="rounded-2xl bg-white border border-border overflow-hidden shadow-sm h-full flex flex-col">
                 <div className="flex flex-1 items-stretch gap-0">
-                  <div className="relative hidden sm:block bg-gray-100 w-48 sm:w-56 min-h-[240px]">
+                  <div className="relative hidden md:block bg-gray-100 w-36 lg:w-40 min-h-[220px] max-h-[300px]">
                     {!imageErrors[doc.name] ? (
                       <Image
                         src={imageSrc}
@@ -145,6 +146,7 @@ export default function Doctors() {
               </article>
             )
           })}
+        </div>
         </div>
       </div>
     </section>
