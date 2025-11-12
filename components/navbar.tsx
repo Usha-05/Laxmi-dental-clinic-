@@ -425,7 +425,7 @@ export default function Navbar({ onAppointmentClick }: { onAppointmentClick: () 
         <div className="w-full px-2 sm:px-4 lg:px-6">
           <div className="max-w-screen-xl mx-auto flex justify-between items-center h-20 sm:h-24 md:h-24 lg:h-24 gap-4">
             <Link href="/" className="flex items-center hover:opacity-90 transition-all hover:scale-[1.015] -ml-1 sm:-ml-2 md:-ml-3">
-              <div className="relative w-[170px] h-[54px] sm:w-[205px] sm:h-[70px] md:w-[235px] md:h-[80px] lg:w-[255px] lg:h-[88px] xl:w-[275px] xl:h-[96px] drop-shadow-lg max-w-full">
+              <div className="relative w-[150px] h-[48px] sm:w-[190px] sm:h-[64px] md:w-[215px] md:h-[72px] lg:w-[235px] lg:h-[80px] xl:w-[250px] xl:h-[88px] drop-shadow-lg max-w-full">
                 {!logoError ? (
                   <Image
                     src="/finalclinicc.jpg"
