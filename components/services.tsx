@@ -140,8 +140,8 @@ export default function Services({ onAppointmentClick, onConsultationClick }: Se
       <DentalSymbolsBackground />
       <div className="w-full px-2 sm:px-4 lg:px-6 relative z-10">
         <div className="text-center mb-8 md:mb-12">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold mb-3 text-balance tracking-tight">Our Services</h2>
-          <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto text-balance font-medium leading-relaxed px-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-3 text-balance tracking-tight">Our Services</h2>
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto text-balance font-medium leading-relaxed px-4">
             Comprehensive dental and cosmetic solutions tailored to meet all your oral health needs
           </p>
         </div>
@@ -152,13 +152,13 @@ export default function Services({ onAppointmentClick, onConsultationClick }: Se
             return (
               <Card key={index} className="border-border hover:border-primary/50 transition-all hover:shadow-lg flex flex-col">
                 <CardHeader>
-                  <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-5">
-                    <Icon className="w-7 h-7 text-primary" />
+                  <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
+                    <Icon className="w-6 h-6 text-primary" />
                   </div>
-                  <CardTitle className="text-2xl md:text-3xl font-semibold leading-snug">{service.title}</CardTitle>
+                  <CardTitle className="text-xl md:text-2xl font-semibold leading-snug">{service.title}</CardTitle>
                 </CardHeader>
                 <CardContent className="flex-1 flex flex-col">
-                  <CardDescription className="text-lg md:text-xl leading-relaxed mb-5 flex-1">
+                  <CardDescription className="text-base md:text-lg leading-relaxed mb-4 flex-1">
                     {service.description}
                   </CardDescription>
                   <Button
@@ -169,7 +169,7 @@ export default function Services({ onAppointmentClick, onConsultationClick }: Se
                         onAppointmentClick()
                       }
                     }}
-                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground text-xl font-bold py-4"
+                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground text-base font-semibold py-3"
                   >
                     Request Consultation
                   </Button>

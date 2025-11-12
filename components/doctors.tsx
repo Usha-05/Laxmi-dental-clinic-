@@ -69,8 +69,8 @@ export default function Doctors() {
     <section id="doctors" className="py-8 md:py-12 lg:py-16 bg-gradient-to-b from-white via-[#ecfdf5] to-[#d1fae5]">
       <div className="w-full px-2 sm:px-4 lg:px-6">
         <div className="text-center mb-8 md:mb-12">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4">Our Doctors</h2>
-          <p className="text-xl sm:text-2xl md:text-3xl text-muted-foreground max-w-3xl mx-auto px-4 leading-relaxed">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">Our Doctors</h2>
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto px-4 leading-relaxed">
             Experienced specialists dedicated to your care.
           </p>
         </div>
@@ -106,29 +106,29 @@ export default function Doctors() {
                       />
                     )}
                   </div>
-                  <div className="p-6 flex-1 flex flex-col gap-4 text-lg md:text-xl leading-relaxed">
+                  <div className="p-6 flex-1 flex flex-col gap-4 text-base md:text-lg leading-relaxed">
                     <div className="space-y-2">
-                      <h3 className="text-3xl md:text-4xl font-bold text-foreground">{doc.name}</h3>
-                      <p className="text-lg md:text-xl font-semibold text-primary">{doc.degrees}</p>
-                      <p className="text-lg md:text-xl text-emerald-700 font-semibold">{doc.title}</p>
+                      <h3 className="text-2xl md:text-3xl font-bold text-foreground">{doc.name}</h3>
+                      <p className="text-base md:text-lg font-semibold text-primary">{doc.degrees}</p>
+                      <p className="text-base md:text-lg text-emerald-700 font-semibold">{doc.title}</p>
                     </div>
 
                     {doc.description && (
-                      <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+                      <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
                         {doc.description}
                       </p>
                     )}
 
                     <div className="space-y-2 mt-2">
                       {doc.education.map((line, i) => (
-                        <p key={i} className="text-lg md:text-xl text-muted-foreground">{line}</p>
+                        <p key={i} className="text-base md:text-lg text-muted-foreground">{line}</p>
                       ))}
                     </div>
 
                     {doc.experience && (
                       <div className="space-y-2 mt-4">
                         {doc.experience.map((line, i) => (
-                          <p key={i} className="text-lg md:text-xl text-muted-foreground">{line}</p>
+                          <p key={i} className="text-base md:text-lg text-muted-foreground">{line}</p>
                         ))}
                       </div>
                     )}
@@ -136,7 +136,7 @@ export default function Doctors() {
                     {doc.expertise && (
                       <ul className="list-disc pl-5 mt-4 space-y-1.5">
                         {doc.expertise.map((item, i) => (
-                          <li key={i} className="text-lg md:text-xl text-muted-foreground">{item}</li>
+                          <li key={i} className="text-base md:text-lg text-muted-foreground">{item}</li>
                         ))}
                       </ul>
                     )}

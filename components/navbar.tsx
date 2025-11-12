@@ -419,13 +419,13 @@ export default function Navbar({ onAppointmentClick }: { onAppointmentClick: () 
 
   return (
     <>
-      <nav className={`fixed top-0 left-0 right-0 z-[9999] w-full bg-gradient-to-r from-black via-gray-800 via-teal-900 to-teal-200 backdrop-blur-md transition-all duration-300 ${
-        isScrolled ? 'shadow-2xl border-b-2 border-teal-300 bg-gradient-to-r from-black via-gray-700 via-teal-800 to-teal-300' : 'shadow-xl border-b border-teal-200'
+      <nav className={`fixed top-0 left-0 right-0 z-[9999] w-full bg-gradient-to-r from-[#020b07]/95 via-[#062116]/95 to-[#0d3a27]/95 backdrop-blur-md transition-all duration-300 ${
+        isScrolled ? 'shadow-2xl border-b-2 border-teal-700 bg-gradient-to-r from-[#020b07]/95 via-[#0a2f1f]/95 to-[#125336]/95' : 'shadow-xl border-b border-teal-800/80'
       }`} style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 9999 }}>
         <div className="w-full px-2 sm:px-4 lg:px-6">
-          <div className="flex justify-between items-center h-28 sm:h-32 md:h-36 lg:h-48">
-            <Link href="/" className="flex items-center hover:opacity-90 transition-all hover:scale-105 -ml-2 sm:-ml-4 md:-ml-6">
-              <div className="relative w-[220px] h-[80px] sm:w-[300px] sm:h-[100px] md:w-[380px] md:h-[120px] lg:w-[460px] lg:h-[160px] xl:w-[560px] xl:h-[200px] drop-shadow-lg max-w-full">
+          <div className="max-w-screen-xl mx-auto flex justify-between items-center h-20 sm:h-24 md:h-24 lg:h-24 gap-4">
+            <Link href="/" className="flex items-center hover:opacity-90 transition-all hover:scale-[1.015] -ml-1 sm:-ml-2 md:-ml-3">
+              <div className="relative w-[170px] h-[54px] sm:w-[205px] sm:h-[70px] md:w-[235px] md:h-[80px] lg:w-[255px] lg:h-[88px] xl:w-[275px] xl:h-[96px] drop-shadow-lg max-w-full">
                 {!logoError ? (
                   <Image
                     src="/finalclinicc.jpg"
@@ -444,47 +444,47 @@ export default function Navbar({ onAppointmentClick }: { onAppointmentClick: () 
             </Link>
 
             {/* Desktop Menu */}
-            <div className="hidden lg:flex items-center gap-3">
+            <div className="hidden lg:flex items-center gap-1.5">
               {navLinks.map((link) => {
                 const isActive = activeLink === link.href || (link.href === "#home" && !activeLink)
                 return (
                   <a
                     key={link.label}
                     href={link.href}
-                    className={`px-6 py-3.5 text-white hover:text-white/80 transition-all text-4xl font-bold relative group ${
+                    className={`px-2.5 py-1.5 text-white hover:text-white/80 transition-all text-[15px] font-semibold relative group ${
                       isActive ? "text-white" : ""
                     }`}
                     onClick={(e) => handleNavClick(e, link.href)}
                   >
                     {link.label}
-                    <span className={`absolute bottom-0 left-6 h-1 bg-white transition-all duration-300 rounded-full ${
-                      isActive ? "w-[calc(100%-3rem)]" : "w-0 group-hover:w-[calc(100%-3rem)]"
+                    <span className={`absolute bottom-0 left-3 h-[3px] bg-white transition-all duration-300 rounded-full ${
+                      isActive ? "w-[calc(100%-1.5rem)]" : "w-0 group-hover:w-[calc(100%-1.5rem)]"
                     }`} />
                   </a>
                 )
               })}
 
               {/* Assess Yourself Dropdown */}
-              <div className="relative group ml-2">
-                <button className="px-6 py-3.5 text-white hover:text-white/80 transition-all text-4xl font-bold flex items-center gap-2 relative">
+              <div className="relative group ml-1.5">
+                <button className="px-3 py-1.5 text-white hover:text-white/80 transition-all text-base font-semibold flex items-center gap-1.5 relative">
                   Assess Yourself
                   <ChevronDown
-                    size={26}
+                    size={16}
                     className="group-hover:rotate-180 transition-transform duration-300 text-white"
                   />
                 </button>
 
-                <div className="absolute left-0 top-full mt-2 w-56 bg-gradient-to-b from-white/98 via-emerald-50/95 to-emerald-800/20 backdrop-blur-xl border border-emerald-700/70 rounded-2xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 p-4 -translate-y-2 group-hover:translate-y-0 z-50">
+                <div className="absolute left-0 top-full mt-2 w-44 bg-gradient-to-b from-white/98 via-emerald-50/95 to-emerald-800/20 backdrop-blur-xl border border-emerald-700/70 rounded-2xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 p-3 -translate-y-2 group-hover:translate-y-0 z-50">
                   <ul className="space-y-2">
                     {assessYourselfItems.map((item) => (
                       <li key={item.label}>
                         <Link
                           href={isTreatmentPage ? `/${item.href}` : item.href}
-                          className="block px-4 py-2.5 text-2xl font-semibold text-black hover:text-black/80 hover:bg-emerald-200/60 rounded-lg transition-all duration-200 group/item"
+                          className="block px-3 py-1.5 text-sm font-semibold text-black hover:text-black/80 hover:bg-emerald-200/60 rounded-lg transition-all duration-200 group/item"
                         >
                           <span className="flex items-center gap-2">
                             <ChevronRight
-                              size={24}
+                              size={16}
                               className="text-black opacity-0 group-hover/item:opacity-100 group-hover/item:translate-x-1 transition-all duration-200"
                             />
                             <span className="flex-1">{item.label}</span>
@@ -497,16 +497,16 @@ export default function Navbar({ onAppointmentClick }: { onAppointmentClick: () 
               </div>
 
               {/* Treatments Dropdown */}
-              <div className="relative group ml-2">
-                <button className="px-6 py-3.5 text-white hover:text-white/80 transition-all text-4xl font-bold flex items-center gap-2 relative">
+              <div className="relative group ml-1.5">
+                <button className="px-3 py-1.5 text-white hover:text-white/80 transition-all text-base font-semibold flex items-center gap-1.5 relative">
                   Treatments
                   <ChevronDown
-                    size={26}
+                    size={16}
                     className="group-hover:rotate-180 transition-transform duration-300 text-white"
                   />
                 </button>
 
-                <div className="absolute left-0 top-full mt-2 w-[600px] max-h-[80vh] overflow-y-auto bg-gradient-to-b from-white/98 via-emerald-50/95 to-emerald-800/20 backdrop-blur-xl border border-emerald-700/70 rounded-2xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 p-6 -translate-y-2 group-hover:translate-y-0 z-50">
+                <div className="absolute left-0 top-full mt-2 w-[440px] max-h-[65vh] overflow-y-auto bg-gradient-to-b from-white/98 via-emerald-50/95 to-emerald-800/20 backdrop-blur-xl border border-emerald-700/70 rounded-2xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 p-4 -translate-y-2 group-hover:translate-y-0 z-50">
                   <Accordion
                     type="single"
                     collapsible
@@ -520,7 +520,7 @@ export default function Navbar({ onAppointmentClick }: { onAppointmentClick: () 
                         value={category}
                         className="border-b border-emerald-100 last:border-b-0"
                       >
-                        <AccordionTrigger className="py-3 text-left font-bold text-4xl text-black hover:text-black/80 transition-colors [&[data-state=open]]:text-black">
+                        <AccordionTrigger className="py-1.5 text-left font-semibold text-base text-black hover:text-black/80 transition-colors [&[data-state=open]]:text-black">
                           <div className="flex items-center gap-3">
                             {renderCategoryIcon(category)}
                             <span>{category}</span>
@@ -532,11 +532,11 @@ export default function Navbar({ onAppointmentClick }: { onAppointmentClick: () 
                               <li key={treatment}>
                                 <Link
                                   href={generateRoute(category, treatment)}
-                                  className="block px-4 py-3 text-3xl font-semibold text-black hover:text-black/80 hover:bg-emerald-200/60 rounded-lg transition-all duration-200 group/item"
+                                  className="block px-3 py-2.5 text-xl font-semibold text-black hover:text-black/80 hover:bg-emerald-200/60 rounded-lg transition-all duration-200 group/item"
                                 >
                                   <span className="flex items-center gap-2">
                                     <ChevronRight
-                                      size={26}
+                                      size={18}
                                       className="text-black opacity-0 group-hover/item:opacity-100 group-hover/item:translate-x-1 transition-all duration-200"
                                     />
                                     <span className="flex-1">{treatment}</span>
@@ -553,20 +553,20 @@ export default function Navbar({ onAppointmentClick }: { onAppointmentClick: () 
               </div>
             </div>
 
-            <div className="hidden lg:flex items-center gap-4">
+            <div className="hidden lg:flex items-center gap-2">
               {/* Search Icon */}
               <button
-                className="p-6 text-white hover:text-white/80 hover:bg-white/20 rounded-xl transition-all duration-200 group"
+                className="p-2.5 text-white hover:text-white/80 hover:bg-white/20 rounded-xl transition-all duration-200 group"
                 aria-label="Search"
                 onClick={() => setIsSearchOpen(true)}
               >
-                <Search size={60} className="transition-transform group-hover:scale-125" />
+                <Search size={24} className="transition-transform group-hover:scale-110" />
               </button>
               
               {/* CTA Button */}
               <Button
                 onClick={onAppointmentClick}
-                className="bg-gradient-to-r from-amber-500 via-amber-600 to-orange-500 hover:from-amber-600 hover:via-amber-700 hover:to-orange-600 text-white px-10 py-4 rounded-xl shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 font-extrabold text-2xl tracking-wide uppercase"
+                className="bg-gradient-to-r from-amber-500 via-amber-600 to-orange-500 hover:from-amber-600 hover:via-amber-700 hover:to-orange-600 text-white px-4 py-2 rounded-lg shadow-xl hover:shadow-2xl hover:-translate-y-[2px] transition-all duration-300 font-semibold text-sm tracking-wide uppercase"
               >
                 Book Appointment
               </Button>

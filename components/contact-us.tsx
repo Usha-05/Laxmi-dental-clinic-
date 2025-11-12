@@ -78,8 +78,8 @@ export default function ContactUs() {
     <section id="contact" className="py-8 md:py-12 lg:py-16 bg-gradient-to-b from-[#d1fae5] via-[#ecfdf5] to-white">
       <div className="w-full px-2 sm:px-4 lg:px-6">
         <div className="text-center mb-8 md:mb-12">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 mb-3">Contact Us</h2>
-          <p className="text-lg sm:text-xl md:text-2xl text-gray-600 px-4">Get in touch with us for any dental inquiries or appointments</p>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-3">Contact Us</h2>
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 px-4">Get in touch with us for any dental inquiries or appointments</p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-8 md:mb-12">
@@ -88,9 +88,9 @@ export default function ContactUs() {
             <div className="flex items-center justify-center w-12 h-12 bg-green-100 rounded-lg mb-4">
               <Phone size={24} className="text-primary" />
             </div>
-            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">Call Us</h3>
-            <p className="text-gray-600 mb-2 text-lg md:text-xl">Available 9 AM - 9 PM</p>
-            <a href="tel:+917794879535" className="text-primary font-bold hover:underline text-xl md:text-2xl">
+            <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">Call Us</h3>
+            <p className="text-gray-600 mb-2 text-base md:text-lg">Available 9 AM - 9 PM</p>
+            <a href="tel:+917794879535" className="text-primary font-semibold hover:underline text-lg md:text-xl">
               +91 77948 79535
             </a>
           </div>
@@ -100,9 +100,9 @@ export default function ContactUs() {
             <div className="flex items-center justify-center w-12 h-12 bg-green-100 rounded-lg mb-4">
               <Mail size={24} className="text-primary" />
             </div>
-            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">Email Us</h3>
-            <p className="text-gray-600 mb-2 text-lg md:text-xl">We'll respond within 24 hours</p>
-            <a href="mailto:laxmidentalhospital0@gmail.com" className="text-primary font-bold hover:underline text-lg md:text-xl break-all">
+            <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">Email Us</h3>
+            <p className="text-gray-600 mb-2 text-base md:text-lg">We'll respond within 24 hours</p>
+            <a href="mailto:laxmidentalhospital0@gmail.com" className="text-primary font-semibold hover:underline text-base md:text-lg break-all">
               laxmidentalhospital0@gmail.com
             </a>
           </div>
@@ -112,13 +112,13 @@ export default function ContactUs() {
             <div className="flex items-center justify-center w-12 h-12 bg-green-100 rounded-lg mb-4">
               <Send size={24} className="text-green-600" />
             </div>
-            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">WhatsApp</h3>
-            <p className="text-gray-600 mb-2 text-lg md:text-xl">Chat with us directly</p>
+            <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">WhatsApp</h3>
+            <p className="text-gray-600 mb-2 text-base md:text-lg">Chat with us directly</p>
             <a
               href="https://wa.me/917794879535"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-green-600 font-bold hover:underline text-xl md:text-2xl"
+              className="text-green-600 font-semibold hover:underline text-lg md:text-xl"
             >
               Message on WhatsApp
             </a>

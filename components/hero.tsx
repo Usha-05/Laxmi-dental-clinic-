@@ -15,12 +15,12 @@ export default function Hero({ onAppointmentClick }: { onAppointmentClick: () =>
           {/* Left Content */}
           <div className="space-y-6">
             <div className="space-y-4">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.1] text-white text-balance tracking-tight">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-extrabold leading-tight text-white text-balance tracking-tight">
                 Hi, welcome to Laxmi Face and Multispeciality Dental Hospital
                 <br />
-                <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold">It's anxiety free...</span>
+                <span className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-bold">It's anxiety free...</span>
               </h1>
-              <p className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl text-white/95 leading-relaxed text-balance max-w-2xl font-medium">
+              <p className="text-lg sm:text-xl md:text-2xl lg:text-2xl text-white/95 leading-relaxed text-balance max-w-2xl font-medium">
                 Transforming Smiles, Enhancing Lives: Your Trusted Destination for Complete Dental & Facial Care.
               </p>
             </div>
@@ -28,7 +28,7 @@ export default function Hero({ onAppointmentClick }: { onAppointmentClick: () =>
             <div className="flex flex-wrap gap-4">
               <Button
                 onClick={onAppointmentClick}
-                className="bg-white hover:bg-white/90 text-primary font-bold px-10 py-6 text-xl md:text-2xl shadow-xl hover:shadow-2xl transition-all duration-300"
+                className="bg-white hover:bg-white/90 text-primary font-bold px-8 py-4 text-lg md:text-xl shadow-xl hover:shadow-2xl transition-all duration-300"
               >
                 Book Appointment
               </Button>

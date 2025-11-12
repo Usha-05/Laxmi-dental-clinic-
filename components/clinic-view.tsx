@@ -62,19 +62,19 @@ export default function ClinicView() {
       <div className="w-full px-2 sm:px-4 lg:px-6">
         <div className="space-y-5 md:space-y-7">
           <div>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight">Clinic View</h2>
-            <div className="mt-3 w-20 h-1.5 bg-primary rounded-full" />
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight">Clinic View</h2>
+            <div className="mt-3 w-16 h-1 bg-primary rounded-full" />
           </div>
 
           {/* Gallery Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-3 lg:gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-3 lg:gap-4">
             {clinicImages.map((image) => {
               const {
                 aspect = "aspect-[4/3]",
                 minHeight = "min-h-[240px] sm:min-h-[260px] md:min-h-[300px]",
                 span = ""
               } = image
-              const containerClasses = `relative w-full overflow-hidden bg-white h-full ${aspect} ${minHeight}`
+              const containerClasses = `relative w-full overflow-hidden bg-white h-full rounded-2xl ${aspect} ${minHeight}`
               const objectFitClass = "object-cover block"
 
               return (

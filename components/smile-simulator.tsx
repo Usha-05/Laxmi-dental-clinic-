@@ -193,10 +193,10 @@ export default function SmileSimulator() {
       <div className="w-full px-2 sm:px-4 lg:px-6">
         {/* Header Section */}
         <div className="text-center mb-8 md:mb-12 animate-in fade-in slide-in-from-top-4 duration-500">
-          <h2 className="text-5xl sm:text-6xl md:text-7xl font-extrabold text-foreground mb-4 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-foreground mb-4 tracking-tight">
             Smile View Simulator
           </h2>
-          <p className="text-xl sm:text-2xl md:text-3xl text-muted-foreground max-w-3xl mx-auto px-4 leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto px-4 leading-relaxed">
             Visualize your new smile and discover Invisalign options tailored to you!
           </p>
         </div>
@@ -205,8 +205,8 @@ export default function SmileSimulator() {
           {/* Upload Section */}
           <Card className="animate-in fade-in slide-in-from-bottom-4 duration-500 delay-100">
             <CardHeader className="bg-gradient-to-r from-[#1E603F] via-[#289660] to-[#34d399] text-white">
-              <CardTitle className="flex items-center gap-2 text-3xl md:text-4xl lg:text-5xl font-bold">
-                <Smile className="w-7 h-7" />
+              <CardTitle className="flex items-center gap-2 text-2xl md:text-3xl font-bold">
+                <Smile className="w-6 h-6" />
                 Upload Your Photo
               </CardTitle>
             </CardHeader>
@@ -233,7 +233,7 @@ export default function SmileSimulator() {
                   <Button
                     type="button"
                     onClick={() => fileInputRef.current?.click()}
-                    className="w-full md:w-auto bg-green-600 hover:bg-green-700 text-white text-xl md:text-2xl font-bold py-4"
+                    className="w-full md:w-auto bg-green-600 hover:bg-green-700 text-white text-base md:text-lg font-semibold py-3"
                   >
                     <Upload className="w-5 h-5 mr-2" />
                     Upload Photo
@@ -242,7 +242,7 @@ export default function SmileSimulator() {
                     type="button"
                     onClick={() => cameraInputRef.current?.click()}
                     variant="outline"
-                    className="w-full md:w-auto border-green-600 text-green-600 hover:bg-green-50 text-xl md:text-2xl font-bold py-4"
+                    className="w-full md:w-auto border-green-600 text-green-600 hover:bg-green-50 text-base md:text-lg font-semibold py-3"
                   >
                     <Camera className="w-5 h-5 mr-2" />
                     Take Photo
@@ -258,12 +258,12 @@ export default function SmileSimulator() {
                     />
                   </div>
                   <div className="mt-4 text-center">
-                    <p className="text-xl md:text-2xl font-bold text-green-600 mb-3">Preview Your Smile</p>
+                    <p className="text-lg md:text-xl font-semibold text-green-600 mb-3">Preview Your Smile</p>
                     <Button
                       type="button"
                       onClick={handleRemoveImage}
                       variant="outline"
-                      className="text-xl md:text-2xl font-semibold text-red-600 hover:text-red-700 hover:bg-red-50 py-3 px-6"
+                      className="text-base md:text-lg font-semibold text-red-600 hover:text-red-700 hover:bg-red-50 py-3 px-6"
                     >
                       <X className="w-5 h-5 mr-2" />
                       Remove Photo
@@ -277,13 +277,13 @@ export default function SmileSimulator() {
           {/* Invisalign Quiz Section */}
           <Card className="animate-in fade-in slide-in-from-bottom-4 duration-500 delay-200">
             <CardHeader className="bg-gradient-to-r from-[#1E603F] via-[#289660] to-[#34d399] text-white">
-              <CardTitle className="text-3xl md:text-4xl lg:text-5xl font-bold">Invisalign Quiz</CardTitle>
+              <CardTitle className="text-2xl md:text-3xl font-bold">Invisalign Quiz</CardTitle>
               <div className="mt-4">
                 <div className="flex justify-between items-center mb-2">
-                  <span className="text-lg md:text-xl lg:text-2xl text-green-100">
+                  <span className="text-sm md:text-base lg:text-lg text-green-100">
                     Question {currentStep} of {totalSteps}
                   </span>
-                  <span className="text-lg md:text-xl lg:text-2xl font-semibold text-green-100">{Math.round(quizProgress)}%</span>
+                  <span className="text-sm md:text-base lg:text-lg font-semibold text-green-100">{Math.round(quizProgress)}%</span>
                 </div>
                 <Progress value={quizProgress} className="h-2 bg-green-400/30" />
               </div>
@@ -291,7 +291,7 @@ export default function SmileSimulator() {
             <CardContent className="p-6">
               {currentQuestion && (
                 <div className="space-y-4 animate-in fade-in slide-in-from-right-4 duration-300">
-                  <h3 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground leading-tight">
+                  <h3 className="text-2xl md:text-3xl font-semibold text-foreground leading-tight">
                     {currentQuestion.question}
                   </h3>
                   <RadioGroup
@@ -307,7 +307,7 @@ export default function SmileSimulator() {
                           <RadioGroupItem value={option} id={option} className="size-4 shrink-0 border-2 border-primary/40" />
                           <Label
                             htmlFor={option}
-                            className="flex-1 cursor-pointer font-semibold text-xl md:text-2xl lg:text-3xl text-foreground"
+                            className="flex-1 cursor-pointer font-semibold text-base md:text-lg lg:text-xl text-foreground"
                           >
                             {option}
                           </Label>
@@ -322,7 +322,7 @@ export default function SmileSimulator() {
                         type="button"
                         onClick={handlePrevious}
                         variant="outline"
-                        className="flex-1 text-lg md:text-xl lg:text-2xl font-semibold py-4"
+                        className="flex-1 text-base md:text-lg font-semibold py-3"
                       >
                         <ChevronLeft className="w-5 h-5 mr-2" />
                         Previous
@@ -332,7 +332,7 @@ export default function SmileSimulator() {
                       <Button
                         type="button"
                         onClick={handleNext}
-                        className="flex-1 bg-green-600 hover:bg-green-700 text-white text-lg md:text-xl lg:text-2xl font-bold py-4"
+                        className="flex-1 bg-green-600 hover:bg-green-700 text-white text-base md:text-lg font-semibold py-3"
                       >
                         Next
                         <ChevronRight className="w-5 h-5 ml-2" />
@@ -347,7 +347,7 @@ export default function SmileSimulator() {
                             formSection.scrollIntoView({ behavior: "smooth", block: "start" })
                           }
                         }}
-                        className="flex-1 bg-green-600 hover:bg-green-700 text-white text-lg md:text-xl lg:text-2xl font-bold py-4"
+                        className="flex-1 bg-green-600 hover:bg-green-700 text-white text-base md:text-lg font-semibold py-3"
                       >
                         Complete Quiz
                         <CheckCircle className="w-5 h-5 ml-2" />
