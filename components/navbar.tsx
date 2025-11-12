@@ -423,11 +423,10 @@ export default function Navbar({ onAppointmentClick }: { onAppointmentClick: () 
         isScrolled ? 'shadow-2xl border-b-2 border-teal-700 bg-gradient-to-r from-[#020b07]/95 via-[#0a2f1f]/95 to-[#125336]/95' : 'shadow-xl border-b border-teal-800/80'
       }`} style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 9999 }}>
         <div className="w-full px-0">
-          <div className="max-w-screen-xl mx-auto flex items-center h-20 sm:h-24 md:h-24 lg:h-24 gap-4 w-full">
+          <div className="flex items-center h-20 sm:h-24 md:h-24 lg:h-24 gap-4 w-full pl-0 pr-4 sm:pr-6 lg:pr-10 xl:pr-12">
             <Link
               href="/"
               className="flex items-center hover:opacity-90 transition-all hover:scale-[1.015] flex-shrink-0"
-              style={{ marginLeft: "min(calc((1280px - 100vw) / 2), 0px)" }}
             >
               <div className="relative w-[150px] h-[48px] sm:w-[190px] sm:h-[64px] md:w-[215px] md:h-[72px] lg:w-[235px] lg:h-[80px] xl:w-[250px] xl:h-[88px] drop-shadow-lg max-w-full">
                 {!logoError ? (
