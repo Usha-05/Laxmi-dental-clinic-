@@ -136,7 +136,7 @@ export default function ConsultationModal({ isOpen, onClose, serviceName }: Cons
       }}
     >
       <div 
-        className="bg-white rounded-xl max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl w-full shadow-2xl border-2 border-gray-200 max-h-[90vh] overflow-y-auto relative z-[10001] flex-shrink-0" 
+        className="bg-white rounded-xl max-w-md sm:max-w-lg md:max-w-xl w-full shadow-2xl border-2 border-gray-200 max-h-[80vh] overflow-y-auto relative z-[10001] flex-shrink-0" 
         style={{ 
           backgroundColor: '#ffffff', 
           boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(0, 0, 0, 0.05)',
@@ -149,18 +149,18 @@ export default function ConsultationModal({ isOpen, onClose, serviceName }: Cons
         onClick={(e) => e.stopPropagation()}
       >
         {submitted ? (
-          <div className="text-center py-8 px-6">
-            <CheckCircle className="w-20 h-20 text-green-600 mx-auto mb-4" />
-            <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-2">Consultation Request Sent!</h3>
-            <p className="text-base md:text-lg text-muted-foreground">
+          <div className="text-center py-5 px-4">
+            <CheckCircle className="w-14 h-14 text-green-600 mx-auto mb-2.5" />
+            <h3 className="text-lg md:text-xl font-bold text-foreground mb-2">Consultation Request Sent!</h3>
+            <p className="text-xs md:text-sm text-muted-foreground">
               We'll contact you shortly to confirm your consultation. Your consultation request has been sent to our email and WhatsApp. Thank you for choosing Laxmi Face and Multispeciality Dental Hospital.
             </p>
           </div>
         ) : (
           <>
-            <div className="flex justify-between items-center p-6 border-b border-border bg-green-600 text-white rounded-t-xl">
-              <div className="flex items-center gap-4">
-                <div className="relative w-[280px] h-[98px] hidden sm:block">
+            <div className="flex justify-between items-center p-2.5 sm:p-3 border-b border-border bg-green-600 text-white rounded-t-xl">
+              <div className="flex items-center gap-2 sm:gap-3">
+                <div className="relative w-[120px] h-[45px] hidden sm:block">
                   <Image
                     src="/finalclinicc.jpg"
                     alt="Laxmi Face and Multispeciality Dental Hospital"
@@ -169,90 +169,90 @@ export default function ConsultationModal({ isOpen, onClose, serviceName }: Cons
                   />
                 </div>
                 <div>
-                  <h3 className="text-2xl md:text-3xl font-bold text-white">Schedule Your Consultation</h3>
-                  <p className="text-base md:text-lg text-green-100 mt-1">
+                  <h3 className="text-lg md:text-xl font-bold text-white">Schedule Your Consultation</h3>
+                  <p className="text-xs text-green-100 mt-0.5">
                     Fill in your details and we'll get back to you
                   </p>
                 </div>
               </div>
-              <button onClick={onClose} className="p-1 hover:bg-green-700 rounded-lg">
-                <X size={24} className="text-white" />
+              <button onClick={onClose} className="p-0.5 hover:bg-green-700 rounded-lg">
+                <X size={18} className="text-white" />
               </button>
             </div>
 
-            <form onSubmit={handleSubmit} className="space-y-4 p-6 form-text-xl">
+            <form onSubmit={handleSubmit} className="space-y-2.5 p-3 sm:p-4 form-text-xl">
               {error && (
-                <div className="text-red-600 text-base md:text-lg font-medium bg-red-50 p-3 rounded-lg border border-red-200">
+                <div className="text-red-600 text-xs md:text-sm font-medium bg-red-50 p-2 rounded-lg border border-red-200">
                   {error}
                 </div>
               )}
               <div>
-                <label className="block text-base md:text-lg font-semibold text-foreground mb-2">Full Name *</label>
+                <label className="block text-xs md:text-sm font-semibold text-foreground mb-1">Full Name *</label>
                 <Input
                   type="text"
                   name="name"
                   value={formData.name}
                   onChange={handleInputChange}
                   placeholder="Your name"
-                  className="w-full text-base md:text-lg"
+                  className="w-full text-xs md:text-sm"
                   required
                 />
               </div>
 
               <div>
-                <label className="block text-base md:text-lg font-semibold text-foreground mb-2">Email Address *</label>
+                <label className="block text-xs md:text-sm font-semibold text-foreground mb-1">Email Address *</label>
                 <Input
                   type="email"
                   name="email"
                   value={formData.email}
                   onChange={handleInputChange}
                   placeholder="your@email.com"
-                  className="w-full text-base md:text-lg"
+                  className="w-full text-xs md:text-sm"
                   required
                 />
               </div>
 
               <div>
-                <label className="block text-base md:text-lg font-semibold text-foreground mb-2">Phone Number *</label>
+                <label className="block text-xs md:text-sm font-semibold text-foreground mb-1">Phone Number *</label>
                 <Input
                   type="tel"
                   name="phone"
                   value={formData.phone}
                   onChange={handleInputChange}
                   placeholder="Your phone number"
-                  className="w-full text-base md:text-lg"
+                  className="w-full text-xs md:text-sm"
                   required
                 />
               </div>
 
               <div>
-                <label className="block text-base md:text-lg font-semibold text-foreground mb-2">Preferred Date *</label>
+                <label className="block text-xs md:text-sm font-semibold text-foreground mb-1">Preferred Date *</label>
                 <Input
                   type="date"
                   name="preferredDate"
                   value={formData.preferredDate}
                   onChange={handleInputChange}
-                  className="w-full text-base md:text-lg"
+                  className="w-full text-xs md:text-sm"
                   required
                 />
               </div>
 
               <div>
-                <label className="block text-base md:text-lg font-semibold text-foreground mb-2">Preferred Time</label>
-                <p className="text-sm md:text-base text-muted-foreground mb-2">Clinic Hours: 9:00 AM - 9:00 PM</p>
+                <label className="block text-xs md:text-sm font-semibold text-foreground mb-1">Preferred Time</label>
+                <p className="text-xs text-muted-foreground mb-1">Clinic Hours: 9:00 AM - 9:00 PM</p>
                 <select
                   name="preferredTime"
                   value={formData.preferredTime}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-lg md:text-xl bg-white text-foreground"
+                  className="w-full px-2.5 py-1.5 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-xs md:text-sm bg-white text-foreground"
                   style={{ 
-                    fontSize: '18px', 
+                    fontSize: '12px', 
                     backgroundColor: '#ffffff', 
                     color: '#000000',
-                    minHeight: '48px'
+                    minHeight: '36px'
                   }}
                 >
-                  <option value="" style={{ fontSize: '18px', backgroundColor: '#ffffff', color: '#000000' }}>Select a time slot</option>
+                  <option value="" style={{ fontSize: '12px', backgroundColor: '#ffffff', color: '#000000' }}>Select a time slot</option>
                   {(() => {
                     const timeSlots = []
                     for (let hour = 9; hour < 21; hour++) {
@@ -260,7 +260,7 @@ export default function ConsultationModal({ isOpen, onClose, serviceName }: Cons
                       timeSlots.push(`${hour.toString().padStart(2, "0")}:30`)
                     }
                     return timeSlots.map((slot) => (
-                      <option key={slot} value={slot} style={{ fontSize: '18px', backgroundColor: '#ffffff', color: '#000000' }}>
+                      <option key={slot} value={slot} style={{ fontSize: '12px', backgroundColor: '#ffffff', color: '#000000' }}>
                         {slot}
                       </option>
                     ))
@@ -269,13 +269,13 @@ export default function ConsultationModal({ isOpen, onClose, serviceName }: Cons
               </div>
 
               <div>
-                <label className="block text-base md:text-lg font-semibold text-foreground mb-2">Your Concern *</label>
+                <label className="block text-xs md:text-sm font-semibold text-foreground mb-1">Your Concern *</label>
                 <Textarea
                   name="concern"
                   value={formData.concern}
                   onChange={handleInputChange}
                   placeholder="Tell us about your dental concerns"
-                  className="w-full resize-none text-base md:text-lg"
+                  className="w-full resize-none text-xs md:text-sm"
                   rows={3}
                   required
                 />
@@ -283,7 +283,7 @@ export default function ConsultationModal({ isOpen, onClose, serviceName }: Cons
 
               <Button
                 type="submit"
-                className="w-full bg-green-600 hover:bg-green-700 text-white h-14 font-bold text-lg md:text-xl py-4"
+                className="w-full bg-green-600 hover:bg-green-700 text-white h-10 font-semibold text-xs md:text-sm py-2"
                 disabled={isLoading}
               >
                 {isLoading ? "Submitting..." : "Request Consultation"}

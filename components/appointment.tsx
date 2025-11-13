@@ -327,7 +327,7 @@ export default function Appointment({ isOpen, onClose }: AppointmentProps) {
       }}
     >
       <div 
-        className="bg-white rounded-2xl max-w-xl sm:max-w-2xl lg:max-w-3xl w-full shadow-2xl border border-gray-200 max-h-[88vh] overflow-y-auto my-auto z-[10001] flex-shrink-0" 
+        className="bg-white rounded-2xl max-w-md sm:max-w-lg md:max-w-xl w-full shadow-2xl border border-gray-200 max-h-[80vh] overflow-y-auto my-auto z-[10001] flex-shrink-0" 
         style={{ 
           backgroundColor: '#ffffff', 
           boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(0, 0, 0, 0.05)',
@@ -340,9 +340,9 @@ export default function Appointment({ isOpen, onClose }: AppointmentProps) {
         }}
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="flex justify-between items-center p-4 sm:p-5 border-b border-border bg-green-600 text-white rounded-t-2xl">
-          <div className="flex items-center gap-4 sm:gap-5">
-            <div className="relative w-[200px] h-[70px] hidden sm:block">
+        <div className="flex justify-between items-center p-2.5 sm:p-3 border-b border-border bg-green-600 text-white rounded-t-2xl">
+          <div className="flex items-center gap-2 sm:gap-3">
+            <div className="relative w-[120px] h-[45px] hidden sm:block">
               <Image
                 src="/finalclinicc.jpg"
                 alt="Laxmi Face and Multispeciality Dental Hospital"
@@ -350,27 +350,27 @@ export default function Appointment({ isOpen, onClose }: AppointmentProps) {
                 className="object-contain"
               />
             </div>
-            <h3 className="text-2xl md:text-3xl font-bold text-white">Book Appointment</h3>
+            <h3 className="text-lg md:text-xl font-bold text-white">Book Appointment</h3>
           </div>
-          <button onClick={onClose} className="p-1.5 hover:bg-green-700 rounded-lg">
-            <X size={24} className="text-white" />
+          <button onClick={onClose} className="p-0.5 hover:bg-green-700 rounded-lg">
+            <X size={18} className="text-white" />
           </button>
         </div>
 
-        <form onSubmit={handleSubmit} className="px-4 sm:px-6 py-5 space-y-4 form-text-xl appointment-form">
-          {error && <div className="text-red-600 text-base md:text-lg font-medium">{error}</div>}
+        <form onSubmit={handleSubmit} className="px-3 sm:px-4 py-3 space-y-2.5 form-text-xl appointment-form">
+          {error && <div className="text-red-600 text-xs md:text-sm font-medium">{error}</div>}
           {success && (
-            <div className="text-green-600 text-base md:text-lg font-medium">
+            <div className="text-green-600 text-xs md:text-sm font-medium">
               Appointment saved! Details have been sent to WhatsApp and email.
             </div>
           )}
 
           <div>
-            <label className="block text-lg md:text-xl font-medium mb-1.5">Name</label>
+            <label className="block text-xs md:text-sm font-medium mb-0.5">Name</label>
             <input
               type="text"
               required
-              className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-lg md:text-xl"
+              className="w-full px-2.5 py-1.5 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-xs md:text-sm"
               placeholder="Your name"
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -378,11 +378,11 @@ export default function Appointment({ isOpen, onClose }: AppointmentProps) {
           </div>
 
           <div>
-            <label className="block text-lg md:text-xl font-medium mb-1.5">Email</label>
+            <label className="block text-xs md:text-sm font-medium mb-0.5">Email</label>
             <input
               type="email"
               required
-              className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-lg md:text-xl"
+              className="w-full px-2.5 py-1.5 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-xs md:text-sm"
               placeholder="your@email.com"
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -390,19 +390,19 @@ export default function Appointment({ isOpen, onClose }: AppointmentProps) {
           </div>
 
           <div>
-            <label className="block text-lg md:text-xl font-medium mb-1.5">Phone</label>
+            <label className="block text-xs md:text-sm font-medium mb-0.5">Phone</label>
             <input
               type="tel"
               required
-              className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-lg md:text-xl"
+              className="w-full px-2.5 py-1.5 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-xs md:text-sm"
               placeholder="+91 XXXXX XXXXX"
               value={formData.phone}
               onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
             />
           </div>
 
-          <div className="flex flex-col gap-2">
-            <label className="block text-lg md:text-xl font-medium">Preferred Date *</label>
+          <div className="flex flex-col gap-1">
+            <label className="block text-xs md:text-sm font-medium">Preferred Date *</label>
             <Popover open={datePopoverOpen} onOpenChange={setDatePopoverOpen}>
               {datePopoverOpen && (
                 <div
@@ -419,12 +419,12 @@ export default function Appointment({ isOpen, onClose }: AppointmentProps) {
                   type="button"
                   variant="outline"
                   className={cn(
-                    "w-full justify-between h-16 rounded-lg border border-border px-5 py-3 text-left text-lg md:text-xl font-semibold",
+                    "w-full justify-between h-10 rounded-lg border border-border px-2.5 py-1.5 text-left text-xs md:text-sm font-medium",
                     !selectedDate && "text-muted-foreground",
                   )}
                 >
                   {selectedDate ? format(selectedDate, "EEEE, MMMM d, yyyy") : "Select a date"}
-                  <CalendarIcon className="h-6 w-6 ml-3 shrink-0 text-muted-foreground" />
+                  <CalendarIcon className="h-3.5 w-3.5 ml-1.5 shrink-0 text-muted-foreground" />
                 </Button>
               </PopoverTrigger>
               <PopoverContent
@@ -454,9 +454,9 @@ export default function Appointment({ isOpen, onClose }: AppointmentProps) {
             </Popover>
           </div>
 
-          <div className="flex flex-col gap-2">
-            <label className="block text-lg md:text-xl font-medium">Preferred Time *</label>
-            <p className="text-base md:text-lg text-muted-foreground">Clinic Hours: 9:00 AM - 9:00 PM</p>
+          <div className="flex flex-col gap-1">
+            <label className="block text-xs md:text-sm font-medium">Preferred Time *</label>
+            <p className="text-xs text-muted-foreground">Clinic Hours: 9:00 AM - 9:00 PM</p>
             <Popover open={timePopoverOpen} onOpenChange={setTimePopoverOpen}>
               {timePopoverOpen && !datePopoverOpen && (
                 <div
@@ -473,12 +473,12 @@ export default function Appointment({ isOpen, onClose }: AppointmentProps) {
                   type="button"
                   variant="outline"
                   className={cn(
-                    "w-full justify-between h-16 rounded-lg border border-border px-5 py-3 text-left text-lg md:text-xl font-semibold",
+                    "w-full justify-between h-10 rounded-lg border border-border px-2.5 py-1.5 text-left text-xs md:text-sm font-medium",
                     !formData.time && "text-muted-foreground",
                   )}
                 >
                   {formData.time || "Select a time"}
-                  <Clock className="h-6 w-6 ml-3 shrink-0 text-muted-foreground" />
+                  <Clock className="h-3.5 w-3.5 ml-1.5 shrink-0 text-muted-foreground" />
                 </Button>
               </PopoverTrigger>
               <PopoverContent
@@ -492,7 +492,7 @@ export default function Appointment({ isOpen, onClose }: AppointmentProps) {
                       key={slot}
                       type="button"
                       className={cn(
-                        "w-full text-left px-4 py-3 text-lg md:text-xl rounded-md transition-colors hover:bg-emerald-50",
+                        "w-full text-left px-2.5 py-1.5 text-xs md:text-sm rounded-md transition-colors hover:bg-emerald-50",
                         formData.time === slot ? "bg-emerald-100 font-semibold" : "bg-white",
                       )}
                       onClick={() => {
@@ -509,8 +509,8 @@ export default function Appointment({ isOpen, onClose }: AppointmentProps) {
           </div>
 
           <div>
-            <label className="block text-lg md:text-xl font-medium mb-1.5">Service</label>
-            <div className="space-y-2">
+            <label className="block text-xs md:text-sm font-medium mb-0.5">Service</label>
+            <div className="space-y-1.5">
               {/* First dropdown: Select main treatment category */}
               <Select
                 value={selectedCategory}
@@ -519,12 +519,12 @@ export default function Appointment({ isOpen, onClose }: AppointmentProps) {
                   setFormData({ ...formData, service: "" }) // Reset sub-treatment when category changes
                 }}
               >
-                <SelectTrigger className="w-full border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-lg md:text-xl py-3 pr-10">
+                <SelectTrigger className="w-full border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-xs md:text-sm py-1.5 pr-10">
                   <SelectValue placeholder="Select a treatment category…" />
                 </SelectTrigger>
                 <SelectContent className="max-h-[300px] overflow-y-auto">
                   {Object.keys(services).map((category) => (
-                    <SelectItem key={category} value={category} className="text-lg md:text-xl">
+                    <SelectItem key={category} value={category} className="text-xs md:text-sm">
                       {category}
                     </SelectItem>
                   ))}
@@ -537,12 +537,12 @@ export default function Appointment({ isOpen, onClose }: AppointmentProps) {
                   value={formData.service}
                   onValueChange={(value) => setFormData({ ...formData, service: value })}
                 >
-                  <SelectTrigger className="w-full border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-lg md:text-xl py-3 pr-10">
+                  <SelectTrigger className="w-full border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-xs md:text-sm py-1.5 pr-10">
                     <SelectValue placeholder="Select a specific treatment…" />
                   </SelectTrigger>
                   <SelectContent className="max-h-[300px] overflow-y-auto">
                     {services[selectedCategory as keyof typeof services].map((treatment) => (
-                      <SelectItem key={treatment} value={treatment} className="text-lg md:text-xl">
+                      <SelectItem key={treatment} value={treatment} className="text-xs md:text-sm">
                         {treatment}
                       </SelectItem>
                     ))}
@@ -554,7 +554,7 @@ export default function Appointment({ isOpen, onClose }: AppointmentProps) {
 
           <Button
             type="submit"
-            className="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-3 text-lg md:text-xl font-semibold"
+            className="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-2 text-xs md:text-sm font-semibold"
             disabled={isLoading}
           >
             {isLoading ? "Saving..." : "Confirm Appointment"}
