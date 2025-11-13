@@ -119,7 +119,7 @@ export default function TreatmentPageTemplate({
       {/* Treatment Process */}
       <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <h2 className="text-5xl md:text-6xl font-extrabold text-gray-900 mb-12 text-center">The Treatment Process</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {treatmentProcess.map((item, index) => {
             const hasImageError = processImageErrors[index]
             // Always use a visible placeholder - either the actual image or a good placeholder
@@ -130,17 +130,17 @@ export default function TreatmentPageTemplate({
             return (
               <div
                 key={item.step}
-                className="bg-white rounded-xl p-8 border border-green-200/60 hover:border-emerald-400 hover:shadow-lg transition-all"
+                className="bg-white rounded-xl p-5 border border-green-200/60 hover:border-emerald-400 hover:shadow-lg transition-all"
               >
                 {/* Process Image - Always show something visible */}
-                <div className="mb-4 rounded-xl overflow-hidden bg-gradient-to-br from-emerald-50 to-green-50 border-[3px] border-black shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]">
+                <div className="mb-3 rounded-xl overflow-hidden bg-gradient-to-br from-emerald-50 to-green-50 border-[3px] border-black shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]">
                   {item.image && !hasImageError ? (
                     <Image
                       src={item.image}
                       alt={item.title}
                       width={900}
                       height={700}
-                      className="w-full h-[550px] md:h-[650px] lg:h-[700px] object-cover transition-transform duration-300 hover:scale-105"
+                      className="w-full h-36 md:h-40 lg:h-44 object-cover transition-transform duration-300 hover:scale-105"
                       placeholder="blur"
                       blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQADAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
                       onError={() => setProcessImageErrors((prev) => ({ ...prev, [index]: true }))}
@@ -149,7 +149,7 @@ export default function TreatmentPageTemplate({
                     <img
                       src={imageSrc}
                       alt={item.title}
-                      className="w-full h-[550px] md:h-[650px] lg:h-[700px] object-cover transition-transform duration-300 hover:scale-105"
+                      className="w-full h-36 md:h-40 lg:h-44 object-cover transition-transform duration-300 hover:scale-105"
                       onError={(e) => {
                         // If even placeholder fails, use a simple colored background
                         const target = e.target as HTMLImageElement
@@ -158,11 +158,11 @@ export default function TreatmentPageTemplate({
                     />
                   )}
                 </div>
-                <div className="w-14 h-14 bg-gradient-to-br from-emerald-600 to-green-600 rounded-full flex items-center justify-center text-white font-extrabold text-xl mb-4">
+                <div className="w-10 h-10 bg-gradient-to-br from-emerald-600 to-green-600 rounded-full flex items-center justify-center text-white font-extrabold text-base mb-2">
                   {item.step}
                 </div>
-                <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">{item.title}</h3>
-                <p className="text-lg md:text-xl text-gray-600">{item.description}</p>
+                <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-1.5">{item.title}</h3>
+                <p className="text-sm md:text-base text-gray-600">{item.description}</p>
               </div>
             )
           })}

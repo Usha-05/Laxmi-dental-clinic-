@@ -87,12 +87,12 @@ export default function TreatmentsGrid() {
                   className="group relative bg-white rounded-2xl overflow-hidden border border-emerald-100/80 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 ease-out flex flex-col h-full"
                 >
                   {/* Category Header */}
-                  <div className="bg-gradient-to-r from-[#1E603F] to-[#289660] text-white px-5 py-2.5">
+                  <div className="bg-gradient-to-r from-[#1E603F] to-[#289660] text-white px-4 py-2">
                     <p className="text-xs font-semibold uppercase tracking-wide">{expertise.category}</p>
                   </div>
                   
                   {/* Image Section */}
-                  <div className="relative w-full h-[220px] sm:h-[240px] md:h-[260px] overflow-hidden bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50">
+                  <div className="relative w-full h-[140px] sm:h-[160px] md:h-[180px] overflow-hidden bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50">
                     {!imageErrors[expertise.name] ? (
                       <Image
                         src={getImageSrc(expertise)}
@@ -123,21 +123,21 @@ export default function TreatmentsGrid() {
                   </div>
 
                   {/* Content Section */}
-                  <div className="p-5 flex flex-col items-center text-center flex-1">
+                  <div className="p-3 flex flex-col items-center text-center flex-1">
                     {/* Icon Container */}
-                    <div className="relative -mt-12 mb-3">
-                      <div className="w-16 h-16 rounded-2xl bg-white shadow-lg flex items-center justify-center border-2 border-emerald-100 group-hover:border-emerald-200 transition-colors duration-300">
-                        <IconComponent size={28} className="text-emerald-600 group-hover:text-emerald-700 transition-colors duration-300" />
+                    <div className="relative -mt-8 mb-2">
+                      <div className="w-12 h-12 rounded-xl bg-white shadow-lg flex items-center justify-center border-2 border-emerald-100 group-hover:border-emerald-200 transition-colors duration-300">
+                        <IconComponent size={20} className="text-emerald-600 group-hover:text-emerald-700 transition-colors duration-300" />
                       </div>
                     </div>
                     
                     {/* Title */}
-                    <h3 className="text-2xl md:text-3xl font-bold text-emerald-700 mb-2 group-hover:text-emerald-800 transition-colors duration-300 tracking-tight">
+                    <h3 className="text-lg md:text-xl font-bold text-emerald-700 mb-1.5 group-hover:text-emerald-800 transition-colors duration-300 tracking-tight">
                       {expertise.name}
                     </h3>
                     
                     {/* Description */}
-                    <p className="text-gray-600 text-sm md:text-base leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
+                    <p className="text-gray-600 text-xs md:text-sm leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
                       {expertise.description}
                     </p>
                   </div>
