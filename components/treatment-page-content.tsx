@@ -30,9 +30,9 @@ export default function TreatmentPageContent({ slug, onAppointmentClick, onConsu
   const [processImageErrors, setProcessImageErrors] = useState<Record<number, boolean>>({})
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white via-emerald-50/40 to-white pt-44 sm:pt-48 md:pt-52 lg:pt-60">
+    <div className="min-h-screen bg-gradient-to-b from-white via-emerald-50/40 to-white pt-24 sm:pt-28 md:pt-28 lg:pt-28">
       {/* Header */}
-      <div className="sticky top-44 sm:top-48 md:top-52 lg:top-60 z-40 bg-white/80 backdrop-blur-md border-b border-green-200/60 shadow-sm">
+      <div className="sticky top-20 sm:top-24 md:top-24 lg:top-24 z-40 bg-white/80 backdrop-blur-md border-b border-green-200/60 shadow-sm">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
           <Link
             href="/"
@@ -42,7 +42,7 @@ export default function TreatmentPageContent({ slug, onAppointmentClick, onConsu
             Back to Home
           </Link>
           <div className="flex items-center justify-center gap-4 flex-1">
-            <h1 className="text-3xl md:text-4xl font-extrabold bg-gradient-to-r from-emerald-700 to-green-600 bg-clip-text text-transparent text-center">
+            <h1 className="text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-emerald-700 to-green-600 bg-clip-text text-transparent text-center">
               {title}
             </h1>
           </div>
@@ -55,14 +55,14 @@ export default function TreatmentPageContent({ slug, onAppointmentClick, onConsu
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
             <div>
-              <h2 className="text-6xl md:text-7xl font-extrabold text-gray-900 mb-4 leading-tight">{title}</h2>
-              <p className="text-xl md:text-2xl text-gray-600 leading-relaxed">{description}</p>
+              <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 leading-tight">{title}</h2>
+              <p className="text-base md:text-lg text-gray-600 leading-relaxed">{description}</p>
             </div>
 
             {/* Uses Section */}
             <div className="bg-gradient-to-br from-emerald-50 to-green-50 rounded-xl p-8 border border-emerald-200">
-              <h3 className="text-3xl md:text-4xl font-bold text-emerald-700 mb-6 flex items-center gap-2">
-                <Zap size={28} className="text-emerald-600" />
+              <h3 className="text-xl md:text-2xl font-bold text-emerald-700 mb-4 flex items-center gap-2">
+                <Zap size={24} className="text-emerald-600" />
                 What It's Used For
               </h3>
               <ul className="space-y-3">
@@ -126,7 +126,7 @@ export default function TreatmentPageContent({ slug, onAppointmentClick, onConsu
 
       {/* Treatment Process */}
       <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <h2 className="text-5xl md:text-6xl font-extrabold text-gray-900 mb-12 text-center">The Treatment Process</h2>
+        <h2 className="text-2xl md:text-3xl font-extrabold text-gray-900 mb-8 text-center">The Treatment Process</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {treatmentProcess.map((item, index) => {
             const hasImageError = processImageErrors[index]
@@ -191,8 +191,8 @@ export default function TreatmentPageContent({ slug, onAppointmentClick, onConsu
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div className="space-y-8">
             <div>
-              <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-                <Zap size={28} className="text-emerald-600" />
+              <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                <Zap size={24} className="text-emerald-600" />
                 Key Benefits
               </h3>
               <ul className="space-y-3 text-gray-700">
@@ -203,8 +203,8 @@ export default function TreatmentPageContent({ slug, onAppointmentClick, onConsu
             </div>
             {idealFor && idealFor.length > 0 && (
               <div>
-                <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Ideal For</h3>
-                <p className="text-lg md:text-xl text-gray-700 mb-3 font-medium">This treatment works best for:</p>
+                <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-4">Ideal For</h3>
+                <p className="text-base md:text-lg text-gray-700 mb-3 font-medium">This treatment works best for:</p>
                 <ul className="space-y-2 text-gray-700">
                   {idealFor.map((item, index) => (
                     <li className="text-lg md:text-xl" key={index}>• {item}</li>
@@ -215,7 +215,7 @@ export default function TreatmentPageContent({ slug, onAppointmentClick, onConsu
           </div>
 
           <div className="bg-gradient-to-br from-emerald-50 to-green-50 rounded-2xl p-12 border border-emerald-200">
-            <h3 className="text-3xl md:text-4xl font-bold text-emerald-700 mb-6">Treatment Timeline</h3>
+            <h3 className="text-xl md:text-2xl font-bold text-emerald-700 mb-4">Treatment Timeline</h3>
             <div className="space-y-4">
               {timeline?.duration && (
                 <div className="pb-4 border-b border-emerald-200">
@@ -248,8 +248,8 @@ export default function TreatmentPageContent({ slug, onAppointmentClick, onConsu
       {/* CTA Section with Book Appointment Button */}
       <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="bg-gradient-to-r from-emerald-600 to-green-600 rounded-2xl p-12 text-white text-center space-y-6">
-          <h2 className="text-5xl md:text-6xl font-extrabold">Ready to Get Started?</h2>
-          <p className="text-2xl md:text-3xl text-emerald-50 max-w-2xl mx-auto">
+          <h2 className="text-2xl md:text-3xl font-extrabold">Ready to Get Started?</h2>
+          <p className="text-base md:text-lg text-emerald-50 max-w-2xl mx-auto">
             Schedule a consultation with our dental experts to learn more about {title}
           </p>
           <Button

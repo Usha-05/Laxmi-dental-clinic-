@@ -28,11 +28,11 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section id="testimonials" className="py-8 md:py-12 lg:py-16 bg-gradient-to-b from-white via-[#ecfdf5] to-[#d1fae5]">
+    <section id="testimonials" className="py-4 md:py-6 lg:py-8 bg-gradient-to-b from-white via-[#ecfdf5] to-[#d1fae5]">
       <div className="w-full px-2 sm:px-4 lg:px-6">
-        <div className="text-center mb-8 md:mb-12">
+        <div className="text-center mb-4 md:mb-6">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3">What Our Patients Say</h2>
-          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto text-balance px-4">
+          <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto text-balance px-4">
             Join hundreds of satisfied patients who have transformed their smiles with us
           </p>
         </div>
@@ -43,11 +43,11 @@ export default function Testimonials() {
               <CardContent className="pt-6">
                 <div className="flex gap-1 mb-3">
                   {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 sm:w-6 sm:h-6 fill-accent text-accent" />
+                    <Star key={i} className="w-6 h-6 sm:w-7 sm:h-7 fill-accent text-accent" />
                   ))}
                 </div>
-                <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-4 italic">{testimonial.text}</p>
-                <p className="text-lg md:text-xl font-bold text-foreground">{testimonial.name}</p>
+                <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-4 italic">{testimonial.text}</p>
+                <p className="text-xl md:text-2xl font-bold text-foreground">{testimonial.name}</p>
               </CardContent>
             </Card>
           ))}

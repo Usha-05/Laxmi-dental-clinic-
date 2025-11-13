@@ -28,7 +28,7 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen relative pt-20 sm:pt-24 md:pt-24 lg:pt-24">
+    <div className="min-h-screen relative pt-36 sm:pt-40 md:pt-40 lg:pt-40">
       <Navbar onAppointmentClick={() => setAppointmentOpen(true)} />
       <Hero onAppointmentClick={() => setAppointmentOpen(true)} />
       <TreatmentsGrid />

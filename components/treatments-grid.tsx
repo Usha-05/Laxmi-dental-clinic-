@@ -64,20 +64,22 @@ export default function TreatmentsGrid() {
   }
 
   return (
-    <section id="treatments" className="py-8 md:py-12 lg:py-16 bg-gradient-to-b from-[#d1fae5] via-[#ecfdf5] to-white relative overflow-hidden">
+    <section id="treatments" className="py-4 md:py-6 lg:py-8 bg-gradient-to-b from-[#d1fae5] via-[#ecfdf5] to-white relative overflow-hidden">
       <DentalSymbolsBackground />
-      <div className="w-full px-2 sm:px-4 lg:px-6 relative z-10">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-8 md:mb-12 lg:mb-16 space-y-3 md:space-y-4">
-            <div className="inline-block px-5 py-2.5 bg-emerald-100 rounded-full border border-emerald-200">
-              <p className="text-emerald-700 text-base font-bold uppercase tracking-wide">OUR EXPERTISE</p>
+      <div className="w-full relative z-10">
+        <div className="max-w-[90rem] mx-auto px-2 sm:px-4 lg:px-6">
+          <div className="text-center mb-4 md:mb-6 lg:mb-8 space-y-2 md:space-y-3">
+            <div className="inline-block px-8 py-4 bg-emerald-100 rounded-full border border-emerald-200">
+              <p className="text-emerald-700 text-xl md:text-2xl font-bold uppercase tracking-wide">OUR EXPERTISE</p>
             </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-emerald-700 mb-4 tracking-tight leading-tight">Comprehensive Dental Care</h2>
-            <p className="text-gray-600 text-base sm:text-lg md:text-xl max-w-3xl mx-auto leading-relaxed font-medium px-4">
+            <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold text-emerald-700 mb-3 tracking-tight leading-tight">Comprehensive Dental Care</h2>
+            <p className="text-gray-600 text-xl sm:text-2xl md:text-3xl lg:text-4xl max-w-3xl mx-auto leading-relaxed font-medium px-4">
               From preventive care to advanced surgical solutions, we offer a complete spectrum of dental treatments
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-5 w-full">
+        </div>
+        <div className="w-full px-2 sm:px-3 lg:px-4 xl:px-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 lg:gap-5 w-full">
             {expertiseData.map((expertise) => {
               const IconComponent = expertise.icon
 
@@ -87,12 +89,12 @@ export default function TreatmentsGrid() {
                   className="group relative bg-white rounded-2xl overflow-hidden border border-emerald-100/80 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 ease-out flex flex-col h-full"
                 >
                   {/* Category Header */}
-                  <div className="bg-gradient-to-r from-[#1E603F] to-[#289660] text-white px-4 py-2">
-                    <p className="text-xs font-semibold uppercase tracking-wide">{expertise.category}</p>
+                  <div className="bg-gradient-to-r from-[#1E603F] to-[#289660] text-white px-6 py-4">
+                    <p className="text-base md:text-lg font-semibold uppercase tracking-wide">{expertise.category}</p>
                   </div>
                   
                   {/* Image Section */}
-                  <div className="relative w-full h-[140px] sm:h-[160px] md:h-[180px] overflow-hidden bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50">
+                  <div className="relative w-full h-[180px] sm:h-[200px] md:h-[220px] lg:h-[240px] overflow-hidden bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50">
                     {!imageErrors[expertise.name] ? (
                       <Image
                         src={getImageSrc(expertise)}
@@ -123,21 +125,21 @@ export default function TreatmentsGrid() {
                   </div>
 
                   {/* Content Section */}
-                  <div className="p-3 flex flex-col items-center text-center flex-1">
+                  <div className="p-4 md:p-5 lg:p-6 flex flex-col items-center text-center flex-1">
                     {/* Icon Container */}
-                    <div className="relative -mt-8 mb-2">
-                      <div className="w-12 h-12 rounded-xl bg-white shadow-lg flex items-center justify-center border-2 border-emerald-100 group-hover:border-emerald-200 transition-colors duration-300">
-                        <IconComponent size={20} className="text-emerald-600 group-hover:text-emerald-700 transition-colors duration-300" />
+                    <div className="relative -mt-8 mb-3">
+                      <div className="w-16 h-16 md:w-20 md:h-20 rounded-xl bg-white shadow-lg flex items-center justify-center border-2 border-emerald-100 group-hover:border-emerald-200 transition-colors duration-300">
+                        <IconComponent size={32} className="md:w-10 md:h-10 text-emerald-600 group-hover:text-emerald-700 transition-colors duration-300" />
                       </div>
                     </div>
                     
                     {/* Title */}
-                    <h3 className="text-lg md:text-xl font-bold text-emerald-700 mb-1.5 group-hover:text-emerald-800 transition-colors duration-300 tracking-tight">
+                    <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-emerald-700 mb-3 group-hover:text-emerald-800 transition-colors duration-300 tracking-tight">
                       {expertise.name}
                     </h3>
                     
                     {/* Description */}
-                    <p className="text-gray-600 text-xs md:text-sm leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
+                    <p className="text-gray-600 text-base md:text-lg lg:text-xl leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
                       {expertise.description}
                     </p>
                   </div>

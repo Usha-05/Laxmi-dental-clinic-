@@ -11,19 +11,19 @@ export default function Hero({ onAppointmentClick }: { onAppointmentClick: () =>
   return (
     <section
       id="home"
-      className="pt-10 sm:pt-12 md:pt-16 lg:pt-20 pb-8 md:pb-12 lg:pb-16 relative overflow-hidden bg-gradient-to-b from-[#1E603F] via-[#289660] via-[#34d399] to-[#6ee7b7]"
+      className="pt-12 sm:pt-16 md:pt-20 lg:pt-24 pb-8 md:pb-12 lg:pb-16 relative overflow-hidden bg-gradient-to-b from-[#1E603F] via-[#289660] via-[#34d399] to-[#6ee7b7]"
     >
       <div className="w-full px-2 sm:px-4 lg:px-6 relative">
-        <div className="grid md:grid-cols-2 gap-6 md:gap-8 items-center">
+        <div className="grid md:grid-cols-2 gap-6 md:gap-8 lg:gap-10 items-center">
           {/* Left Content */}
           <div className="space-y-6">
             <div className="space-y-4">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-extrabold leading-tight text-white text-balance tracking-tight">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-white text-balance tracking-tight">
                 Hi, welcome to Laxmi Face and Multispeciality Dental Hospital
                 <br />
                 <span className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-bold">It's anxiety free...</span>
               </h1>
-              <p className="text-lg sm:text-xl md:text-2xl lg:text-2xl text-white/95 leading-relaxed text-balance max-w-2xl font-medium">
+              <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-white/95 leading-relaxed text-balance max-w-2xl font-medium">
                 Transforming Smiles, Enhancing Lives: Your Trusted Destination for Complete Dental & Facial Care.
               </p>
             </div>
@@ -39,7 +39,7 @@ export default function Hero({ onAppointmentClick }: { onAppointmentClick: () =>
           </div>
 
           {/* Right Visual - Modern Header Illustration */}
-          <div className="relative h-[22rem] md:h-[25rem] w-full flex items-center justify-center">
+          <div className="relative h-[24rem] md:h-[28rem] lg:h-[32rem] w-full flex items-center justify-center">
             <div className="absolute inset-0 rounded-[3rem] bg-gradient-to-br from-emerald-200/80 via-teal-300/60 to-emerald-400/80 blur-3xl opacity-70" />
             <div className="relative w-full h-full rounded-[2.5rem] overflow-hidden shadow-[0_40px_80px_-30px_rgba(14,116,144,0.45)] ring-1 ring-emerald-100/70">
               <div className="absolute inset-0 bg-gradient-to-br from-emerald-50 via-teal-100 to-emerald-200" />

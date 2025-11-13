@@ -125,7 +125,7 @@ export default function Navbar({ onAppointmentClick }: { onAppointmentClick: () 
   const renderCategoryIcon = (category: string) => {
     const IconComponent = categoryIcons[category]
     if (!IconComponent) return null
-    return <IconComponent size={22} className="text-emerald-500 flex-shrink-0" />
+    return <IconComponent size={20} className="text-emerald-500 flex-shrink-0" />
   }
   
   // Helper function to render category icon (mobile, smaller)
@@ -170,8 +170,8 @@ export default function Navbar({ onAppointmentClick }: { onAppointmentClick: () 
       const element = document.getElementById(elementId)
       
       if (element) {
-        // Get navbar height (accounting for responsive heights: h-28=112px, sm:h-32=128px, md:h-36=144px, lg:h-48=192px)
-        const navbarHeight = window.innerWidth >= 1024 ? 192 : window.innerWidth >= 768 ? 144 : window.innerWidth >= 640 ? 128 : 112
+        // Get navbar height (accounting for responsive heights: h-20=80px, sm:h-24=96px, md:h-24=96px, lg:h-24=96px)
+        const navbarHeight = window.innerWidth >= 640 ? 96 : 80
         
         // Calculate scroll position with offset
         const elementPosition = element.getBoundingClientRect().top + window.pageYOffset
@@ -378,8 +378,8 @@ export default function Navbar({ onAppointmentClick }: { onAppointmentClick: () 
       const elementId = href.substring(1)
       const element = document.getElementById(elementId)
       if (element) {
-        // Get navbar height (accounting for responsive heights: h-28=112px, sm:h-32=128px, md:h-36=144px, lg:h-48=192px)
-        const navbarHeight = window.innerWidth >= 1024 ? 192 : window.innerWidth >= 768 ? 144 : window.innerWidth >= 640 ? 128 : 112
+        // Get navbar height (accounting for responsive heights: h-20=80px, sm:h-24=96px, md:h-24=96px, lg:h-24=96px)
+        const navbarHeight = window.innerWidth >= 640 ? 96 : 80
         
         // Calculate scroll position with offset
         const elementPosition = element.getBoundingClientRect().top + window.pageYOffset
@@ -423,12 +423,12 @@ export default function Navbar({ onAppointmentClick }: { onAppointmentClick: () 
         isScrolled ? 'shadow-2xl border-b-2 border-teal-700 bg-gradient-to-r from-[#020b07]/95 via-[#0a2f1f]/95 to-[#125336]/95' : 'shadow-xl border-b border-teal-800/80'
       }`} style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 9999 }}>
         <div className="w-full px-0">
-          <div className="flex items-center h-20 sm:h-24 md:h-24 lg:h-24 gap-4 w-full pl-0 pr-4 sm:pr-6 lg:pr-10 xl:pr-12">
+          <div className="flex items-center h-36 sm:h-40 md:h-40 lg:h-40 gap-4 w-full pl-0 pr-4 sm:pr-5 lg:pr-8 xl:pr-10">
             <Link
               href="/"
               className="flex items-center hover:opacity-90 transition-all hover:scale-[1.015] flex-shrink-0"
             >
-              <div className="relative w-[150px] h-[48px] sm:w-[190px] sm:h-[64px] md:w-[215px] md:h-[72px] lg:w-[235px] lg:h-[80px] xl:w-[250px] xl:h-[88px] drop-shadow-lg max-w-full">
+              <div className="relative w-[220px] h-[76px] sm:w-[260px] sm:h-[88px] md:w-[280px] md:h-[96px] lg:w-[300px] lg:h-[104px] xl:w-[320px] xl:h-[112px] drop-shadow-lg max-w-full">
                 {!logoError ? (
                   <Image
                     src="/finalclinicc.jpg"
@@ -440,55 +440,55 @@ export default function Navbar({ onAppointmentClick }: { onAppointmentClick: () 
                   />
                 ) : (
                     <div className="w-full h-full flex items-center justify-center bg-emerald-100 rounded-lg">
-                      <span className="text-emerald-700 text-xl font-bold">Laxmi Dental</span>
+                      <span className="text-emerald-700 text-lg sm:text-xl font-bold">Laxmi Dental</span>
                     </div>
                 )}
               </div>
             </Link>
 
-            <div className="flex-1 flex items-center justify-between gap-4 px-2 sm:px-4 lg:px-6">
-              {/* Desktop Menu */}
-              <div className="hidden lg:flex items-center gap-1.5">
+            <div className="flex-1 flex items-center justify-center gap-4 px-2 sm:px-4 lg:px-6">
+              {/* Desktop Menu - Centered */}
+              <div className="hidden lg:flex items-center gap-3 justify-center">
                 {navLinks.map((link) => {
                   const isActive = activeLink === link.href || (link.href === "#home" && !activeLink)
                   return (
                     <a
                       key={link.label}
                       href={link.href}
-                      className={`px-2.5 py-1.5 text-white hover:text-white/80 transition-all text-[15px] font-semibold relative group ${
+                      className={`px-5 py-2.5 text-white hover:text-white/80 transition-all text-4xl font-semibold relative group ${
                         isActive ? "text-white" : ""
                       }`}
                       onClick={(e) => handleNavClick(e, link.href)}
                     >
                       {link.label}
-                      <span className={`absolute bottom-0 left-3 h-[3px] bg-white transition-all duration-300 rounded-full ${
-                        isActive ? "w-[calc(100%-1.5rem)]" : "w-0 group-hover:w-[calc(100%-1.5rem)]"
+                      <span className={`absolute bottom-0 left-5 h-[3px] bg-white transition-all duration-300 rounded-full ${
+                        isActive ? "w-[calc(100%-2.5rem)]" : "w-0 group-hover:w-[calc(100%-2.5rem)]"
                       }`} />
                     </a>
                   )
                 })}
 
                 {/* Assess Yourself Dropdown */}
-                <div className="relative group ml-1.5">
-                  <button className="px-3 py-1.5 text-white hover:text-white/80 transition-all text-base font-semibold flex items-center gap-1.5 relative">
+                <div className="relative group ml-2">
+                  <button className="px-5 py-2.5 text-white hover:text-white/80 transition-all text-4xl font-semibold flex items-center gap-1.5 relative">
                     Assess Yourself
                     <ChevronDown
-                      size={16}
+                      size={24}
                       className="group-hover:rotate-180 transition-transform duration-300 text-white"
                     />
                   </button>
 
-                  <div className="absolute left-0 top-full mt-2 w-44 bg-gradient-to-b from-white/98 via-emerald-50/95 to-emerald-800/20 backdrop-blur-xl border border-emerald-700/70 rounded-2xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 p-3 -translate-y-2 group-hover:translate-y-0 z-50">
-                    <ul className="space-y-2">
+                  <div className="absolute left-0 top-full mt-2 w-72 bg-gradient-to-b from-white/98 via-emerald-50/95 to-emerald-800/20 backdrop-blur-xl border border-emerald-700/70 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 p-5 -translate-y-2 group-hover:translate-y-0 z-50">
+                    <ul className="space-y-4">
                       {assessYourselfItems.map((item) => (
                         <li key={item.label}>
                           <Link
                             href={isTreatmentPage ? `/${item.href}` : item.href}
-                            className="block px-3 py-1.5 text-sm font-semibold text-black hover:text-black/80 hover:bg-emerald-200/60 rounded-lg transition-all duration-200 group/item"
+                            className="block px-5 py-4 text-3xl font-medium text-black hover:text-black/80 hover:bg-emerald-200/60 rounded-lg transition-all duration-200 group/item"
                           >
                             <span className="flex items-center gap-2">
                               <ChevronRight
-                                size={16}
+                                size={28}
                                 className="text-black opacity-0 group-hover/item:opacity-100 group-hover/item:translate-x-1 transition-all duration-200"
                               />
                               <span className="flex-1">{item.label}</span>
@@ -501,16 +501,16 @@ export default function Navbar({ onAppointmentClick }: { onAppointmentClick: () 
                 </div>
 
                 {/* Treatments Dropdown */}
-                <div className="relative group ml-1.5">
-                  <button className="px-3 py-1.5 text-white hover:text-white/80 transition-all text-base font-semibold flex items-center gap-1.5 relative">
+                <div className="relative group ml-2">
+                  <button className="px-5 py-2.5 text-white hover:text-white/80 transition-all text-4xl font-semibold flex items-center gap-1.5 relative">
                     Treatments
                     <ChevronDown
-                      size={16}
+                      size={24}
                       className="group-hover:rotate-180 transition-transform duration-300 text-white"
                     />
                   </button>
 
-                  <div className="absolute left-0 top-full mt-2 w-[440px] max-h-[65vh] overflow-y-auto bg-gradient-to-b from-white/98 via-emerald-50/95 to-emerald-800/20 backdrop-blur-xl border border-emerald-700/70 rounded-2xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 p-4 -translate-y-2 group-hover:translate-y-0 z-50">
+                  <div className="absolute left-0 top-full mt-2 w-[540px] max-h-[65vh] overflow-y-auto bg-gradient-to-b from-white/98 via-emerald-50/95 to-emerald-800/20 backdrop-blur-xl border border-emerald-700/70 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 p-6 -translate-y-2 group-hover:translate-y-0 z-50">
                     <Accordion
                       type="single"
                       collapsible
@@ -524,23 +524,23 @@ export default function Navbar({ onAppointmentClick }: { onAppointmentClick: () 
                           value={category}
                           className="border-b border-emerald-100 last:border-b-0"
                         >
-                          <AccordionTrigger className="py-1.5 text-left font-semibold text-base text-black hover:text-black/80 transition-colors [&[data-state=open]]:text-black">
-                            <div className="flex items-center gap-3">
+                          <AccordionTrigger className="py-4 text-left font-semibold text-3xl text-black hover:text-black/80 transition-colors [&[data-state=open]]:text-black">
+                            <div className="flex items-center gap-2.5">
                               {renderCategoryIcon(category)}
                               <span>{category}</span>
                             </div>
                           </AccordionTrigger>
-                          <AccordionContent className="pb-4 pt-2">
-                            <ul className="space-y-2">
+                          <AccordionContent className="pb-4 pt-3">
+                            <ul className="space-y-4">
                               {treatmentData[category as keyof typeof treatmentData].map((treatment) => (
                                 <li key={treatment}>
                                   <Link
                                     href={generateRoute(category, treatment)}
-                                    className="block px-3 py-2.5 text-xl font-semibold text-black hover:text-black/80 hover:bg-emerald-200/60 rounded-lg transition-all duration-200 group/item"
+                                    className="block px-5 py-4 text-3xl font-medium text-black hover:text-black/80 hover:bg-emerald-200/60 rounded-lg transition-all duration-200 group/item"
                                   >
                                     <span className="flex items-center gap-2">
                                       <ChevronRight
-                                        size={18}
+                                        size={28}
                                         className="text-black opacity-0 group-hover/item:opacity-100 group-hover/item:translate-x-1 transition-all duration-200"
                                       />
                                       <span className="flex-1">{treatment}</span>
@@ -556,51 +556,52 @@ export default function Navbar({ onAppointmentClick }: { onAppointmentClick: () 
                   </div>
                 </div>
               </div>
-
-              <div className="hidden lg:flex items-center gap-2">
-                {/* Search Icon */}
-                <button
-                  className="p-2.5 text-white hover:text-white/80 hover:bg-white/20 rounded-xl transition-all duration-200 group"
-                  aria-label="Search"
-                  onClick={() => setIsSearchOpen(true)}
-                >
-                  <Search size={24} className="transition-transform group-hover:scale-110" />
-                </button>
-                
-                {/* CTA Button */}
-                <Button
-                  onClick={onAppointmentClick}
-                  className="bg-gradient-to-r from-amber-500 via-amber-600 to-orange-500 hover:from-amber-600 hover:via-amber-700 hover:to-orange-600 text-white px-4 py-2 rounded-lg shadow-xl hover:shadow-2xl hover:-translate-y-[2px] transition-all duration-300 font-semibold text-sm tracking-wide uppercase"
-                >
-                  Book Appointment
-                </Button>
-              </div>
-
-              {/* Tablet & Small Desktop Actions */}
-              <div className="hidden sm:flex lg:hidden items-center gap-3">
-                <button
-                  className="p-4 text-white hover:text-white/80 hover:bg-white/20 rounded-lg transition-all duration-200 group"
-                  aria-label="Search"
-                  onClick={() => setIsSearchOpen(true)}
-                >
-                  <Search size={32} className="transition-transform group-hover:scale-125" />
-                </button>
-                <Button
-                  onClick={onAppointmentClick}
-                  className="bg-gradient-to-r from-amber-500 via-amber-600 to-orange-500 hover:from-amber-600 hover:via-amber-700 hover:to-orange-600 text-white px-3 py-2 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 font-semibold text-sm uppercase tracking-wide"
-                >
-                  Book Appointment
-                </Button>
-              </div>
-
-              {/* Mobile Menu Button */}
-              <button
-                className="lg:hidden p-2 hover:bg-white/20 rounded-lg transition-colors ml-auto"
-                onClick={() => setIsOpen(!isOpen)}
-              >
-                {isOpen ? <X size={24} className="text-white" /> : <Menu size={24} className="text-white" />}
-              </button>
             </div>
+
+            {/* Right Side Actions - Search and Book Appointment */}
+            <div className="hidden lg:flex items-center gap-2 flex-shrink-0">
+              {/* Search Icon */}
+              <button
+                className="p-4 text-white hover:text-white/80 hover:bg-white/20 rounded-lg transition-all duration-200 group"
+                aria-label="Search"
+                onClick={() => setIsSearchOpen(true)}
+              >
+                <Search size={44} className="transition-transform group-hover:scale-110" />
+              </button>
+              
+              {/* CTA Button */}
+              <Button
+                onClick={onAppointmentClick}
+                className="bg-gradient-to-r from-amber-500 via-amber-600 to-orange-500 hover:from-amber-600 hover:via-amber-700 hover:to-orange-600 text-white px-10 py-6 rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-[1px] transition-all duration-300 font-semibold text-4xl tracking-wide uppercase min-h-[4.5rem]"
+              >
+                Book Appointment
+              </Button>
+            </div>
+
+            {/* Tablet & Small Desktop Actions */}
+            <div className="hidden sm:flex lg:hidden items-center gap-3 flex-shrink-0">
+              <button
+                className="p-4 text-white hover:text-white/80 hover:bg-white/20 rounded-lg transition-all duration-200 group"
+                aria-label="Search"
+                onClick={() => setIsSearchOpen(true)}
+              >
+                <Search size={38} className="transition-transform group-hover:scale-110" />
+              </button>
+              <Button
+                onClick={onAppointmentClick}
+                className="bg-gradient-to-r from-amber-500 via-amber-600 to-orange-500 hover:from-amber-600 hover:via-amber-700 hover:to-orange-600 text-white px-9 py-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 font-semibold text-4xl uppercase tracking-wide min-h-[4.5rem]"
+              >
+                Book Appointment
+              </Button>
+            </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              className="lg:hidden p-3 hover:bg-white/20 rounded-lg transition-colors flex-shrink-0"
+              onClick={() => setIsOpen(!isOpen)}
+            >
+              {isOpen ? <X size={32} className="text-white" /> : <Menu size={32} className="text-white" />}
+            </button>
           </div>
 
           {/* Mobile Menu */}
@@ -612,7 +613,7 @@ export default function Navbar({ onAppointmentClick }: { onAppointmentClick: () 
                   <a
                     key={link.label}
                     href={link.href}
-                    className={`block px-5 py-3.5 text-white hover:bg-white/20 hover:text-white transition-all text-2xl font-bold rounded-lg ${
+                    className={`block px-5 py-3 text-white hover:bg-white/20 hover:text-white transition-all text-4xl font-semibold rounded-lg ${
                       isActive ? "bg-white/20 text-white" : ""
                     }`}
                     onClick={(e) => {
@@ -628,7 +629,7 @@ export default function Navbar({ onAppointmentClick }: { onAppointmentClick: () 
               {/* Assess Yourself Mobile Dropdown */}
               <button
                 onClick={() => setAssessOpen(!assessOpen)}
-                className="w-full text-left px-5 py-3.5 text-white hover:bg-white/20 hover:text-white transition-all text-2xl font-bold rounded-lg flex items-center justify-between"
+                className="w-full text-left px-5 py-3 text-white hover:bg-white/20 hover:text-white transition-all text-4xl font-semibold rounded-lg flex items-center justify-between"
               >
                 Assess Yourself
                 <ChevronDown
@@ -638,8 +639,8 @@ export default function Navbar({ onAppointmentClick }: { onAppointmentClick: () 
               </button>
 
               {assessOpen && (
-                <div className="px-2 py-3 bg-emerald-200/60 rounded-xl mx-2 border border-emerald-600/50">
-                  <ul className="space-y-1.5">
+                <div className="px-4 py-5 bg-emerald-200/60 rounded-xl mx-2 border border-emerald-600/50">
+                  <ul className="space-y-4">
                     {assessYourselfItems.map((item) => (
                       <li key={item.label}>
                         <Link
@@ -648,11 +649,11 @@ export default function Navbar({ onAppointmentClick }: { onAppointmentClick: () 
                             setIsOpen(false)
                             setAssessOpen(false)
                           }}
-                          className="block px-3 py-2 text-xl font-medium text-black hover:text-black/80 hover:bg-emerald-100/80 rounded-lg transition-all duration-200 group/item"
+                          className="block px-5 py-4 text-3xl font-medium text-black hover:text-black/80 hover:bg-emerald-100/80 rounded-lg transition-all duration-200 group/item"
                         >
                           <span className="flex items-center gap-2">
                             <ChevronRight
-                              size={20}
+                              size={28}
                               className="text-black opacity-0 group-hover/item:opacity-100 group-hover/item:translate-x-1 transition-all duration-200"
                             />
                             <span className="flex-1">{item.label}</span>
@@ -667,7 +668,7 @@ export default function Navbar({ onAppointmentClick }: { onAppointmentClick: () 
               {/* Treatments Mobile Dropdown */}
               <button
                 onClick={() => setTreatmentsOpen(!treatmentsOpen)}
-                className="w-full text-left px-5 py-3.5 text-white hover:bg-white/20 hover:text-white transition-all text-2xl font-bold rounded-lg flex items-center justify-between"
+                className="w-full text-left px-5 py-3 text-white hover:bg-white/20 hover:text-white transition-all text-4xl font-semibold rounded-lg flex items-center justify-between"
               >
                 Treatments
                 <ChevronDown
@@ -677,32 +678,32 @@ export default function Navbar({ onAppointmentClick }: { onAppointmentClick: () 
               </button>
 
               {treatmentsOpen && (
-                <div className="px-2 py-3 bg-emerald-200/60 rounded-xl mx-2 border border-emerald-600/50">
+                <div className="px-4 py-5 bg-emerald-200/60 rounded-xl mx-2 border border-emerald-600/50">
                   <Accordion type="single" collapsible className="w-full">
                     {treatmentCategories.map((category) => (
                       <AccordionItem
                         key={category}
                         value={category}
-                        className="border-b border-emerald-200 last:border-b-0 px-2"
+                        className="border-b border-emerald-200 last:border-b-0 px-3"
                       >
-                        <AccordionTrigger className="py-3 text-left font-bold text-2xl text-black hover:text-black/80 transition-colors [&[data-state=open]]:text-black">
-                          <div className="flex items-center gap-3">
+                        <AccordionTrigger className="py-4 text-left font-semibold text-4xl text-black hover:text-black/80 transition-colors [&[data-state=open]]:text-black">
+                          <div className="flex items-center gap-2.5">
                             {renderCategoryIconMobile(category)}
                             <span>{category}</span>
                           </div>
                         </AccordionTrigger>
-                        <AccordionContent className="pb-3 pt-2">
-                          <ul className="space-y-1.5">
+                        <AccordionContent className="pb-4 pt-3">
+                          <ul className="space-y-4">
                             {treatmentData[category as keyof typeof treatmentData].map((treatment) => (
                               <li key={treatment}>
                                 <Link
                                   href={generateRoute(category, treatment)}
                                   onClick={() => setIsOpen(false)}
-                                  className="block px-3 py-2.5 text-2xl font-semibold text-black hover:text-black/80 hover:bg-emerald-100/80 rounded-lg transition-all duration-200 group/item"
+                                  className="block px-5 py-4 text-3xl font-medium text-black hover:text-black/80 hover:bg-emerald-100/80 rounded-lg transition-all duration-200 group/item"
                                 >
                                   <span className="flex items-center gap-2">
                                     <ChevronRight
-                                      size={22}
+                                      size={24}
                                       className="text-black opacity-0 group-hover/item:opacity-100 group-hover/item:translate-x-1 transition-all duration-200"
                                     />
                                     <span className="flex-1">{treatment}</span>
@@ -723,7 +724,7 @@ export default function Navbar({ onAppointmentClick }: { onAppointmentClick: () 
                   onAppointmentClick()
                   setIsOpen(false)
                 }}
-                className="w-full mt-6 bg-gradient-to-r from-amber-500 via-amber-600 to-orange-500 hover:from-amber-600 hover:via-amber-700 hover:to-orange-600 text-white rounded-xl font-extrabold text-xl shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 uppercase tracking-wide py-4"
+                className="w-full mt-6 bg-gradient-to-r from-amber-500 via-amber-600 to-orange-500 hover:from-amber-600 hover:via-amber-700 hover:to-orange-600 text-white rounded-xl font-extrabold text-4xl shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 uppercase tracking-wide py-6 min-h-[4.5rem]"
               >
                 Book Appointment
               </Button>
@@ -749,7 +750,7 @@ export default function Navbar({ onAppointmentClick }: { onAppointmentClick: () 
             aria-label="Search"
           >
             <div className="flex items-center gap-4 px-6 py-5 border-b">
-              <Search size={36} className="text-gray-500" />
+              <Search size={48} className="text-gray-500" />
               <input
                 autoFocus
                 type="text"
@@ -759,7 +760,7 @@ export default function Navbar({ onAppointmentClick }: { onAppointmentClick: () 
                   setSelectedSearchIndex(-1)
                 }}
                 placeholder="Search treatments, services, or topics..."
-                className="flex-1 outline-none text-2xl placeholder:text-gray-400 placeholder:text-2xl"
+                className="flex-1 outline-none text-3xl placeholder:text-gray-400 placeholder:text-3xl"
                 onKeyDown={(e) => {
                   if (e.key === "Escape") {
                     setIsSearchOpen(false)
@@ -769,7 +770,7 @@ export default function Navbar({ onAppointmentClick }: { onAppointmentClick: () 
                 }}
               />
               <button
-                className="px-3 py-1.5 text-lg text-gray-500 hover:text-gray-700 rounded-md"
+                className="px-3 py-1.5 text-xl text-gray-500 hover:text-gray-700 rounded-md"
                 onClick={() => {
                   setIsSearchOpen(false)
                   setSearchQuery("")
@@ -810,17 +811,17 @@ export default function Navbar({ onAppointmentClick }: { onAppointmentClick: () 
                             <ChevronRight size={26} className="text-emerald-500 flex-shrink-0" />
                           )}
                           <div className="flex-1">
-                            <div className="text-2xl font-semibold text-black group-hover:text-black/80">
+                            <div className="text-3xl font-semibold text-black group-hover:text-black/80">
                               {result.label}
                             </div>
                             {result.category && (
-                              <div className="text-xl text-black/70 mt-0.5">
+                              <div className="text-2xl text-black/70 mt-0.5">
                                 {result.category}
                               </div>
                             )}
                           </div>
                           <ChevronRight
-                            size={26}
+                            size={30}
                             className="text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity"
                           />
                         </button>
@@ -828,19 +829,19 @@ export default function Navbar({ onAppointmentClick }: { onAppointmentClick: () 
                     })}
                   </div>
                 ) : (
-                  <div className="px-6 py-10 text-center text-gray-500 text-2xl">
+                  <div className="px-6 py-10 text-center text-gray-500 text-3xl">
                     No results found for &quot;{searchQuery}&quot;
                   </div>
                 )
               ) : (
-                <div className="px-6 py-8 text-xl text-gray-500">
-                  <div className="mb-4 text-2xl font-semibold text-gray-700">Quick links:</div>
+                <div className="px-6 py-8 text-2xl text-gray-500">
+                  <div className="mb-4 text-3xl font-semibold text-gray-700">Quick links:</div>
                   <div className="space-y-3">
                     {navLinks.slice(0, 3).map((link) => (
                       <button
                         key={link.href}
                         onClick={() => handleSearchResultClick(link.href)}
-                        className="w-full text-left px-4 py-3 hover:bg-emerald-50 rounded-xl transition-colors text-2xl text-black hover:text-black/80"
+                        className="w-full text-left px-4 py-3 hover:bg-emerald-50 rounded-xl transition-colors text-3xl text-black hover:text-black/80"
                       >
                         {link.label}
                       </button>
@@ -849,7 +850,7 @@ export default function Navbar({ onAppointmentClick }: { onAppointmentClick: () 
                 </div>
               )}
             </div>
-            <div className="px-6 py-3 border-t bg-gray-50 text-lg text-gray-500 flex items-center justify-between">
+            <div className="px-6 py-3 border-t bg-gray-50 text-xl text-gray-500 flex items-center justify-between">
               <span>Press Esc to close</span>
               <span>↑↓ to navigate</span>
             </div>

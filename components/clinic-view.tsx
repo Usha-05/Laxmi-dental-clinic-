@@ -19,37 +19,37 @@ export default function ClinicView() {
       src: "/c1.jpg",
       name: "Clinic View 1",
       aspect: "aspect-[3/4]",
-      minHeight: "min-h-[280px] sm:min-h-[320px] md:min-h-[360px]"
+      minHeight: "min-h-[120px] sm:min-h-[140px] md:min-h-[160px]"
     },
     {
       src: "/c4.jpg",
       name: "Clinic View 4",
-      aspect: "aspect-[4/3]",
-      minHeight: "min-h-[240px] sm:min-h-[260px] md:min-h-[300px]"
+      aspect: "aspect-[5/3]",
+      minHeight: "min-h-[70px] sm:min-h-[80px] md:min-h-[90px]"
     },
     {
       src: "/c5.jpg",
       name: "Clinic View 5",
-      aspect: "aspect-[4/3]",
-      minHeight: "min-h-[240px] sm:min-h-[260px] md:min-h-[300px]"
+      aspect: "aspect-[5/3]",
+      minHeight: "min-h-[70px] sm:min-h-[80px] md:min-h-[90px]"
     },
     {
       src: "/c6.jpg",
       name: "Clinic View 6",
-      aspect: "aspect-[5/4]",
-      minHeight: "min-h-[240px] sm:min-h-[260px] md:min-h-[320px]"
+      aspect: "aspect-[5/3]",
+      minHeight: "min-h-[70px] sm:min-h-[80px] md:min-h-[100px]"
     },
     {
       src: "/c8.jpg",
       name: "Clinic View 8",
-      aspect: "aspect-[4/3]",
-      minHeight: "min-h-[240px] sm:min-h-[260px] md:min-h-[300px]"
+      aspect: "aspect-[5/3]",
+      minHeight: "min-h-[70px] sm:min-h-[80px] md:min-h-[90px]"
     },
     {
       src: "/c9.jpg",
       name: "Clinic View 9",
-      aspect: "aspect-[4/3]",
-      minHeight: "min-h-[260px] sm:min-h-[280px] md:min-h-[320px]"
+      aspect: "aspect-[5/3]",
+      minHeight: "min-h-[80px] sm:min-h-[90px] md:min-h-[100px]"
     },
   ]
 
@@ -58,20 +58,20 @@ export default function ClinicView() {
   }
 
   return (
-    <section id="clinic-view" className="py-6 md:py-10 lg:py-12 bg-gradient-to-b from-[#d1fae5] via-[#ecfdf5] to-white">
+    <section id="clinic-view" className="py-4 md:py-6 lg:py-8 bg-gradient-to-b from-[#d1fae5] via-[#ecfdf5] to-white">
       <div className="w-full px-2 sm:px-4 lg:px-6">
-        <div className="space-y-5 md:space-y-7">
+        <div className="space-y-3 md:space-y-4">
           <div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight">Clinic View</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight">Clinic View</h2>
             <div className="mt-3 w-16 h-1 bg-primary rounded-full" />
           </div>
 
           {/* Gallery Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-3 lg:gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-1 sm:gap-1.5 lg:gap-2">
             {clinicImages.map((image) => {
               const {
-                aspect = "aspect-[4/3]",
-                minHeight = "min-h-[240px] sm:min-h-[260px] md:min-h-[300px]",
+                aspect = "aspect-[5/3]",
+                minHeight = "min-h-[70px] sm:min-h-[80px] md:min-h-[90px]",
                 span = ""
               } = image
               const containerClasses = `relative w-full overflow-hidden bg-white h-full rounded-2xl ${aspect} ${minHeight}`

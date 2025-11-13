@@ -189,11 +189,11 @@ export default function SmileSimulator() {
   const currentQuestion = quizQuestions[currentStep - 1]
 
   return (
-    <section id="smile-simulator" className="py-8 md:py-12 lg:py-16 bg-gradient-to-b from-[#d1fae5] via-white to-[#ecfdf5]">
+    <section id="smile-simulator" className="py-4 md:py-6 lg:py-8 bg-gradient-to-b from-[#d1fae5] via-white to-[#ecfdf5]">
       <div className="w-full px-2 sm:px-4 lg:px-6">
         {/* Header Section */}
-        <div className="text-center mb-8 md:mb-12 animate-in fade-in slide-in-from-top-4 duration-500">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-foreground mb-4 tracking-tight">
+        <div className="text-center mb-4 md:mb-6 animate-in fade-in slide-in-from-top-4 duration-500">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-foreground mb-4 tracking-tight">
             Smile View Simulator
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto px-4 leading-relaxed">
@@ -369,7 +369,7 @@ export default function SmileSimulator() {
                 placeholder="Tell us about your dental concerns (optional)... For example: 'I have gaps between my teeth' or 'I want a whiter smile'"
                 value={formData.concern}
                 onChange={(e) => setFormData((prev) => ({ ...prev, concern: e.target.value }))}
-                className="w-full resize-none min-h-36 text-lg md:text-xl lg:text-2xl"
+                className="w-full resize-none min-h-36 text-2xl md:text-3xl lg:text-4xl"
                 rows={4}
               />
             </CardContent>
@@ -383,13 +383,13 @@ export default function SmileSimulator() {
             <CardContent className="p-6">
               <form onSubmit={handleSubmit} className="space-y-3 form-text-xl">
                 {error && (
-                  <div className="text-red-600 text-lg md:text-xl lg:text-2xl font-semibold bg-red-50 p-3 rounded-lg border border-red-200">
+                  <div className="text-red-600 text-2xl md:text-3xl lg:text-4xl font-semibold bg-red-50 p-3 rounded-lg border border-red-200">
                     {error}
                   </div>
                 )}
                 <div className="grid md:grid-cols-2 gap-3">
                   <div>
-                    <Label htmlFor="name" className="text-lg md:text-xl lg:text-2xl font-semibold text-foreground mb-1.5 block">
+                    <Label htmlFor="name" className="text-2xl md:text-3xl lg:text-4xl font-semibold text-foreground mb-1.5 block">
                       Full Name *
                     </Label>
                     <Input
@@ -398,12 +398,12 @@ export default function SmileSimulator() {
                       value={formData.name}
                       onChange={(e) => setFormData((prev) => ({ ...prev, name: e.target.value }))}
                       placeholder="Your name"
-                      className="text-lg md:text-xl lg:text-2xl"
+                      className="text-2xl md:text-3xl lg:text-4xl"
                       required
                     />
                   </div>
                   <div>
-                    <Label htmlFor="email" className="text-lg md:text-xl lg:text-2xl font-semibold text-foreground mb-1.5 block">
+                    <Label htmlFor="email" className="text-2xl md:text-3xl lg:text-4xl font-semibold text-foreground mb-1.5 block">
                       Email Address *
                     </Label>
                     <Input
@@ -412,12 +412,12 @@ export default function SmileSimulator() {
                       value={formData.email}
                       onChange={(e) => setFormData((prev) => ({ ...prev, email: e.target.value }))}
                       placeholder="your@email.com"
-                      className="text-lg md:text-xl lg:text-2xl"
+                      className="text-2xl md:text-3xl lg:text-4xl"
                       required
                     />
                   </div>
                   <div>
-                    <Label htmlFor="phone" className="text-lg md:text-xl lg:text-2xl font-semibold text-foreground mb-1.5 block">
+                    <Label htmlFor="phone" className="text-2xl md:text-3xl lg:text-4xl font-semibold text-foreground mb-1.5 block">
                       Phone Number *
                     </Label>
                     <Input
@@ -426,12 +426,12 @@ export default function SmileSimulator() {
                       value={formData.phone}
                       onChange={(e) => setFormData((prev) => ({ ...prev, phone: e.target.value }))}
                       placeholder="Your phone number"
-                      className="text-lg md:text-xl lg:text-2xl"
+                      className="text-2xl md:text-3xl lg:text-4xl"
                       required
                     />
                   </div>
                   <div>
-                    <Label htmlFor="city" className="text-lg md:text-xl lg:text-2xl font-semibold text-foreground mb-1.5 block">
+                    <Label htmlFor="city" className="text-2xl md:text-3xl lg:text-4xl font-semibold text-foreground mb-1.5 block">
                       City *
                     </Label>
                     <Input
@@ -440,7 +440,7 @@ export default function SmileSimulator() {
                       value={formData.city}
                       onChange={(e) => setFormData((prev) => ({ ...prev, city: e.target.value }))}
                       placeholder="Your city"
-                      className="text-lg md:text-xl lg:text-2xl"
+                      className="text-2xl md:text-3xl lg:text-4xl"
                       required
                     />
                   </div>
@@ -456,7 +456,7 @@ export default function SmileSimulator() {
                   />
                   <Label
                     htmlFor="agree"
-                    className="text-lg md:text-xl lg:text-2xl text-muted-foreground cursor-pointer leading-relaxed"
+                    className="text-2xl md:text-3xl lg:text-4xl text-muted-foreground cursor-pointer leading-relaxed"
                   >
                     I agree to be contacted for a consultation *
                   </Label>
@@ -464,7 +464,7 @@ export default function SmileSimulator() {
 
                 <Button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-[#1E603F] via-[#289660] to-[#34d399] hover:from-[#155d33] hover:via-[#227d4f] hover:to-[#2ab584] text-white h-16 font-bold text-xl md:text-2xl mt-6 py-5"
+                  className="w-full bg-gradient-to-r from-[#1E603F] via-[#289660] to-[#34d399] hover:from-[#155d33] hover:via-[#227d4f] hover:to-[#2ab584] text-white h-16 font-bold text-3xl md:text-4xl mt-6 py-5"
                   disabled={isLoading}
                 >
                   {isLoading ? "Submitting..." : "Request Consultation"}
@@ -484,8 +484,8 @@ export default function SmileSimulator() {
                 <CheckCircle className="w-10 h-10 text-green-600" />
               </div>
             </div>
-            <DialogTitle className="text-center text-3xl md:text-4xl lg:text-5xl font-bold">Thank You!</DialogTitle>
-            <DialogDescription className="text-center text-lg md:text-xl lg:text-2xl pt-2 leading-relaxed">
+            <DialogTitle className="text-center text-xl md:text-2xl lg:text-3xl font-bold">Thank You!</DialogTitle>
+            <DialogDescription className="text-center text-base md:text-lg lg:text-xl pt-2 leading-relaxed">
               Our dental team will contact you shortly for your Invisalign consultation. Your consultation request and photo have been sent to our email and WhatsApp.
             </DialogDescription>
           </DialogHeader>
