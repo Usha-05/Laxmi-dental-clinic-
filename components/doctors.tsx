@@ -66,21 +66,21 @@ export default function Doctors() {
   }
 
   return (
-    <section id="doctors" className="py-4 md:py-6 lg:py-8 bg-gradient-to-b from-white via-[#ecfdf5] to-[#d1fae5]">
-      <div className="w-full">
+    <section id="doctors" className="py-3 md:py-4 bg-gradient-to-b from-white via-[#ecfdf5] to-[#d1fae5]">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Centered Header */}
-        <div className="max-w-7xl mx-auto mb-4 md:mb-6 px-3 sm:px-4 lg:px-5">
+        <div className="mb-2">
           <div className="text-center">
-            <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold mb-3 tracking-tight font-serif">Our Doctors</h2>
-            <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-muted-foreground max-w-3xl mx-auto px-4 leading-relaxed font-semibold">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold mb-1.5 tracking-tight font-serif">Our Doctors</h2>
+            <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed font-semibold">
               Experienced specialists dedicated to your care.
             </p>
           </div>
         </div>
 
         {/* Full Width Cards Container */}
-        <div className="w-full px-1 sm:px-2">
-          <div className="flex flex-col md:flex-row md:items-stretch gap-6 md:gap-1 w-full">
+        <div className="w-full">
+          <div className="flex flex-col gap-2 w-full max-w-5xl mx-auto">
           {doctors.map((doc) => {
             const imageSrc = imageErrors[doc.name]
               ? getDoctorPlaceholderImage(400, 400, doc.name.split(" ")[0])
@@ -88,83 +88,83 @@ export default function Doctors() {
             const isVishnuPortrait = doc.photo === "/vishnu-gowtham.jpg"
             
             return (
-              <article key={doc.name} className="rounded-2xl bg-white border border-border/70 overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col w-full md:flex-1 md:min-w-0 min-h-[280px]">
+              <article key={doc.name} className="rounded-xl bg-white border border-border/70 overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col w-full">
                 {/* Mobile Image */}
-                <div className="relative md:hidden bg-gray-100 w-full h-48">
+                <div className="relative md:hidden bg-gray-100 w-full h-44 p-2">
                   {!imageErrors[doc.name] ? (
                     <Image
                       src={imageSrc}
                       alt={doc.name}
                       fill
-                      className={`object-cover transition-transform duration-300 ${
-                        isVishnuPortrait ? "object-top" : "object-center"
-                      }`}
+                      className="object-cover transition-transform duration-300 !object-center"
                       sizes="100vw"
                       onError={() => handleImageError(doc.name)}
+                      style={{ objectPosition: 'center' }}
                     />
                   ) : (
                     <img
                       src={getDoctorPlaceholderImage(400, 400, doc.name.split(" ")[0])}
                       alt={doc.name}
-                      className="h-full w-full object-cover"
+                      className="h-full w-full object-cover object-center"
+                      style={{ objectPosition: 'center' }}
                     />
                   )}
                 </div>
                 
                 <div className="flex flex-1 items-stretch gap-0 min-h-0">
                   {/* Desktop Image */}
-                  <div className="relative hidden md:block bg-gray-100 w-48 lg:w-56 xl:w-64 flex-shrink-0 h-full min-h-[200px]">
+                  <div className="relative hidden md:block bg-gray-100 w-44 lg:w-48 xl:w-52 flex-shrink-0 h-auto min-h-[240px] p-2">
                     {!imageErrors[doc.name] ? (
                       <Image
                         src={imageSrc}
                         alt={doc.name}
                         fill
-                        className={`object-cover transition-transform duration-300 hover:scale-105 ${
-                          isVishnuPortrait ? "object-top" : "object-center"
-                        }`}
-                        sizes="(max-width: 768px) 192px, (max-width: 1024px) 224px, 256px"
+                        className="object-cover transition-transform duration-300 hover:scale-105 !object-center"
+                        sizes="(max-width: 768px) 176px, (max-width: 1024px) 192px, 208px"
                         priority={doc.name === "Vishnu Gowtham Marella"}
                         onError={() => handleImageError(doc.name)}
+                        style={{ objectPosition: 'center' }}
                       />
                     ) : (
                       <img
                         src={getDoctorPlaceholderImage(400, 400, doc.name.split(" ")[0])}
                         alt={doc.name}
-                        className="h-full w-full object-cover"
+                        className="h-full w-full object-cover object-center"
+                        style={{ objectPosition: 'center' }}
                       />
                     )}
                   </div>
-                  <div className="p-5 md:p-6 lg:p-7 flex-1 flex flex-col gap-3 text-xl md:text-2xl leading-relaxed overflow-hidden">
-                    <div className="space-y-2 mb-4">
-                      <h3 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-foreground tracking-tight font-serif">{doc.name}</h3>
-                      <p className="text-xl md:text-2xl lg:text-3xl font-bold text-primary">{doc.degrees}</p>
-                      <p className="text-xl md:text-2xl lg:text-3xl text-emerald-700 font-semibold">{doc.title}</p>
+                  <div className="p-2 sm:p-2 md:p-2.5 flex-1 flex flex-col gap-0.5 text-xs sm:text-sm md:text-base leading-snug overflow-hidden">
+                    <div className="space-y-0.5 mb-0.5">
+                      <h3 className="text-sm sm:text-base md:text-lg font-extrabold text-foreground tracking-tight font-serif">{doc.name}</h3>
+                      <p className="text-xs sm:text-sm md:text-base font-bold text-primary">{doc.degrees}</p>
+                      <p className="text-xs sm:text-sm md:text-base text-emerald-700 font-semibold">{doc.title}</p>
                     </div>
 
                     {doc.description && (
-                      <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground leading-relaxed mb-4 font-normal">
+                      <p className="text-xs sm:text-sm md:text-base text-muted-foreground leading-snug mb-0.5 font-normal">
                         {doc.description}
                       </p>
                     )}
 
-                    <div className="space-y-2 mb-4">
+                    <div className="space-y-0.5 mb-0.5">
                       {doc.education.map((line, i) => (
-                        <p key={i} className="text-lg md:text-xl lg:text-2xl text-muted-foreground break-words leading-relaxed font-normal">{line}</p>
+                        <p key={i} className="text-xs sm:text-sm md:text-base text-muted-foreground break-words leading-snug font-normal">{line}</p>
                       ))}
                     </div>
 
                     {doc.experience && (
-                      <div className="space-y-2 mb-4">
+                      <div className="space-y-0.5 mb-0.5">
                         {doc.experience.map((line, i) => (
-                          <p key={i} className="text-lg md:text-xl lg:text-2xl text-muted-foreground break-words leading-relaxed font-normal">{line}</p>
+                          <p key={i} className="text-xs sm:text-sm md:text-base text-muted-foreground break-words leading-snug font-normal">{line}</p>
                         ))}
                       </div>
                     )}
 
                     {doc.expertise && (
-                      <ul className="list-disc pl-6 space-y-2">
+                      <ul className="list-disc pl-3 sm:pl-3 space-y-0.5">
                         {doc.expertise.map((item, i) => (
-                          <li key={i} className="text-lg md:text-xl lg:text-2xl text-muted-foreground break-words leading-relaxed font-normal">{item}</li>
+                          <li key={i} className="text-xs sm:text-sm md:text-base text-muted-foreground break-words leading-snug font-normal">{item}</li>
                         ))}
                       </ul>
                     )}

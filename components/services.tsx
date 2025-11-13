@@ -136,29 +136,29 @@ const services = [
 
 export default function Services({ onAppointmentClick, onConsultationClick }: ServicesProps) {
   return (
-    <section id="services" className="py-4 md:py-6 lg:py-8 bg-gradient-to-b from-[#6ee7b7] via-[#a7f3d0] to-[#d1fae5] relative">
+    <section id="services" className="py-3 md:py-4 bg-gradient-to-b from-[#6ee7b7] via-[#a7f3d0] to-[#d1fae5] relative">
       <DentalSymbolsBackground />
-      <div className="w-full px-2 sm:px-4 lg:px-6 relative z-10">
-        <div className="text-center mb-4 md:mb-6">
-          <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold mb-3 text-balance tracking-tight">Our Services</h2>
-          <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-muted-foreground max-w-2xl mx-auto text-balance font-medium leading-relaxed px-4">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="text-center mb-3">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold mb-2 text-balance tracking-tight">Our Services</h2>
+          <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto text-balance font-medium leading-relaxed">
             Comprehensive dental and cosmetic solutions tailored to meet all your oral health needs
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-3 sm:gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-3">
           {services.map((service, index) => {
             const Icon = service.icon
             return (
               <Card key={index} className="border-border hover:border-primary/50 transition-all hover:shadow-lg flex flex-col">
-                <CardHeader>
-                  <div className="w-20 h-20 md:w-24 md:h-24 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
-                    <Icon className="w-10 h-10 md:w-12 md:h-12 text-primary" />
+                <CardHeader className="pb-2">
+                  <div className="w-12 h-12 md:w-16 md:h-16 bg-primary/10 rounded-xl flex items-center justify-center mb-1.5">
+                    <Icon className="w-6 h-6 md:w-8 md:h-8 text-primary" />
                   </div>
-                  <CardTitle className="text-3xl md:text-4xl lg:text-5xl font-semibold leading-snug">{service.title}</CardTitle>
+                  <CardTitle className="text-base sm:text-lg font-semibold leading-snug">{service.title}</CardTitle>
                 </CardHeader>
-                <CardContent className="flex-1 flex flex-col">
-                  <CardDescription className="text-xl md:text-2xl lg:text-3xl leading-relaxed mb-4 flex-1">
+                <CardContent className="flex-1 flex flex-col pt-0 pb-2">
+                  <CardDescription className="text-xs sm:text-sm leading-relaxed mb-2 flex-1">
                     {service.description}
                   </CardDescription>
                   <Button
@@ -169,7 +169,7 @@ export default function Services({ onAppointmentClick, onConsultationClick }: Se
                         onAppointmentClick()
                       }
                     }}
-                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground text-xl md:text-2xl font-semibold py-5"
+                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground text-xs sm:text-sm font-semibold py-1.5"
                   >
                     Request Consultation
                   </Button>

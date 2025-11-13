@@ -11,27 +11,27 @@ export default function Hero({ onAppointmentClick }: { onAppointmentClick: () =>
   return (
     <section
       id="home"
-      className="pt-12 sm:pt-16 md:pt-20 lg:pt-24 pb-8 md:pb-12 lg:pb-16 relative overflow-hidden bg-gradient-to-b from-[#1E603F] via-[#289660] via-[#34d399] to-[#6ee7b7]"
+      className="pt-8 sm:pt-10 md:pt-12 pb-6 md:pb-8 relative overflow-hidden bg-gradient-to-b from-[#1E603F] via-[#289660] via-[#34d399] to-[#6ee7b7]"
     >
-      <div className="w-full px-2 sm:px-4 lg:px-6 relative">
-        <div className="grid md:grid-cols-2 gap-6 md:gap-8 lg:gap-10 items-center">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div className="grid md:grid-cols-2 gap-4 md:gap-6 items-center">
           {/* Left Content */}
-          <div className="space-y-6">
-            <div className="space-y-4">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-white text-balance tracking-tight">
+          <div className="space-y-3">
+            <div className="space-y-2">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight text-white text-balance tracking-tight">
                 Hi, welcome to Laxmi Face and Multispeciality Dental Hospital
                 <br />
-                <span className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-bold">It's anxiety free...</span>
+                <span className="text-xl sm:text-2xl md:text-3xl lg:text-3xl font-bold">It's anxiety free...</span>
               </h1>
-              <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-white/95 leading-relaxed text-balance max-w-2xl font-medium">
+              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/95 leading-relaxed text-balance max-w-2xl font-medium">
                 Transforming Smiles, Enhancing Lives: Your Trusted Destination for Complete Dental & Facial Care.
               </p>
             </div>
 
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-3">
               <Button
                 onClick={onAppointmentClick}
-                className="bg-white hover:bg-white/90 text-primary font-bold px-8 py-4 text-lg md:text-xl shadow-xl hover:shadow-2xl transition-all duration-300"
+                className="bg-white hover:bg-white/90 text-primary font-bold px-6 py-3 text-base md:text-lg shadow-xl hover:shadow-2xl transition-all duration-300"
               >
                 Book Appointment
               </Button>
@@ -90,7 +90,8 @@ export default function Hero({ onAppointmentClick }: { onAppointmentClick: () =>
                       : primaryHeroImage
                   }
                   alt="Modern dental operatory at Laxmi Face & Multispeciality Dental Hospital"
-                  className="w-full h-full object-cover object-center"
+                  className="w-full h-full max-w-full object-cover object-center"
+                  style={{ maxWidth: '100%', height: 'auto' }}
                   onError={() => setImageError(true)}
                 />
               </div>

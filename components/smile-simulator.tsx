@@ -193,10 +193,10 @@ export default function SmileSimulator() {
       <div className="w-full px-2 sm:px-4 lg:px-6">
         {/* Header Section */}
         <div className="text-center mb-4 md:mb-6 animate-in fade-in slide-in-from-top-4 duration-500">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-foreground mb-4 tracking-tight">
+          <h2 className="text-lg sm:text-xl md:text-2xl font-extrabold text-foreground mb-4 tracking-tight">
             Smile View Simulator
           </h2>
-          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto px-4 leading-relaxed">
+          <p className="text-xs sm:text-sm md:text-base text-muted-foreground max-w-3xl mx-auto px-4 leading-relaxed">
             Visualize your new smile and discover Invisalign options tailored to you!
           </p>
         </div>
@@ -205,7 +205,7 @@ export default function SmileSimulator() {
           {/* Upload Section */}
           <Card className="animate-in fade-in slide-in-from-bottom-4 duration-500 delay-100">
             <CardHeader className="bg-gradient-to-r from-[#1E603F] via-[#289660] to-[#34d399] text-white">
-              <CardTitle className="flex items-center gap-2 text-2xl md:text-3xl font-bold">
+              <CardTitle className="flex items-center gap-2 text-base md:text-lg font-bold">
                 <Smile className="w-6 h-6" />
                 Upload Your Photo
               </CardTitle>
@@ -233,7 +233,7 @@ export default function SmileSimulator() {
                   <Button
                     type="button"
                     onClick={() => fileInputRef.current?.click()}
-                    className="w-full md:w-auto bg-green-600 hover:bg-green-700 text-white text-base md:text-lg font-semibold py-3"
+                    className="w-full md:w-auto bg-green-600 hover:bg-green-700 text-white text-xs md:text-sm font-semibold py-3"
                   >
                     <Upload className="w-5 h-5 mr-2" />
                     Upload Photo
@@ -242,7 +242,7 @@ export default function SmileSimulator() {
                     type="button"
                     onClick={() => cameraInputRef.current?.click()}
                     variant="outline"
-                    className="w-full md:w-auto border-green-600 text-green-600 hover:bg-green-50 text-base md:text-lg font-semibold py-3"
+                    className="w-full md:w-auto border-green-600 text-green-600 hover:bg-green-50 text-xs md:text-sm font-semibold py-3"
                   >
                     <Camera className="w-5 h-5 mr-2" />
                     Take Photo
@@ -258,12 +258,12 @@ export default function SmileSimulator() {
                     />
                   </div>
                   <div className="mt-4 text-center">
-                    <p className="text-lg md:text-xl font-semibold text-green-600 mb-3">Preview Your Smile</p>
+                    <p className="text-xs md:text-sm font-semibold text-green-600 mb-3">Preview Your Smile</p>
                     <Button
                       type="button"
                       onClick={handleRemoveImage}
                       variant="outline"
-                      className="text-base md:text-lg font-semibold text-red-600 hover:text-red-700 hover:bg-red-50 py-3 px-6"
+                      className="text-xs md:text-sm font-semibold text-red-600 hover:text-red-700 hover:bg-red-50 py-3 px-6"
                     >
                       <X className="w-5 h-5 mr-2" />
                       Remove Photo
@@ -277,13 +277,13 @@ export default function SmileSimulator() {
           {/* Invisalign Quiz Section */}
           <Card className="animate-in fade-in slide-in-from-bottom-4 duration-500 delay-200">
             <CardHeader className="bg-gradient-to-r from-[#1E603F] via-[#289660] to-[#34d399] text-white">
-              <CardTitle className="text-2xl md:text-3xl font-bold">Invisalign Quiz</CardTitle>
+              <CardTitle className="text-base md:text-lg font-bold">Invisalign Quiz</CardTitle>
               <div className="mt-4">
                 <div className="flex justify-between items-center mb-2">
-                  <span className="text-sm md:text-base lg:text-lg text-green-100">
+                  <span className="text-xs md:text-sm text-green-100">
                     Question {currentStep} of {totalSteps}
                   </span>
-                  <span className="text-sm md:text-base lg:text-lg font-semibold text-green-100">{Math.round(quizProgress)}%</span>
+                  <span className="text-xs md:text-sm font-semibold text-green-100">{Math.round(quizProgress)}%</span>
                 </div>
                 <Progress value={quizProgress} className="h-2 bg-green-400/30" />
               </div>
@@ -291,7 +291,7 @@ export default function SmileSimulator() {
             <CardContent className="p-6">
               {currentQuestion && (
                 <div className="space-y-4 animate-in fade-in slide-in-from-right-4 duration-300">
-                  <h3 className="text-2xl md:text-3xl font-semibold text-foreground leading-tight">
+                  <h3 className="text-sm md:text-base font-semibold text-foreground leading-tight">
                     {currentQuestion.question}
                   </h3>
                   <RadioGroup
@@ -307,7 +307,7 @@ export default function SmileSimulator() {
                           <RadioGroupItem value={option} id={option} className="size-4 shrink-0 border-2 border-primary/40" />
                           <Label
                             htmlFor={option}
-                            className="flex-1 cursor-pointer font-semibold text-base md:text-lg lg:text-xl text-foreground"
+                            className="flex-1 cursor-pointer font-semibold text-xs md:text-sm text-foreground"
                           >
                             {option}
                           </Label>
@@ -322,7 +322,7 @@ export default function SmileSimulator() {
                         type="button"
                         onClick={handlePrevious}
                         variant="outline"
-                        className="flex-1 text-base md:text-lg font-semibold py-3"
+                        className="flex-1 text-xs md:text-sm font-semibold py-3"
                       >
                         <ChevronLeft className="w-5 h-5 mr-2" />
                         Previous
@@ -332,7 +332,7 @@ export default function SmileSimulator() {
                       <Button
                         type="button"
                         onClick={handleNext}
-                        className="flex-1 bg-green-600 hover:bg-green-700 text-white text-base md:text-lg font-semibold py-3"
+                        className="flex-1 bg-green-600 hover:bg-green-700 text-white text-xs md:text-sm font-semibold py-3"
                       >
                         Next
                         <ChevronRight className="w-5 h-5 ml-2" />
@@ -347,7 +347,7 @@ export default function SmileSimulator() {
                             formSection.scrollIntoView({ behavior: "smooth", block: "start" })
                           }
                         }}
-                        className="flex-1 bg-green-600 hover:bg-green-700 text-white text-base md:text-lg font-semibold py-3"
+                        className="flex-1 bg-green-600 hover:bg-green-700 text-white text-xs md:text-sm font-semibold py-3"
                       >
                         Complete Quiz
                         <CheckCircle className="w-5 h-5 ml-2" />
@@ -362,14 +362,14 @@ export default function SmileSimulator() {
           {/* Concern Query Section */}
           <Card className="animate-in fade-in slide-in-from-bottom-4 duration-500 delay-300">
             <CardHeader className="bg-gradient-to-r from-[#1E603F] via-[#289660] to-[#34d399] text-white">
-              <CardTitle className="text-3xl md:text-4xl lg:text-5xl font-bold">Tell Us About Your Concerns</CardTitle>
+              <CardTitle className="text-base md:text-lg font-bold">Tell Us About Your Concerns</CardTitle>
             </CardHeader>
             <CardContent className="p-6">
               <Textarea
                 placeholder="Tell us about your dental concerns (optional)... For example: 'I have gaps between my teeth' or 'I want a whiter smile'"
                 value={formData.concern}
                 onChange={(e) => setFormData((prev) => ({ ...prev, concern: e.target.value }))}
-                className="w-full resize-none min-h-36 text-2xl md:text-3xl lg:text-4xl"
+                className="w-full resize-none min-h-36 text-xs md:text-sm"
                 rows={4}
               />
             </CardContent>
@@ -378,18 +378,18 @@ export default function SmileSimulator() {
           {/* Basic Details Section */}
           <Card id="basic-details-form" className="animate-in fade-in slide-in-from-bottom-4 duration-500 delay-400">
             <CardHeader className="bg-gradient-to-r from-[#1E603F] via-[#289660] to-[#34d399] text-white">
-              <CardTitle className="text-3xl md:text-4xl lg:text-5xl font-bold">Your Details</CardTitle>
+              <CardTitle className="text-base md:text-lg font-bold">Your Details</CardTitle>
             </CardHeader>
-            <CardContent className="p-6">
-              <form onSubmit={handleSubmit} className="space-y-3 form-text-xl">
+            <CardContent className="p-4">
+              <form onSubmit={handleSubmit} className="space-y-2 form-text-xl">
                 {error && (
-                  <div className="text-red-600 text-2xl md:text-3xl lg:text-4xl font-semibold bg-red-50 p-3 rounded-lg border border-red-200">
+                  <div className="text-red-600 text-[10px] font-semibold bg-red-50 p-2 rounded-lg border border-red-200">
                     {error}
                   </div>
                 )}
-                <div className="grid md:grid-cols-2 gap-3">
+                <div className="grid md:grid-cols-2 gap-2">
                   <div>
-                    <Label htmlFor="name" className="text-2xl md:text-3xl lg:text-4xl font-semibold text-foreground mb-1.5 block">
+                    <Label htmlFor="name" className="text-[10px] font-semibold text-foreground mb-1 block">
                       Full Name *
                     </Label>
                     <Input
@@ -398,12 +398,12 @@ export default function SmileSimulator() {
                       value={formData.name}
                       onChange={(e) => setFormData((prev) => ({ ...prev, name: e.target.value }))}
                       placeholder="Your name"
-                      className="text-2xl md:text-3xl lg:text-4xl"
+                      className="text-[10px] h-8"
                       required
                     />
                   </div>
                   <div>
-                    <Label htmlFor="email" className="text-2xl md:text-3xl lg:text-4xl font-semibold text-foreground mb-1.5 block">
+                    <Label htmlFor="email" className="text-[10px] font-semibold text-foreground mb-1 block">
                       Email Address *
                     </Label>
                     <Input
@@ -412,12 +412,12 @@ export default function SmileSimulator() {
                       value={formData.email}
                       onChange={(e) => setFormData((prev) => ({ ...prev, email: e.target.value }))}
                       placeholder="your@email.com"
-                      className="text-2xl md:text-3xl lg:text-4xl"
+                      className="text-[10px] h-8"
                       required
                     />
                   </div>
                   <div>
-                    <Label htmlFor="phone" className="text-2xl md:text-3xl lg:text-4xl font-semibold text-foreground mb-1.5 block">
+                    <Label htmlFor="phone" className="text-[10px] font-semibold text-foreground mb-1 block">
                       Phone Number *
                     </Label>
                     <Input
@@ -426,12 +426,12 @@ export default function SmileSimulator() {
                       value={formData.phone}
                       onChange={(e) => setFormData((prev) => ({ ...prev, phone: e.target.value }))}
                       placeholder="Your phone number"
-                      className="text-2xl md:text-3xl lg:text-4xl"
+                      className="text-[10px] h-8"
                       required
                     />
                   </div>
                   <div>
-                    <Label htmlFor="city" className="text-2xl md:text-3xl lg:text-4xl font-semibold text-foreground mb-1.5 block">
+                    <Label htmlFor="city" className="text-[10px] font-semibold text-foreground mb-1 block">
                       City *
                     </Label>
                     <Input
@@ -440,13 +440,13 @@ export default function SmileSimulator() {
                       value={formData.city}
                       onChange={(e) => setFormData((prev) => ({ ...prev, city: e.target.value }))}
                       placeholder="Your city"
-                      className="text-2xl md:text-3xl lg:text-4xl"
+                      className="text-[10px] h-8"
                       required
                     />
                   </div>
                 </div>
 
-                <div className="flex items-start space-x-2 pt-2">
+                <div className="flex items-start space-x-2 pt-1">
                   <Checkbox
                     id="agree"
                     checked={formData.agreeToContact}
@@ -456,7 +456,7 @@ export default function SmileSimulator() {
                   />
                   <Label
                     htmlFor="agree"
-                    className="text-2xl md:text-3xl lg:text-4xl text-muted-foreground cursor-pointer leading-relaxed"
+                    className="text-[10px] text-muted-foreground cursor-pointer leading-relaxed"
                   >
                     I agree to be contacted for a consultation *
                   </Label>
@@ -464,7 +464,7 @@ export default function SmileSimulator() {
 
                 <Button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-[#1E603F] via-[#289660] to-[#34d399] hover:from-[#155d33] hover:via-[#227d4f] hover:to-[#2ab584] text-white h-16 font-bold text-3xl md:text-4xl mt-6 py-5"
+                  className="w-full bg-gradient-to-r from-[#1E603F] via-[#289660] to-[#34d399] hover:from-[#155d33] hover:via-[#227d4f] hover:to-[#2ab584] text-white h-10 font-bold text-[10px] mt-4 py-2"
                   disabled={isLoading}
                 >
                   {isLoading ? "Submitting..." : "Request Consultation"}
@@ -484,8 +484,8 @@ export default function SmileSimulator() {
                 <CheckCircle className="w-10 h-10 text-green-600" />
               </div>
             </div>
-            <DialogTitle className="text-center text-xl md:text-2xl lg:text-3xl font-bold">Thank You!</DialogTitle>
-            <DialogDescription className="text-center text-base md:text-lg lg:text-xl pt-2 leading-relaxed">
+            <DialogTitle className="text-center text-sm md:text-base font-bold">Thank You!</DialogTitle>
+            <DialogDescription className="text-center text-xs md:text-sm pt-2 leading-relaxed">
               Our dental team will contact you shortly for your Invisalign consultation. Your consultation request and photo have been sent to our email and WhatsApp.
             </DialogDescription>
           </DialogHeader>
@@ -511,7 +511,7 @@ export default function SmileSimulator() {
                 setCurrentStep(1)
                 setUploadedImage(null)
               }}
-              className="bg-green-600 hover:bg-green-700 text-white text-lg md:text-xl font-bold px-8 py-4"
+              className="bg-green-600 hover:bg-green-700 text-white text-xs md:text-sm font-bold px-8 py-4"
             >
               Close
             </Button>

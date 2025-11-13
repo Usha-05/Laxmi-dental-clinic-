@@ -91,18 +91,18 @@ export default function AssessYourself() {
   }
 
   return (
-    <section id="assess-yourself" className="w-full py-4 md:py-6 lg:py-8 bg-gradient-to-b from-[#d1fae5] via-[#ecfdf5] to-white relative">
+    <section id="assess-yourself" className="w-full py-3 md:py-4 bg-gradient-to-b from-[#d1fae5] via-[#ecfdf5] to-white relative">
       <DentalSymbolsBackground />
       <div className="w-full px-2 sm:px-4 lg:px-6 relative z-10">
-        <div className="text-center mb-4 md:mb-6">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-foreground mb-4 tracking-tight">Assess Yourself</h2>
+        <div className="text-center mb-3">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-2 tracking-tight">Assess Yourself</h2>
           <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground px-4 leading-relaxed">
             Take our self-assessment forms to understand your dental health better
           </p>
         </div>
 
         {!selectedType ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-3">
             {Object.entries(assessments).map(([key, assessment]) => (
               <Card
                 key={key}
@@ -110,15 +110,15 @@ export default function AssessYourself() {
                 onClick={() => setSelectedType(key as AssessmentType)}
               >
                 <CardHeader>
-                  <CardTitle className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-emerald-800 leading-snug">
+                  <CardTitle className="text-lg sm:text-xl md:text-2xl font-extrabold text-emerald-800 leading-snug">
                     {assessment.title}
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-5 leading-relaxed">
+                  <p className="text-sm sm:text-base md:text-lg text-muted-foreground mb-5 leading-relaxed">
                     {assessment.description}
                   </p>
-                  <Button className="w-full bg-primary hover:bg-primary/90 text-lg md:text-xl py-3 font-semibold tracking-wide shadow-md">
+                  <Button className="w-full bg-primary hover:bg-primary/90 text-sm md:text-base py-3 font-semibold tracking-wide shadow-md">
                     Start Assessment
                   </Button>
                 </CardContent>
@@ -129,14 +129,14 @@ export default function AssessYourself() {
           <div className="max-w-3xl mx-auto">
             <Card className="border-emerald-100 shadow-lg">
               <CardHeader>
-                <Button variant="ghost" className="mb-4 w-fit text-lg md:text-xl font-semibold text-primary hover:text-primary/80" onClick={handleReset}>
+                <Button variant="ghost" className="mb-4 w-fit text-sm md:text-base font-semibold text-primary hover:text-primary/80" onClick={handleReset}>
                   ← Back to Assessments
                 </Button>
-                <CardTitle className="text-3xl md:text-4xl font-bold text-primary leading-tight">{currentAssessment?.title}</CardTitle>
-                <CardDescription className="text-lg md:text-xl mt-3 leading-relaxed text-muted-foreground">
+                <CardTitle className="text-xl md:text-2xl font-bold text-primary leading-tight">{currentAssessment?.title}</CardTitle>
+                <CardDescription className="text-sm md:text-base mt-3 leading-relaxed text-muted-foreground">
                   {currentAssessment?.description}
                 </CardDescription>
-                <p className="text-base md:text-lg text-amber-700 mt-6 bg-amber-50/80 border border-amber-200 p-4 rounded-xl">
+                <p className="text-xs md:text-sm text-amber-700 mt-6 bg-amber-50/80 border border-amber-200 p-4 rounded-xl">
                   Note: This self-assessment is informative and does not substitute for a professional evaluation by a
                   dentist or specialist.
                 </p>
@@ -146,7 +146,7 @@ export default function AssessYourself() {
                   <div className="space-y-5">
                     {currentAssessment?.questions.map((question) => (
                       <div key={question.id} className="space-y-3 pb-4 border-b border-border/60 last:border-b-0">
-                        <Label className="text-xl md:text-2xl font-semibold tracking-tight text-foreground">
+                        <Label className="text-base md:text-lg font-semibold tracking-tight text-foreground">
                           {question.id}. {question.text}
                         </Label>
                         <RadioGroup
@@ -155,13 +155,13 @@ export default function AssessYourself() {
                         >
                           <div className="flex items-center space-x-3">
                             <RadioGroupItem value="yes" id={`q${question.id}-yes`} className="size-5 shrink-0 border-2 border-primary/40" />
-                            <Label htmlFor={`q${question.id}-yes`} className="text-lg md:text-xl cursor-pointer text-muted-foreground">
+                            <Label htmlFor={`q${question.id}-yes`} className="text-sm md:text-base cursor-pointer text-muted-foreground">
                               Yes
                             </Label>
                           </div>
                           <div className="flex items-center space-x-3">
                             <RadioGroupItem value="no" id={`q${question.id}-no`} className="size-5 shrink-0 border-2 border-primary/40" />
-                            <Label htmlFor={`q${question.id}-no`} className="text-lg md:text-xl cursor-pointer text-muted-foreground">
+                            <Label htmlFor={`q${question.id}-no`} className="text-sm md:text-base cursor-pointer text-muted-foreground">
                               No
                             </Label>
                           </div>
@@ -172,12 +172,12 @@ export default function AssessYourself() {
                       <Button
                         onClick={handleAssess}
                         disabled={Object.keys(answers).length !== totalQuestions}
-                        className="w-full bg-primary hover:bg-primary/90 h-12 text-lg md:text-xl font-semibold"
+                        className="w-full bg-primary hover:bg-primary/90 h-12 text-sm md:text-base font-semibold"
                         size="lg"
                       >
                         Assess
                       </Button>
-                      <Button onClick={handleReset} variant="outline" className="w-full bg-transparent text-lg md:text-xl font-semibold h-12">
+                      <Button onClick={handleReset} variant="outline" className="w-full bg-transparent text-sm md:text-base font-semibold h-12">
                         Clear
                       </Button>
                     </div>
@@ -185,9 +185,9 @@ export default function AssessYourself() {
                 ) : (
                   <div className="space-y-4">
                     <div className="bg-gradient-to-r from-primary/10 to-primary/5 p-6 rounded-2xl text-center shadow-inner">
-                      <p className="text-lg md:text-xl text-muted-foreground mb-3 font-semibold tracking-wide uppercase">Your Assessment Score</p>
-                      <div className="text-5xl md:text-6xl font-extrabold text-primary mb-3">{eligibilityPercentage}%</div>
-                      <p className="text-lg md:text-xl text-foreground mb-4">
+                      <p className="text-sm md:text-base text-muted-foreground mb-3 font-semibold tracking-wide uppercase">Your Assessment Score</p>
+                      <div className="text-3xl md:text-4xl font-extrabold text-primary mb-3">{eligibilityPercentage}%</div>
+                      <p className="text-sm md:text-base text-foreground mb-4">
                         {eligibilityPercentage >= 70
                           ? "You appear to be a good candidate for this treatment! We recommend scheduling a consultation with our specialists."
                           : eligibilityPercentage >= 40
@@ -198,12 +198,12 @@ export default function AssessYourself() {
                     <div className="space-y-5">
                       <Button
                         onClick={handleReset}
-                        className="w-full bg-primary hover:bg-primary/90 h-14 text-xl md:text-2xl font-semibold"
+                        className="w-full bg-primary hover:bg-primary/90 h-14 text-sm md:text-base font-semibold"
                         size="lg"
                       >
                         Take Another Assessment
                       </Button>
-                      <p className="text-center text-lg md:text-xl text-muted-foreground leading-relaxed">
+                      <p className="text-center text-sm md:text-base text-muted-foreground leading-relaxed">
                         Have Doubts?{" "}
                         <a href="#appointment" className="text-primary hover:underline font-semibold">
                           Book an appointment

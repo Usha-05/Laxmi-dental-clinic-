@@ -116,14 +116,14 @@ export default function VirtualConsultation() {
 
   if (submitted) {
     return (
-      <section id="virtual-consultation" className="py-4 md:py-6 lg:py-8 bg-white">
+      <section id="virtual-consultation" className="py-3 md:py-4 bg-white">
         <div className="w-full px-2 sm:px-4 lg:px-6">
           <div className="max-w-3xl mx-auto">
           <Card className="border-green-200 bg-green-50">
-            <CardContent className="pt-8 text-center">
-              <CheckCircle className="w-20 h-20 text-green-600 mx-auto mb-4" />
-              <h3 className="text-xl md:text-2xl font-bold text-foreground mb-2">Consultation Request Sent!</h3>
-              <p className="text-base md:text-lg text-muted-foreground">
+            <CardContent className="pt-4 text-center">
+              <CheckCircle className="w-12 h-12 text-green-600 mx-auto mb-3" />
+              <h3 className="text-sm md:text-base font-bold text-foreground mb-2">Consultation Request Sent!</h3>
+              <p className="text-xs md:text-sm text-muted-foreground">
                 We'll contact you shortly to confirm your virtual consultation. Your consultation request has been sent to our email and WhatsApp. Thank you for choosing Laxmi Face and Dental Hospital.
               </p>
             </CardContent>
@@ -135,100 +135,100 @@ export default function VirtualConsultation() {
   }
 
   return (
-    <section id="virtual-consultation" className="py-4 md:py-6 lg:py-8 bg-gradient-to-b from-white via-[#ecfdf5] to-[#d1fae5]">
+    <section id="virtual-consultation" className="py-3 md:py-4 bg-gradient-to-b from-white via-[#ecfdf5] to-[#d1fae5]">
       <div className="w-full px-2 sm:px-4 lg:px-6">
         <div className="max-w-3xl mx-auto">
-          <div className="text-center mb-4 md:mb-6">
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-foreground mb-3">Virtual Consultation</h2>
-            <p className="text-xl sm:text-2xl md:text-3xl text-muted-foreground px-4">Connect with our experts from the comfort of your home</p>
+          <div className="text-center mb-3">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground mb-2">Virtual Consultation</h2>
+            <p className="text-sm sm:text-base md:text-lg text-muted-foreground px-4">Connect with our experts from the comfort of your home</p>
           </div>
 
           {/* Consultation Form */}
           <Card>
           <CardHeader className="bg-green-600 text-white">
-            <CardTitle className="text-4xl md:text-5xl">Schedule Your Consultation</CardTitle>
-            <CardDescription className="text-xl md:text-2xl text-green-100">
+            <CardTitle className="text-base md:text-lg">Schedule Your Consultation</CardTitle>
+            <CardDescription className="text-xs md:text-sm text-green-100">
               Fill in your details and we'll get back to you
             </CardDescription>
           </CardHeader>
-          <CardContent className="p-6">
-            <form onSubmit={handleSubmit} className="space-y-3 form-text-xl">
+          <CardContent className="p-4">
+            <form onSubmit={handleSubmit} className="space-y-2 form-text-xl">
               {error && (
-                <div className="text-red-600 text-2xl md:text-3xl font-medium bg-red-50 p-3 rounded-lg border border-red-200">
+                <div className="text-red-600 text-xs font-medium bg-red-50 p-2 rounded-lg border border-red-200">
                   {error}
                 </div>
               )}
               <div>
-                <label className="block text-2xl md:text-3xl font-semibold text-foreground mb-1.5">Full Name *</label>
+                <label className="block text-xs font-semibold text-foreground mb-1">Full Name *</label>
                 <Input
                   type="text"
                   name="name"
                   value={formData.name}
                   onChange={handleInputChange}
                   placeholder="Your name"
-                  className="w-full text-2xl md:text-3xl"
+                  className="w-full text-xs h-8"
                   required
                 />
               </div>
 
               <div>
-                <label className="block text-2xl md:text-3xl font-semibold text-foreground mb-1.5">Email Address *</label>
+                <label className="block text-xs font-semibold text-foreground mb-1">Email Address *</label>
                 <Input
                   type="email"
                   name="email"
                   value={formData.email}
                   onChange={handleInputChange}
                   placeholder="your@email.com"
-                  className="w-full text-2xl md:text-3xl"
+                  className="w-full text-xs h-8"
                   required
                 />
               </div>
 
               <div>
-                <label className="block text-2xl md:text-3xl font-semibold text-foreground mb-1.5">Phone Number *</label>
+                <label className="block text-xs font-semibold text-foreground mb-1">Phone Number *</label>
                 <Input
                   type="tel"
                   name="phone"
                   value={formData.phone}
                   onChange={handleInputChange}
                   placeholder="Your phone number"
-                  className="w-full text-2xl md:text-3xl"
+                  className="w-full text-xs h-8"
                   required
                 />
               </div>
 
               <div>
-                <label className="block text-2xl md:text-3xl font-semibold text-foreground mb-1.5">Consultation Type *</label>
-                <div className="flex gap-3">
+                <label className="block text-xs font-semibold text-foreground mb-1">Consultation Type *</label>
+                <div className="flex gap-2">
                   <button
                     type="button"
                     onClick={() => setFormData((prev) => ({ ...prev, consultationType: "video" }))}
-                    className={`flex-1 flex items-center justify-center gap-2 p-4 rounded-lg border-2 transition-all text-xl md:text-2xl ${
+                    className={`flex-1 flex items-center justify-center gap-1 p-2 rounded-lg border-2 transition-all text-xs ${
                       formData.consultationType === "video"
                         ? "border-green-600 bg-green-50 text-green-700"
                         : "border-gray-300 bg-white text-gray-700 hover:border-green-400 hover:bg-green-50"
                     }`}
                   >
-                    <Video className="w-8 h-8" />
+                    <Video className="w-4 h-4" />
                     <span className="font-bold">Video Call</span>
                   </button>
                   <button
                     type="button"
                     onClick={() => setFormData((prev) => ({ ...prev, consultationType: "call" }))}
-                    className={`flex-1 flex items-center justify-center gap-2 p-4 rounded-lg border-2 transition-all text-xl md:text-2xl ${
+                    className={`flex-1 flex items-center justify-center gap-1 p-2 rounded-lg border-2 transition-all text-xs ${
                       formData.consultationType === "call"
                         ? "border-green-600 bg-green-50 text-green-700"
                         : "border-gray-300 bg-white text-gray-700 hover:border-green-400 hover:bg-green-50"
                     }`}
                   >
-                    <Phone className="w-8 h-8" />
+                    <Phone className="w-4 h-4" />
                     <span className="font-bold">Phone Call</span>
                   </button>
                 </div>
               </div>
 
-              <div className="flex flex-col gap-2">
-                <label className="block text-2xl md:text-3xl font-semibold text-foreground">Preferred Date *</label>
+              <div className="flex flex-col gap-1">
+                <label className="block text-xs font-semibold text-foreground">Preferred Date *</label>
                 <Popover open={datePopoverOpen} onOpenChange={setDatePopoverOpen}>
                   {datePopoverOpen && (
                     <div
@@ -241,16 +241,16 @@ export default function VirtualConsultation() {
                       type="button"
                       variant="outline"
                       className={cn(
-                        "w-full justify-between h-16 rounded-lg border border-border px-5 py-3 text-left text-2xl md:text-3xl font-semibold",
+                        "w-full justify-between h-8 rounded-lg border border-border px-3 py-2 text-left text-xs font-semibold",
                         !selectedDate && "text-muted-foreground",
                       )}
                     >
                       {selectedDate ? format(selectedDate, "EEEE, MMMM d, yyyy") : "Select a date"}
-                      <CalendarIcon className="h-10 w-10 ml-3 shrink-0 text-muted-foreground" />
+                      <CalendarIcon className="h-4 w-4 ml-2 shrink-0 text-muted-foreground" />
                     </Button>
                   </PopoverTrigger>
                   <PopoverContent
-                    className="z-[70] w-[min(100vw-3rem,480px)] min-w-[360px] rounded-2xl border border-emerald-100 bg-white p-6 shadow-2xl"
+                    className="z-[70] w-[min(100vw-3rem,480px)] min-w-[280px] sm:min-w-[320px] md:min-w-[360px] rounded-2xl border border-emerald-100 bg-white p-4 sm:p-6 shadow-2xl"
                     align="start"
                     sideOffset={16}
                   >
@@ -279,8 +279,8 @@ export default function VirtualConsultation() {
                 </Popover>
               </div>
 
-              <div className="flex flex-col gap-2">
-                <label className="block text-2xl md:text-3xl font-semibold text-foreground">Preferred Time</label>
+              <div className="flex flex-col gap-1">
+                <label className="block text-xs font-semibold text-foreground">Preferred Time</label>
                 <Popover open={timePopoverOpen} onOpenChange={setTimePopoverOpen}>
                   {timePopoverOpen && !datePopoverOpen && (
                     <div
@@ -293,16 +293,16 @@ export default function VirtualConsultation() {
                       type="button"
                       variant="outline"
                       className={cn(
-                        "w-full justify-between h-16 rounded-lg border border-border px-5 py-3 text-left text-2xl md:text-3xl font-semibold",
+                        "w-full justify-between h-8 rounded-lg border border-border px-3 py-2 text-left text-xs font-semibold",
                         !formData.preferredTime && "text-muted-foreground",
                       )}
                     >
                       {formData.preferredTime || "Select a time"}
-                      <Clock className="h-10 w-10 ml-3 shrink-0 text-muted-foreground" />
+                      <Clock className="h-4 w-4 ml-2 shrink-0 text-muted-foreground" />
                     </Button>
                   </PopoverTrigger>
                   <PopoverContent
-                    className="z-[70] w-[min(100vw-3rem,360px)] min-w-[280px] rounded-2xl border border-emerald-100 bg-white p-2 shadow-xl"
+                    className="z-[70] w-[min(100vw-3rem,360px)] min-w-[240px] sm:min-w-[280px] rounded-2xl border border-emerald-100 bg-white p-2 sm:p-3 shadow-xl"
                     align="start"
                     sideOffset={16}
                   >
@@ -312,7 +312,7 @@ export default function VirtualConsultation() {
                           key={slot}
                           type="button"
                           className={cn(
-                            "w-full text-left px-4 py-3 text-2xl md:text-3xl rounded-md transition-colors hover:bg-emerald-50",
+                            "w-full text-left px-3 py-2 text-xs rounded-md transition-colors hover:bg-emerald-50",
                             formData.preferredTime === slot ? "bg-emerald-100 font-semibold" : "bg-white",
                           )}
                           onClick={() => {
@@ -329,13 +329,13 @@ export default function VirtualConsultation() {
               </div>
 
               <div>
-                <label className="block text-2xl md:text-3xl font-semibold text-foreground mb-1.5">Your Concern *</label>
+                <label className="block text-xs font-semibold text-foreground mb-1">Your Concern *</label>
                 <Textarea
                   name="concern"
                   value={formData.concern}
                   onChange={handleInputChange}
                   placeholder="Tell us about your dental concerns"
-                  className="w-full resize-none text-2xl md:text-3xl"
+                  className="w-full resize-none text-xs"
                   rows={3}
                   required
                 />
@@ -343,7 +343,7 @@ export default function VirtualConsultation() {
 
               <Button
                 type="submit"
-                className="w-full bg-green-600 hover:bg-green-700 text-white h-14 font-bold text-2xl md:text-3xl py-4"
+                className="w-full bg-green-600 hover:bg-green-700 text-white h-10 font-bold text-xs md:text-sm py-2 mt-2"
                 disabled={isLoading}
               >
                 {isLoading ? "Submitting..." : "Request Consultation"}

@@ -28,26 +28,26 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section id="testimonials" className="py-4 md:py-6 lg:py-8 bg-gradient-to-b from-white via-[#ecfdf5] to-[#d1fae5]">
-      <div className="w-full px-2 sm:px-4 lg:px-6">
-        <div className="text-center mb-4 md:mb-6">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3">What Our Patients Say</h2>
-          <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto text-balance px-4">
+    <section id="testimonials" className="py-3 md:py-4 bg-gradient-to-b from-white via-[#ecfdf5] to-[#d1fae5]">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-3">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2">What Our Patients Say</h2>
+          <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto text-balance px-4">
             Join hundreds of satisfied patients who have transformed their smiles with us
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-3">
           {testimonials.map((testimonial, index) => (
             <Card key={index} className="border-border hover:border-primary/50 transition-all">
-              <CardContent className="pt-6">
-                <div className="flex gap-1 mb-3">
+              <CardContent className="pt-3">
+                <div className="flex gap-1 mb-1.5">
                   {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-6 h-6 sm:w-7 sm:h-7 fill-accent text-accent" />
+                    <Star key={i} className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-accent text-accent" />
                   ))}
                 </div>
-                <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-4 italic">{testimonial.text}</p>
-                <p className="text-xl md:text-2xl font-bold text-foreground">{testimonial.name}</p>
+                <p className="text-xs md:text-sm text-muted-foreground leading-relaxed mb-2 italic">{testimonial.text}</p>
+                <p className="text-xs md:text-sm font-bold text-foreground">{testimonial.name}</p>
               </CardContent>
             </Card>
           ))}

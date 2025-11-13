@@ -145,6 +145,22 @@
     font-family: var(--app-font-body);
     line-height: 1.6;
   }
+  
+  /* Global image responsiveness */
+  img,
+  video {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Ensure all images are responsive */
+  img[src],
+  img[srcset],
+  video[src] {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
   nav {
     font-size: clamp(0.875rem, 0.9vw, 0.95rem);
   }
@@ -255,14 +271,14 @@
     margin-bottom: 1rem;
   }
   
-  /* Increased section spacing */
+  /* Reduced section spacing */
   section {
     margin-top: 0;
     margin-bottom: 0;
-    padding-top: clamp(1.5rem, 3vw, 2.4rem);
-    padding-bottom: clamp(1.5rem, 3vw, 2.4rem);
+    padding-top: clamp(0.75rem, 1.5vw, 1.2rem);
+    padding-bottom: clamp(0.75rem, 1.5vw, 1.2rem);
   }
-  
+
   /* Responsive section spacing for mobile */
   @media (max-width: 768px) {
     html {
@@ -276,8 +292,8 @@
     section {
       margin-top: 0;
       margin-bottom: 0;
-      padding-top: clamp(1.2rem, 3.5vw, 1.65rem);
-      padding-bottom: clamp(1.2rem, 3.5vw, 1.65rem);
+      padding-top: clamp(0.5rem, 2vw, 1rem);
+      padding-bottom: clamp(0.5rem, 2vw, 1rem);
     }
     
     h1 {
@@ -499,36 +515,65 @@
   width: 100%;
 }
 
+.calendar-popover {
+  --rdp-cell-size: 32px;
+}
+
 .calendar-popover .rdp-table {
   width: 100%;
 }
 
+.calendar-popover .rdp-caption {
+  margin-bottom: 0.5rem;
+}
+
 .calendar-popover .rdp-caption_label,
 .calendar-popover .rdp-dropdowns {
-  font-size: 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
 }
 
 .calendar-popover .rdp-weekday {
-  font-size: 1.125rem;
+  font-size: 0.75rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0.25rem 0;
 }
 
 .calendar-popover .rdp-day button {
-  font-size: 1.25rem;
+  font-size: 0.75rem;
+  width: var(--rdp-cell-size);
+  height: var(--rdp-cell-size);
+  min-width: var(--rdp-cell-size);
+  padding: 0;
 }
 
 .calendar-popover .rdp-weekdays {
   display: grid;
   grid-template-columns: repeat(7, minmax(0, 1fr));
   width: 100%;
+  margin-bottom: 0.25rem;
 }
 
 .calendar-popover .rdp-week {
   display: grid;
   grid-template-columns: repeat(7, minmax(0, 1fr));
   width: 100%;
+  margin-top: 0.125rem;
+}
+
+.calendar-popover .rdp-button_previous,
+.calendar-popover .rdp-button_next {
+  width: 24px;
+  height: 24px;
+  padding: 0;
+}
+
+.calendar-popover .rdp-button_previous svg,
+.calendar-popover .rdp-button_next svg {
+  width: 16px;
+  height: 16px;
 }
 
 /* Premium green gradient backgrounds based on logo color #1E603F */

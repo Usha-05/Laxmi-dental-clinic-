@@ -64,21 +64,19 @@ export default function TreatmentsGrid() {
   }
 
   return (
-    <section id="treatments" className="py-4 md:py-6 lg:py-8 bg-gradient-to-b from-[#d1fae5] via-[#ecfdf5] to-white relative overflow-hidden">
+    <section id="treatments" className="py-3 md:py-4 bg-gradient-to-b from-[#d1fae5] via-[#ecfdf5] to-white relative overflow-hidden">
       <DentalSymbolsBackground />
-      <div className="w-full relative z-10">
-        <div className="max-w-[90rem] mx-auto px-2 sm:px-4 lg:px-6">
-          <div className="text-center mb-4 md:mb-6 lg:mb-8 space-y-2 md:space-y-3">
-            <div className="inline-block px-8 py-4 bg-emerald-100 rounded-full border border-emerald-200">
-              <p className="text-emerald-700 text-xl md:text-2xl font-bold uppercase tracking-wide">OUR EXPERTISE</p>
-            </div>
-            <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold text-emerald-700 mb-3 tracking-tight leading-tight">Comprehensive Dental Care</h2>
-            <p className="text-gray-600 text-xl sm:text-2xl md:text-3xl lg:text-4xl max-w-3xl mx-auto leading-relaxed font-medium px-4">
-              From preventive care to advanced surgical solutions, we offer a complete spectrum of dental treatments
-            </p>
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="text-center mb-3 space-y-1.5 md:space-y-2">
+          <div className="inline-block px-4 sm:px-6 md:px-8 py-3 sm:py-4 bg-emerald-100 rounded-full border border-emerald-200">
+            <p className="text-emerald-700 text-sm sm:text-base md:text-lg font-bold uppercase tracking-wide">OUR EXPERTISE</p>
           </div>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-emerald-700 mb-3 tracking-tight leading-tight">Comprehensive Dental Care</h2>
+          <p className="text-gray-600 text-sm sm:text-base md:text-lg lg:text-xl max-w-3xl mx-auto leading-relaxed font-medium">
+            From preventive care to advanced surgical solutions, we offer a complete spectrum of dental treatments
+          </p>
         </div>
-        <div className="w-full px-2 sm:px-3 lg:px-4 xl:px-6">
+        <div className="w-full">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 lg:gap-5 w-full">
             {expertiseData.map((expertise) => {
               const IconComponent = expertise.icon
@@ -134,12 +132,12 @@ export default function TreatmentsGrid() {
                     </div>
                     
                     {/* Title */}
-                    <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-emerald-700 mb-3 group-hover:text-emerald-800 transition-colors duration-300 tracking-tight">
+                    <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-emerald-700 mb-3 group-hover:text-emerald-800 transition-colors duration-300 tracking-tight">
                       {expertise.name}
                     </h3>
                     
                     {/* Description */}
-                    <p className="text-gray-600 text-base md:text-lg lg:text-xl leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
+                    <p className="text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
                       {expertise.description}
                     </p>
                   </div>
