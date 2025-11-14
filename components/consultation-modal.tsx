@@ -1,11 +1,13 @@
 "use client"
 
 import type React from "react"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useMemo } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { CheckCircle, X } from "lucide-react"
+import { CheckCircle, Clock, X } from "lucide-react"
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
+import { cn } from "@/lib/utils"
 import Image from "next/image"
 
 interface ConsultationModalProps {
@@ -26,6 +28,17 @@ export default function ConsultationModal({ isOpen, onClose, serviceName }: Cons
   const [submitted, setSubmitted] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState("")
+  const [timePopoverOpen, setTimePopoverOpen] = useState(false)
+
+  const timeSlots = useMemo(() => {
+    const slots: string[] = []
+    for (let hour = 9; hour < 21; hour++) {
+      const hourLabel = hour.toString().padStart(2, "0")
+      slots.push(`${hourLabel}:00`)
+      slots.push(`${hourLabel}:30`)
+    }
+    return slots
+  }, [])
 
   // Prevent body scroll when modal is open
   useEffect(() => {
@@ -237,29 +250,56 @@ export default function ConsultationModal({ isOpen, onClose, serviceName }: Cons
                 />
               </div>
 
-              <div>
+              <div className="relative">
                 <label className="block text-xs font-semibold text-foreground mb-1">Preferred Time</label>
                 <p className="text-xs text-muted-foreground mb-1.5">Clinic Hours: 9:00 AM - 9:00 PM</p>
-                <select
-                  name="preferredTime"
-                  value={formData.preferredTime}
-                  onChange={handleInputChange}
-                  className="w-full px-2.5 py-1.5 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-sm bg-white text-foreground h-8"
-                >
-                  <option value="">Select a time slot</option>
-                  {(() => {
-                    const timeSlots = []
-                    for (let hour = 9; hour < 21; hour++) {
-                      timeSlots.push(`${hour.toString().padStart(2, "0")}:00`)
-                      timeSlots.push(`${hour.toString().padStart(2, "0")}:30`)
-                    }
-                    return timeSlots.map((slot) => (
-                      <option key={slot} value={slot}>
-                        {slot}
-                      </option>
-                    ))
-                  })()}
-                </select>
+                <Popover open={timePopoverOpen} onOpenChange={setTimePopoverOpen}>
+                  {timePopoverOpen && (
+                    <div
+                      className="fixed inset-0 z-[10002] bg-black/20"
+                      onClick={() => setTimePopoverOpen(false)}
+                    />
+                  )}
+                  <PopoverTrigger asChild>
+                    <Button
+                      type="button"
+                      variant="outline"
+                      className={cn(
+                        "w-full justify-between h-9 rounded-lg border border-border bg-white text-left text-sm font-semibold",
+                        !formData.preferredTime && "text-muted-foreground",
+                      )}
+                    >
+                      {formData.preferredTime || "Select a time slot"}
+                      <Clock className="h-4 w-4 shrink-0 text-muted-foreground" />
+                    </Button>
+                  </PopoverTrigger>
+                  <PopoverContent
+                    className="z-[10005] w-[min(100vw-3rem,360px)] rounded-xl border border-border bg-white p-2 shadow-2xl"
+                    align="start"
+                    sideOffset={6}
+                  >
+                    <div className="max-h-72 overflow-y-auto pr-1">
+                      {timeSlots.map((slot) => (
+                        <button
+                          key={slot}
+                          type="button"
+                          className={cn(
+                            "w-full text-left px-3 py-2 text-sm rounded-md transition-colors",
+                            formData.preferredTime === slot
+                              ? "bg-emerald-100 font-semibold text-emerald-900"
+                              : "hover:bg-emerald-50",
+                          )}
+                          onClick={() => {
+                            setFormData((prev) => ({ ...prev, preferredTime: slot }))
+                            setTimePopoverOpen(false)
+                          }}
+                        >
+                          {slot}
+                        </button>
+                      ))}
+                    </div>
+                  </PopoverContent>
+                </Popover>
               </div>
 
               <div>
