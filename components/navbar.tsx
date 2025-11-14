@@ -143,15 +143,7 @@ export default function Navbar({ onAppointmentClick }: { onAppointmentClick: () 
     { label: "Contact", href: "#contact" },
   ]
   
-  // Get current active link based on hash
-  const getActiveLink = () => {
-    if (typeof window !== "undefined") {
-      return window.location.hash || "#home"
-    }
-    return "#home"
-  }
-  
-  const [activeLink, setActiveLink] = useState(getActiveLink())
+  const [activeLink, setActiveLink] = useState("#home")
   
   // Handle smooth scroll with navbar offset
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -219,6 +211,8 @@ export default function Navbar({ onAppointmentClick }: { onAppointmentClick: () 
 
   // Update active link on scroll
   useEffect(() => {
+    if (typeof window === "undefined") return
+
     const handleHashChange = () => {
       setActiveLink(window.location.hash || "#home")
     }
@@ -244,6 +238,7 @@ export default function Navbar({ onAppointmentClick }: { onAppointmentClick: () 
     
     window.addEventListener("hashchange", handleHashChange)
     window.addEventListener("scroll", handleScroll, { passive: true })
+    handleHashChange()
     
     return () => {
       window.removeEventListener("hashchange", handleHashChange)

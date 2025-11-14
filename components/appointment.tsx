@@ -366,11 +366,11 @@ export default function Appointment({ isOpen, onClose }: AppointmentProps) {
           )}
 
           <div>
-            <label className="block text-xs font-semibold mb-1">Name</label>
+            <label className="block text-sm sm:text-base font-semibold mb-1">Name</label>
             <input
               type="text"
               required
-              className="w-full px-2.5 py-1.5 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-sm"
+              className="w-full px-3 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-base"
               placeholder="Your name"
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -378,11 +378,11 @@ export default function Appointment({ isOpen, onClose }: AppointmentProps) {
           </div>
 
           <div>
-            <label className="block text-xs font-semibold mb-1">Email</label>
+            <label className="block text-sm sm:text-base font-semibold mb-1">Email</label>
             <input
               type="email"
               required
-              className="w-full px-2.5 py-1.5 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-sm"
+              className="w-full px-3 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-base"
               placeholder="your@email.com"
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -390,11 +390,11 @@ export default function Appointment({ isOpen, onClose }: AppointmentProps) {
           </div>
 
           <div>
-            <label className="block text-xs font-semibold mb-1">Phone</label>
+            <label className="block text-sm sm:text-base font-semibold mb-1">Phone</label>
             <input
               type="tel"
               required
-              className="w-full px-2.5 py-1.5 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-sm"
+              className="w-full px-3 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-base"
               placeholder="+91 XXXXX XXXXX"
               value={formData.phone}
               onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
@@ -402,7 +402,7 @@ export default function Appointment({ isOpen, onClose }: AppointmentProps) {
           </div>
 
           <div className="flex flex-col gap-1.5">
-            <label className="block text-xs font-semibold">Preferred Date *</label>
+            <label className="block text-sm sm:text-base font-semibold">Preferred Date *</label>
             <Popover open={datePopoverOpen} onOpenChange={setDatePopoverOpen}>
               {datePopoverOpen && (
                 <div
@@ -419,7 +419,7 @@ export default function Appointment({ isOpen, onClose }: AppointmentProps) {
                   type="button"
                   variant="outline"
                   className={cn(
-                    "w-full justify-between h-8 rounded-lg border border-border px-2.5 py-1.5 text-left text-sm font-medium",
+                    "w-full justify-between h-10 rounded-lg border border-border px-3 py-2 text-left text-base font-medium",
                     !selectedDate && "text-muted-foreground",
                   )}
                 >
@@ -455,8 +455,8 @@ export default function Appointment({ isOpen, onClose }: AppointmentProps) {
           </div>
 
           <div className="flex flex-col gap-1.5">
-            <label className="block text-xs font-semibold">Preferred Time *</label>
-            <p className="text-xs text-muted-foreground">Clinic Hours: 9:00 AM - 9:00 PM</p>
+            <label className="block text-sm sm:text-base font-semibold">Preferred Time *</label>
+            <p className="text-sm text-muted-foreground">Clinic Hours: 9:00 AM - 9:00 PM</p>
             <Popover open={timePopoverOpen} onOpenChange={setTimePopoverOpen}>
               {timePopoverOpen && !datePopoverOpen && (
                 <div
@@ -473,7 +473,7 @@ export default function Appointment({ isOpen, onClose }: AppointmentProps) {
                   type="button"
                   variant="outline"
                   className={cn(
-                    "w-full justify-between h-8 rounded-lg border border-border px-2.5 py-1.5 text-left text-sm font-medium",
+                    "w-full justify-between h-10 rounded-lg border border-border px-3 py-2 text-left text-base font-medium",
                     !formData.time && "text-muted-foreground",
                   )}
                 >
@@ -492,7 +492,7 @@ export default function Appointment({ isOpen, onClose }: AppointmentProps) {
                       key={slot}
                       type="button"
                       className={cn(
-                        "w-full text-left px-2.5 py-1.5 text-sm rounded-md transition-colors hover:bg-emerald-50",
+                        "w-full text-left px-3 py-2 text-base rounded-md transition-colors hover:bg-emerald-50",
                         formData.time === slot ? "bg-emerald-100 font-semibold" : "bg-white",
                       )}
                       onClick={() => {
@@ -509,7 +509,7 @@ export default function Appointment({ isOpen, onClose }: AppointmentProps) {
           </div>
 
           <div>
-            <label className="block text-xs font-semibold mb-1">Service</label>
+            <label className="block text-sm sm:text-base font-semibold mb-1">Service</label>
             <div className="space-y-2">
               {/* First dropdown: Select main treatment category */}
               <Select
@@ -519,12 +519,12 @@ export default function Appointment({ isOpen, onClose }: AppointmentProps) {
                   setFormData({ ...formData, service: "" }) // Reset sub-treatment when category changes
                 }}
               >
-                <SelectTrigger className="w-full border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-sm py-1.5 pr-10 h-8">
+                <SelectTrigger className="w-full border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-base py-2 pr-10 h-10">
                   <SelectValue placeholder="Select a treatment category…" />
                 </SelectTrigger>
                 <SelectContent className="max-h-[300px] overflow-y-auto">
                   {Object.keys(services).map((category) => (
-                    <SelectItem key={category} value={category} className="text-sm">
+                    <SelectItem key={category} value={category} className="text-base">
                       {category}
                     </SelectItem>
                   ))}
@@ -537,12 +537,12 @@ export default function Appointment({ isOpen, onClose }: AppointmentProps) {
                   value={formData.service}
                   onValueChange={(value) => setFormData({ ...formData, service: value })}
                 >
-                  <SelectTrigger className="w-full border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-sm py-1.5 pr-10 h-8">
+                  <SelectTrigger className="w-full border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-base py-2 pr-10 h-10">
                     <SelectValue placeholder="Select a specific treatment…" />
                   </SelectTrigger>
                   <SelectContent className="max-h-[300px] overflow-y-auto">
                     {services[selectedCategory as keyof typeof services].map((treatment) => (
-                      <SelectItem key={treatment} value={treatment} className="text-sm">
+                      <SelectItem key={treatment} value={treatment} className="text-base">
                         {treatment}
                       </SelectItem>
                     ))}
