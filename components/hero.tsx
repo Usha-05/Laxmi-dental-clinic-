@@ -11,19 +11,19 @@ export default function Hero({ onAppointmentClick }: { onAppointmentClick: () =>
   return (
     <section
       id="home"
-      className="pt-8 sm:pt-10 md:pt-12 pb-6 md:pb-8 relative overflow-hidden bg-gradient-to-b from-[#1E603F] via-[#289660] via-[#34d399] to-[#6ee7b7]"
+      className="pt-6 sm:pt-8 md:pt-10 pb-4 md:pb-6 relative overflow-hidden bg-gradient-to-b from-[#1E603F] via-[#289660] via-[#34d399] to-[#6ee7b7]"
     >
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="grid md:grid-cols-2 gap-4 md:gap-6 items-center">
           {/* Left Content */}
           <div className="space-y-3">
             <div className="space-y-2">
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight text-white text-balance tracking-tight">
+              <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold leading-tight text-white text-balance tracking-tight">
                 Hi, welcome to Laxmi Face and Multispeciality Dental Hospital
                 <br />
-                <span className="text-xl sm:text-2xl md:text-3xl lg:text-3xl font-bold">It's anxiety free...</span>
+                <span className="text-lg sm:text-xl md:text-2xl lg:text-2xl font-bold">It's anxiety free...</span>
               </h1>
-              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/95 leading-relaxed text-balance max-w-2xl font-medium">
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl text-white/95 leading-relaxed text-balance max-w-2xl font-medium">
                 Transforming Smiles, Enhancing Lives: Your Trusted Destination for Complete Dental & Facial Care.
               </p>
             </div>
@@ -39,7 +39,7 @@ export default function Hero({ onAppointmentClick }: { onAppointmentClick: () =>
           </div>
 
           {/* Right Visual - Modern Header Illustration */}
-          <div className="relative h-[24rem] md:h-[28rem] lg:h-[32rem] w-full flex items-center justify-center">
+          <div className="relative h-[20rem] md:h-[24rem] lg:h-[28rem] w-full flex items-center justify-center">
             <div className="absolute inset-0 rounded-[3rem] bg-gradient-to-br from-emerald-200/80 via-teal-300/60 to-emerald-400/80 blur-3xl opacity-70" />
             <div className="relative w-full h-full rounded-[2.5rem] overflow-hidden shadow-[0_40px_80px_-30px_rgba(14,116,144,0.45)] ring-1 ring-emerald-100/70">
               <div className="absolute inset-0 bg-gradient-to-br from-emerald-50 via-teal-100 to-emerald-200" />
@@ -90,8 +90,7 @@ export default function Hero({ onAppointmentClick }: { onAppointmentClick: () =>
                       : primaryHeroImage
                   }
                   alt="Modern dental operatory at Laxmi Face & Multispeciality Dental Hospital"
-                  className="w-full h-full max-w-full object-cover object-center"
-                  style={{ maxWidth: '100%', height: 'auto' }}
+                  className="w-full h-full object-cover object-center"
                   onError={() => setImageError(true)}
                 />
               </div>
