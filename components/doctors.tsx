@@ -66,13 +66,13 @@ export default function Doctors() {
   }
 
   return (
-    <section id="doctors" className="py-3 md:py-4 bg-gradient-to-b from-white via-[#ecfdf5] to-[#d1fae5]">
+    <section id="doctors" className="py-2.5 md:py-4 bg-gradient-to-b from-white via-[#ecfdf5] to-[#d1fae5]">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Centered Header */}
         <div className="mb-2">
           <div className="text-center">
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold mb-1.5 tracking-tight font-serif">Our Doctors</h2>
-            <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed font-semibold">
+            <h2 className="text-lg sm:text-xl md:text-3xl font-extrabold mb-1 tracking-tight font-serif">Our Doctors</h2>
+            <p className="text-xs sm:text-sm md:text-lg text-muted-foreground max-w-3xl mx-auto leading-snug font-medium">
               Experienced specialists dedicated to your care.
             </p>
           </div>
@@ -86,27 +86,28 @@ export default function Doctors() {
               ? getDoctorPlaceholderImage(400, 400, doc.name.split(" ")[0])
               : doc.photo || "/professional-dentist-portrait.jpg"
             const isVishnuPortrait = doc.photo === "/vishnu-gowtham.jpg"
-            
+            const imageObjectPosition = isVishnuPortrait ? "top center" : "center"
+
             return (
               <article key={doc.name} className="rounded-xl bg-white border border-border/70 overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col w-full">
                 {/* Mobile Image */}
-                <div className="relative md:hidden bg-gray-100 w-full h-44 p-2">
+                <div className="relative md:hidden bg-gray-100 w-full h-40 p-2">
                   {!imageErrors[doc.name] ? (
                     <Image
                       src={imageSrc}
                       alt={doc.name}
                       fill
-                      className="object-cover transition-transform duration-300 !object-center"
+                      className="object-contain transition-transform duration-300"
                       sizes="100vw"
                       onError={() => handleImageError(doc.name)}
-                      style={{ objectPosition: 'center' }}
+                      style={{ objectPosition: imageObjectPosition }}
                     />
                   ) : (
                     <img
                       src={getDoctorPlaceholderImage(400, 400, doc.name.split(" ")[0])}
                       alt={doc.name}
-                      className="h-full w-full object-cover object-center"
-                      style={{ objectPosition: 'center' }}
+                      className="h-full w-full object-contain object-center"
+                      style={{ objectPosition: imageObjectPosition }}
                     />
                   )}
                 </div>
@@ -119,24 +120,24 @@ export default function Doctors() {
                         src={imageSrc}
                         alt={doc.name}
                         fill
-                        className="object-cover transition-transform duration-300 hover:scale-105 !object-center"
+                        className="object-cover transition-transform duration-300 hover:scale-105"
                         sizes="(max-width: 768px) 176px, (max-width: 1024px) 192px, 208px"
                         priority={doc.name === "Vishnu Gowtham Marella"}
                         onError={() => handleImageError(doc.name)}
-                        style={{ objectPosition: 'center' }}
+                        style={{ objectPosition: imageObjectPosition }}
                       />
                     ) : (
                       <img
                         src={getDoctorPlaceholderImage(400, 400, doc.name.split(" ")[0])}
                         alt={doc.name}
                         className="h-full w-full object-cover object-center"
-                        style={{ objectPosition: 'center' }}
+                        style={{ objectPosition: imageObjectPosition }}
                       />
                     )}
                   </div>
-                  <div className="p-2 sm:p-2 md:p-2.5 flex-1 flex flex-col gap-0.5 text-xs sm:text-sm md:text-base leading-snug overflow-hidden">
+                  <div className="p-3 sm:p-3 md:p-4 flex-1 flex flex-col gap-1 text-[0.9rem] sm:text-base leading-snug overflow-hidden">
                     <div className="space-y-0.5 mb-0.5">
-                      <h3 className="text-sm sm:text-base md:text-lg font-extrabold text-foreground tracking-tight font-serif">{doc.name}</h3>
+                      <h3 className="text-base sm:text-lg md:text-xl font-extrabold text-foreground tracking-tight font-serif">{doc.name}</h3>
                       <p className="text-xs sm:text-sm md:text-base font-bold text-primary">{doc.degrees}</p>
                       <p className="text-xs sm:text-sm md:text-base text-emerald-700 font-semibold">{doc.title}</p>
                     </div>
