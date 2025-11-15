@@ -1,8 +1,9 @@
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.example.com'
+const siteUrl = 'https://laxmifaceanddental.com';
+
 
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl,
+  siteUrl: 'https://laxmifaceanddental.com',
   generateRobotsTxt: true,
   sitemapSize: 7000,
   exclude: ['/api/*'],
@@ -19,4 +20,7 @@ module.exports = {
     ],
   },
 }
+
+
+
 
