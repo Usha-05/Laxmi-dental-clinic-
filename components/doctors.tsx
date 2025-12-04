@@ -22,7 +22,7 @@ const doctors: Doctor[] = [
     title: "Oral & Maxillofacial Surgeon",
     education: [
       "BDS – SDM College of Dental Sciences & Hospital",
-      "MDS – P.H.N.H. Dental College & Hospital, Bagalkot",
+      "MDS – P.M.N.M. Dental College & Hospital, Bagalkot",
     ],
     experience: [
       "Worked as in Sri Sai College of Dental Surgery and Kamineni Institute of Dental Sciences",
