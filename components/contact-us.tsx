@@ -89,7 +89,6 @@ export default function ContactUs() {
               <Phone size={18} className="text-primary" />
             </div>
             <h3 className="text-sm md:text-base font-bold text-gray-900 mb-1.5">Call Us</h3>
-            <p className="text-gray-600 mb-1.5 text-xs">Available 9 AM - 9 PM</p>
             <a href="tel:+917794879535" className="text-primary font-semibold hover:underline text-xs">
               +91 77948 79535
             </a>
@@ -101,7 +100,7 @@ export default function ContactUs() {
               <Mail size={18} className="text-primary" />
             </div>
             <h3 className="text-sm md:text-base font-bold text-gray-900 mb-1.5">Email Us</h3>
-            <p className="text-gray-600 mb-1.5 text-xs">We'll respond within 24 hours</p>
+            <p className="text-gray-600 mb-1.5 text-xs">Monday-Sunday, 9 AM-9 PM</p>
             <a href="mailto:laxmidentalhospital0@gmail.com" className="text-primary font-semibold hover:underline text-xs break-all">
               laxmidentalhospital0@gmail.com
             </a>
@@ -123,6 +122,19 @@ export default function ContactUs() {
               Message on WhatsApp
             </a>
           </div>
+        </div>
+
+        {/* Embedded Google Map */}
+        <div className="my-4 rounded-lg overflow-hidden border border-gray-200">
+        <iframe
+          title="Laxmi Face and Multispeciality Dental Hospital - Map"
+          src="https://www.google.com/maps?q=1st%20floor%2C%20beside%20new%20venkateswara%20book%20world%2C%20mainroad%2C%20vanasthalipuram%2C%20hyderabad%20500070&output=embed"
+          width="100%"
+          height="320"
+          style={{ border: 0 }}
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        />
         </div>
 
         {/* Contact Form */}
@@ -265,7 +277,7 @@ export default function ContactUs() {
                   </div>
                   <div className="flex-1">
                     <p className="text-sm md:text-base font-bold mb-0.5">Address</p>
-                    <p className="text-xs text-white/90 group-hover/item:text-white transition-colors">1st floor, beside new venkateswara book world, mainroad, vanasthalipuram, hyderabad 500070</p>
+                    <p className="text-xs text-white/90 group-hover/item:text-white transition-colors">Main road, beside new Venkateswara Book World, Hastina Puram Colony, TV Colony, Vanasthalipuram, Hyderabad, Telangana 500070, India</p>
                   </div>
                 </a>
               </div>

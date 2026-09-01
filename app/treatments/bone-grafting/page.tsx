@@ -118,7 +118,7 @@ export default function BoneGraftingPage() {
                 <li>✓ Preserve facial structure and appearance</li>
                 <li>✓ Enable successful dental implant treatment</li>
                 <li>✓ Improve long-term oral health</li>
-                <li>✓ High success rate with modern techniques</li>
+                <li>✓ Modern surgical techniques for optimal outcomes</li>
               </ul>
             </div>
             <div>

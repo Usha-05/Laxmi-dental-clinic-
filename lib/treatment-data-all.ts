@@ -19,6 +19,8 @@ export interface TreatmentData {
     frequency?: string
     recovery?: string
   }
+  faqs?: FAQItem[]
+  reviewer?: string
 }
 
 // Helper function to generate slug from treatment name
@@ -215,66 +217,153 @@ function getTreatmentHeroImage(slug: string, title: string): string {
 }
 
 // Default treatment data generator
+export interface FAQItem { q: string; a: string }
+
 export function generateDefaultTreatmentData(slug: string): TreatmentData {
   const title = generateTitle(slug)
   const category = slug.split("/")[0] || "general"
   const heroImage = getTreatmentHeroImage(slug, title)
 
+  // Create more specific default content by inspecting keywords in the slug/title.
+  const slugLower = slug.toLowerCase()
+  const titleLower = title.toLowerCase()
+
+  // Helpers to build common structures
+  const simpleProcess = (steps: { title: string; desc: string; img?: string }[]) =>
+    steps.map((s, i) => ({ step: i + 1, title: s.title, description: s.desc, image: s.img || "/dental-treatment-room.jpg" }))
+
+  let description = `${title} at Laxmi Face and Multispeciality Dental Hospital in Vanasthalipuram. We explain what to expect and how the treatment helps restore oral health.`
+  let uses: string[] = [
+    `${title} related care and treatment`,
+  ]
+  let treatmentProcess = simpleProcess([
+    { title: "Consultation & Examination", desc: "Clinical assessment and imaging to understand the problem." },
+    { title: "Treatment Plan", desc: "Discuss options, risks and expected outcomes with your dentist." },
+    { title: "Procedure", desc: "The clinical steps involved in the treatment." },
+    { title: "Aftercare", desc: "Instructions and follow-up to support recovery." },
+  ])
+  let benefits: string[] = ["Improves oral function", "Addresses the presenting problem", "Helps maintain long-term dental health"]
+  let idealFor: string[] = ["Patients with relevant dental concerns", "Those seeking specialist care"]
+  let timeline = { duration: "Varies by treatment", frequency: "As advised", recovery: "Depends on procedure" }
+  let faqs: FAQItem[] = [
+    { q: `What is ${title}?`, a: `${title} is a dental treatment that addresses condition-specific needs. Your dentist will explain how it applies to your situation.` },
+    { q: "How do I know if I need this treatment?", a: "Symptoms, clinical exam and imaging determine the need for treatment. Book a consultation for an assessment." },
+    { q: "Is the procedure painful?", a: "Most procedures use local anaesthesia and modern techniques to minimise discomfort; your dentist will discuss pain control options." },
+    { q: "How soon can I resume normal activities?", a: "Recovery times vary; your dentist will provide aftercare guidance specific to the procedure." },
+  ]
+
+  // Tailor content for common treatments by detecting keywords
+  if (slugLower.includes("root") || titleLower.includes("root canal") || slugLower.includes("rct")) {
+    description = `Root canal treatment (endodontic therapy) removes infected or inflamed dental pulp to save a tooth that would otherwise require extraction. We use digital imaging and microscopic techniques where appropriate.`
+    uses = [
+      "Treat deep decay that reaches the nerve",
+      "Manage dental pulp infection or abscess",
+      "Relieve severe tooth pain and sensitivity",
+      "Preserve a natural tooth instead of extraction",
+    ]
+    treatmentProcess = simpleProcess([
+      { title: "Diagnosis & X-rays", desc: "Testing and radiographs to confirm pulp involvement and canal anatomy.", img: "/c1.jpg" },
+      { title: "Anaesthesia & Isolation", desc: "Local anaesthesia and rubber dam isolation for a clean, comfortable procedure.", img: "/c2.jpg" },
+      { title: "Cleaning & Shaping", desc: "Removal of infected tissue and shaping of the canal system before disinfection.", img: "/c6.jpg" },
+      { title: "Filling & Restoration", desc: "Canals are sealed and the tooth restored - often with a crown for long-term strength.", img: "/dental-treatment-room.jpg" },
+    ])
+    benefits = [
+      "Save a tooth that would otherwise need extraction",
+      "Eliminate source of infection and pain",
+      "Restore chewing function",
+      "Protect adjacent teeth from shifting",
+    ]
+    idealFor = ["Patients with persistent toothache", "Those with deep decay or abscess", "Teeth with cracked or exposed pulp"]
+    timeline = { duration: "1-2 visits in most cases", frequency: "As scheduled by the dentist", recovery: "Several days of mild discomfort" }
+    faqs = [
+      { q: "Why might I need a root canal?", a: "When decay or injury reaches the pulp causing infection or irreversible inflammation; a root canal removes the infected tissue." },
+      { q: "Will the tooth need a crown after root canal?", a: "Often yes — a crown protects the treated tooth and restores strength, especially molars." },
+      { q: "Is root canal safe and effective?", a: "Root canal is a well-established treatment with high success rates when performed correctly." },
+      { q: "What aftercare is needed?", a: "Avoid chewing on the treated tooth until fully restored; follow pain-relief advice and attend follow-up appointments." },
+    ]
+  } else if (slugLower.includes("wisdom") || slugLower.includes("extraction") || slugLower.includes("tooth-removal")) {
+    description = `Wisdom tooth removal addresses impacted or problematic third molars that cause pain, infection, or crowding. Treatment planning uses clinical assessment and imaging to determine the safest approach.`
+    uses = ["Removal of impacted wisdom teeth", "Treat infection or pericoronitis", "Relieve pain and swelling", "Prevent crowding or damage to adjacent teeth"]
+    treatmentProcess = simpleProcess([
+      { title: "Clinical Exam & Imaging", desc: "Assess tooth position and relation to nerves using X-ray or CBCT.", img: "/c1.jpg" },
+      { title: "Anaesthesia & Extraction", desc: "Local anaesthesia (and sedation if needed) to remove the tooth safely.", img: "/c6.jpg" },
+      { title: "Post-op Care", desc: "Stitches if required and aftercare instructions to manage swelling and pain.", img: "/dental-treatment-room.jpg" },
+    ])
+    benefits = ["Relief from pain and infection", "Prevent long-term damage to neighbouring teeth", "Reduce risk of cyst formation"]
+    idealFor = ["Impacted or infected wisdom teeth", "Pain or swelling in the back of the mouth", "Recurrent infections around a wisdom tooth"]
+    timeline = { duration: "30–90 minutes depending on complexity", frequency: "Single procedure (follow-up as advised)", recovery: "7–10 days for soft tissue healing" }
+    faqs = [
+      { q: "How long does recovery take?", a: "Most patients recover in 7–10 days with decreasing pain and swelling; full bone healing takes longer." },
+      { q: "What are the risks?", a: "Common risks include swelling, bleeding and temporary numbness; imaging reduces risk of nerve injury." },
+      { q: "When is removal recommended?", a: "When the tooth causes pain, infection, or threatens other teeth — or if it is impacted and likely to cause future problems." },
+      { q: "What should I do before the appointment?", a: "Follow fasting or medication instructions if sedation is planned and arrange transport if needed." },
+    ]
+  } else if (slugLower.includes("brace") || slugLower.includes("aligner") || titleLower.includes("aligners") || titleLower.includes("braces")) {
+    description = `Orthodontic treatment with braces or clear aligners corrects tooth alignment, crowding, spacing and bite issues. Treatment type is selected after assessing your teeth, bite and facial features.`
+    uses = ["Correct crowding and spacing", "Improve bite alignment (overbite, underbite)", "Enhance smile aesthetics and function"]
+    treatmentProcess = simpleProcess([
+      { title: "Orthodontic Assessment", desc: "Records, photos and 3D scans to design a personalised plan.", img: "/professional-dentist-portrait.jpg" },
+      { title: "Appliance Placement", desc: "Fit braces or deliver the first set of aligners.", img: "/dental-treatment-room.jpg" },
+      { title: "Active Movement", desc: "Regular adjustments or aligner changes to move teeth gradually.", img: "/female-aligners-invisalign.jpg" },
+      { title: "Retention", desc: "Retainers preserve the new tooth positions after active treatment.", img: "/female-patient-smile.jpg" },
+    ])
+    benefits = ["Improved bite and function", "Enhanced smile aesthetics", "Long-term oral health benefits"]
+    idealFor = ["Crowded or spaced teeth", "Bite problems", "Patients seeking cosmetic and functional improvement"]
+    timeline = { duration: "6–36 months depending on complexity", frequency: "Visits every 4–8 weeks or aligner changes as advised", recovery: "Minor discomfort after adjustments" }
+    faqs = [
+      { q: "Which is better: braces or aligners?", a: "Choice depends on case complexity, patient preferences and compliance; an orthodontic assessment will guide the best option." },
+      { q: "Will treatment affect speech or eating?", a: "Temporary changes are common but usually resolve quickly; aligners are removable for meals." },
+      { q: "How long until I see results?", a: "Initial changes may be visible in weeks; completion depends on individual treatment plan." },
+      { q: "Are retainers necessary?", a: "Yes — retention is essential to maintain results after active treatment." },
+    ]
+  } else if (slugLower.includes("clean") || slugLower.includes("scal") || titleLower.includes("cleaning")) {
+    description = `Professional teeth cleaning (scaling and polishing) removes hard plaque (tartar) and helps prevent gum disease. It is a preventive procedure tailored to your gum health.`
+    uses = ["Plaque and tartar removal", "Gum health maintenance", "Stain removal and fresh breath"]
+    treatmentProcess = simpleProcess([
+      { title: "Examination", desc: "Check for gum pockets, inflammation and other concerns.", img: "/c2.jpg" },
+      { title: "Scaling", desc: "Ultrasonic and hand instruments remove tartar.", img: "/dental-treatment-room.jpg" },
+      { title: "Polishing & Advice", desc: "Polish teeth and provide home care advice.", img: "/female-preventive-care.jpg" },
+    ])
+    benefits = ["Prevent gum disease", "Reduce risk of decay", "Improve breath and appearance"]
+    idealFor = ["Routine preventive care", "Patients with plaque/tartar build-up", "Those at higher risk of gum disease"]
+    timeline = { duration: "30–60 minutes", frequency: "6 months or as advised", recovery: "No downtime" }
+    faqs = [
+      { q: "How often should I get a cleaning?", a: "Most people benefit from a cleaning every 6 months; those with gum disease may need more frequent visits." },
+      { q: "Does scaling hurt?", a: "Scaling is usually comfortable; local anaesthesia can be used for sensitive areas." },
+      { q: "Can I eat after cleaning?", a: "Yes — normal diet can be resumed unless otherwise instructed." },
+      { q: "Will whitening be performed?", a: "Polishing removes surface stains; whitening is a separate cosmetic procedure." },
+    ]
+  } else if (slugLower.includes("emergency") || slugLower.includes("urgent") || slugLower.includes("trauma")) {
+    description = `Emergency dental care addresses urgent problems such as severe pain, uncontrolled bleeding, dental trauma or swelling. Prompt assessment helps prevent complications and preserve teeth when possible.`
+    uses = ["Severe tooth pain or swelling", "Trauma and broken teeth", "Uncontrolled bleeding or infection"]
+    treatmentProcess = simpleProcess([
+      { title: "Triage & Pain Relief", desc: "Immediate assessment and pain control measures.", img: "/c2.jpg" },
+      { title: "Diagnosis & Imaging", desc: "X-rays to determine extent of injury or infection.", img: "/c1.jpg" },
+      { title: "Definitive Care", desc: "Stabilise teeth, treat infection, or plan urgent procedures.", img: "/c6.jpg" },
+      { title: "Follow-up", desc: "Arrange definitive restorative or surgical care as needed.", img: "/dental-treatment-room.jpg" },
+    ])
+    benefits = ["Rapid pain relief", "Reduce risk of infection", "Preserve damaged teeth when possible"]
+    idealFor = ["Acute pain or trauma", "Signs of spreading infection", "Anyone with sudden dental problems"]
+    timeline = { duration: "Immediate assessment; treatment as required", frequency: "Triage followed by scheduled follow-up", recovery: "Depends on the problem treated" }
+    faqs = [
+      { q: "What should I do while waiting for care?", a: "Control bleeding with gentle pressure, use cold packs for swelling, and avoid placing aspirin directly on gums." },
+      { q: "When should I go to emergency care?", a: "Severe uncontrolled pain, swelling that affects breathing, or traumatic injury warrants urgent attention." },
+      { q: "Will I need antibiotics?", a: "Antibiotics are used when infection is present; the dentist will decide based on clinical findings." },
+      { q: "Can a damaged tooth be saved?", a: "Many teeth can be saved if treated promptly; bring any broken fragments to the clinic." },
+    ]
+  }
+
   return {
     title,
-    description: `Professional ${title.toLowerCase()} treatment at LAXMI DENTAL. Our experienced team provides comprehensive care using advanced techniques to ensure optimal results and patient comfort.`,
+    description,
     heroImage,
-    uses: [
-      `Treatment of ${title.toLowerCase()} conditions`,
-      `Comprehensive evaluation and assessment`,
-      `Customized treatment planning`,
-      `Professional care and monitoring`,
-      `Post-treatment follow-up and maintenance`,
-    ],
-    treatmentProcess: [
-      {
-        step: 1,
-        title: "Initial Consultation",
-        description: "Comprehensive examination and assessment of your dental needs",
-        image: "/professional-dentist-portrait.jpg",
-      },
-      {
-        step: 2,
-        title: "Treatment Planning",
-        description: "Customized treatment plan designed specifically for you",
-        image: "/dental-treatment-room.jpg",
-      },
-      {
-        step: 3,
-        title: "Treatment Procedure",
-        description: "Professional treatment performed by our experienced dental team",
-        image: "/female-dentist-professional.jpg",
-      },
-      {
-        step: 4,
-        title: "Follow-up Care",
-        description: "Regular monitoring and follow-up appointments to ensure optimal results",
-        image: "/female-preventive-care.jpg",
-      },
-    ],
-    benefits: [
-      "Professional expertise and care",
-      "Advanced treatment techniques",
-      "Comprehensive evaluation and planning",
-      "Personalized treatment approach",
-      "Regular monitoring and follow-up",
-      "Commitment to patient comfort and satisfaction",
-    ],
-    idealFor: [
-      "Patients seeking professional dental care",
-      "Individuals requiring specialized treatment",
-      "Those looking for comprehensive dental solutions",
-    ],
-    timeline: {
-      duration: "Varies based on individual needs",
-      frequency: "As recommended by your dentist",
-      recovery: "Depends on treatment type",
-    },
+    uses,
+    treatmentProcess,
+    benefits,
+    idealFor,
+    timeline,
+    // @ts-ignore - faqs is an optional extension consumed by the client component
+    faqs,
   }
 }
 
@@ -647,6 +736,71 @@ const treatmentDataMap: Record<string, TreatmentData> = {
       frequency: "Single visit procedure",
       recovery: "Immediate - can resume normal activities right away",
     },
+  },
+  "surgical-treatments/wisdom-tooth-removal": {
+    title: "Wisdom Tooth Assessment and Removal in Vanasthalipuram",
+    description: "Assessment and safe removal of impacted or problematic third molars (wisdom teeth). We use clinical examination and imaging to select the least invasive, safest approach for each patient.",
+    heroImage: "/dental-treatment-room.jpg",
+    reviewer: "Dr. Vishnu Gowtham Marella, BDS, MDS – Oral and Maxillofacial Surgeon",
+    uses: [
+      "Removal of impacted or partially erupted wisdom teeth",
+      "Treatment of recurrent pericoronitis (gum infection around a wisdom tooth)",
+      "Relief from pain, swelling or difficulty cleaning the back molars",
+      "Prevention of damage to adjacent teeth and cyst formation",
+    ],
+    treatmentProcess: [
+      { step: 1, title: "Clinical Examination & Imaging", description: "Detailed mouth exam and radiographs (or CBCT when needed) to evaluate tooth position and nerve relation.", image: "/c1.jpg" },
+      { step: 2, title: "Anaesthesia & Comfort", description: "Local anaesthesia; sedation options available for anxious patients or complex extractions.", image: "/c6.jpg" },
+      { step: 3, title: "Extraction", description: "Tooth is removed using minimally invasive surgical technique; bone trimming and suturing performed when required.", image: "/dental-treatment-room.jpg" },
+      { step: 4, title: "Post-op Care & Review", description: "Controlled bleeding, pain management, and follow-up to confirm healing and remove sutures if placed.", image: "/c2.jpg" },
+    ],
+    benefits: [
+      "Resolve recurrent infections and pain",
+      "Prevent crowding and damage to neighbouring teeth",
+      "Reduce the future risk of cysts or decay around partially erupted teeth",
+      "Restore comfort and ease of oral hygiene in the back of the mouth",
+    ],
+    idealFor: ["Patients with impacted or infected wisdom teeth", "Those with swelling, pain or difficulty cleaning the area", "When radiographic assessment shows risk to adjacent teeth"],
+    timeline: { duration: "Single surgical appointment for most cases (30–90 minutes)", frequency: "One procedure with routine follow-up", recovery: "7–10 days for soft-tissue healing; bone remodeling over months" },
+    // @ts-ignore - faqs used by client component
+    faqs: [
+      { q: "How long does the procedure take?", a: "Simple removals may take 20–30 minutes; impacted or surgical cases can take longer depending on complexity." },
+      { q: "What should I expect after the extraction?", a: "Swelling and mild-to-moderate discomfort are common for 2–5 days; strong analgesics and cold packs help manage symptoms." },
+      { q: "Are there risks of nerve injury?", a: "Careful imaging reduces risk; temporary numbness is uncommon and permanent nerve injury is rare but discussed when risk is present." },
+      { q: "When should I contact the clinic after surgery?", a: "If you have uncontrolled bleeding, increasing severe pain, fever or signs of spreading swelling, contact us immediately." },
+    ]
+  },
+  "emergency-dentist": {
+    title: "Emergency Dentist in Vanasthalipuram",
+    description: "Immediate assessment and urgent care for severe tooth pain, dental trauma, swelling, bleeding or any dental problem needing prompt attention. Our team triages and treats urgent issues to relieve pain and prevent complications.",
+    heroImage: "/dental-treatment-room.jpg",
+    uses: [
+      "Severe, uncontrolled toothache or facial swelling",
+      "Dental trauma with broken or avulsed (knocked-out) teeth",
+      "Uncontrolled bleeding from the mouth",
+      "Rapidly spreading infection or difficulty breathing/swallowing related to dental origin",
+    ],
+    treatmentProcess: [
+      { step: 1, title: "Triage & Pain Control", description: "Immediate assessment, analgesia and stabilisation to control pain and reduce acute symptoms.", image: "/c2.jpg" },
+      { step: 2, title: "Diagnostic Imaging & Assessment", description: "X-rays to determine the extent of injury or infection and plan urgent care.", image: "/c1.jpg" },
+      { step: 3, title: "Urgent Treatment", description: "Where needed: temporary dressings, tooth replantation (when appropriate), drainage of abscesses, antibiotics and definitive procedures scheduled.", image: "/c6.jpg" },
+      { step: 4, title: "Follow-up Care", description: "Arrange definitive restorative or surgical care and monitor recovery closely.", image: "/dental-treatment-room.jpg" },
+    ],
+    benefits: [
+      "Rapid relief of severe pain and swelling",
+      "Reduce risk of spreading infection",
+      "Increase chance of saving traumatised teeth if treated promptly",
+      "Provide immediate stabilisation and plan definitive care",
+    ],
+    idealFor: ["Anyone with sudden severe dental pain", "Patients with facial swelling or trauma", "Uncontrolled bleeding or signs of spreading infection"],
+    timeline: { duration: "Immediate assessment with treatment as required", frequency: "Single urgent visit with scheduled follow-up", recovery: "Varies by condition; may need several days to weeks" },
+    // @ts-ignore - faqs used by client component
+    faqs: [
+      { q: "What should I do before arriving?", a: "Control bleeding with gentle pressure, apply cold packs for swelling, keep any avulsed tooth moist (milk or saliva) and come to the clinic promptly." },
+      { q: "Will I need antibiotics?", a: "Antibiotics are prescribed when an infection is present or there is a high risk; the dentist will decide based on clinical findings." },
+      { q: "Can a knocked-out tooth be saved?", a: "If a tooth is replanted within a short window (ideally under 60 minutes) and handled correctly, it has the best chance of survival. Bring the tooth in a suitable medium." },
+      { q: "When is an emergency critical?", a: "Difficulty breathing or swallowing, rapidly increasing swelling, or uncontrolled bleeding require immediate emergency medical care. Call emergency services or go to the nearest emergency department." },
+    ]
   },
 }
 

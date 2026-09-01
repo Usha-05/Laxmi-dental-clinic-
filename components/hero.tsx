@@ -19,16 +19,32 @@ export default function Hero({ onAppointmentClick }: { onAppointmentClick: () =>
           <div className="space-y-3">
             <div className="space-y-2">
               <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold leading-tight text-white text-balance tracking-tight">
-                Hi, welcome to Laxmi Face and Multispeciality Dental Hospital
-                <br />
-                <span className="text-lg sm:text-xl md:text-2xl lg:text-2xl font-bold">It's anxiety free...</span>
+                Dentist and Dental Hospital in Vanasthalipuram
               </h1>
               <p className="text-sm sm:text-base md:text-lg lg:text-xl text-white/95 leading-relaxed text-balance max-w-2xl font-medium">
-                Transforming Smiles, Enhancing Lives: Your Trusted Destination for Complete Dental & Facial Care.
+                Clinical examination, digital X-rays and complete dental care for children and adults. Treatment options and estimated costs are explained before treatment.
               </p>
             </div>
 
             <div className="flex flex-wrap gap-3">
+              <a
+                href="tel:+917794879535"
+                className="inline-flex items-center justify-center bg-white hover:bg-white/90 text-primary font-bold px-5 py-3 text-base md:text-lg rounded-md shadow hover:shadow-2xl transition-all duration-300"
+                aria-label="Call Laxmi Face Dental Hospital"
+              >
+                Call
+              </a>
+
+              <a
+                href="https://wa.me/917794879535"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center bg-[#25D366] hover:bg-[#20b85a] text-white font-bold px-5 py-3 text-base md:text-lg rounded-md shadow hover:shadow-2xl transition-all duration-300"
+                aria-label="WhatsApp Laxmi Face Dental Hospital"
+              >
+                WhatsApp
+              </a>
+
               <Button
                 onClick={onAppointmentClick}
                 className="bg-white hover:bg-white/90 text-primary font-bold px-6 py-3 text-base md:text-lg shadow-xl hover:shadow-2xl transition-all duration-300"

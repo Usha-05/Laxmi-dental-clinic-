@@ -19,7 +19,7 @@ export default function TreatmentPageContent({ slug, onAppointmentClick, onConsu
   // Get treatment data or generate default
   const treatmentData = getTreatmentDataBySlug(slug) || generateDefaultTreatmentData(slug)
 
-  const { title, description, heroImage, uses, treatmentProcess, benefits, idealFor, timeline } = treatmentData
+  const { title, description, heroImage, uses, treatmentProcess, benefits, idealFor, timeline, faqs, reviewer } = treatmentData
   
   // Check if heroImage is missing or is a placeholder file
   // SVG data URIs from medical-illustrations are valid images
@@ -42,9 +42,9 @@ export default function TreatmentPageContent({ slug, onAppointmentClick, onConsu
             Back to Home
           </Link>
           <div className="flex items-center justify-center gap-4 flex-1">
-            <h1 className="text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-emerald-700 to-green-600 bg-clip-text text-transparent text-center">
+            <div className="text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-emerald-700 to-green-600 bg-clip-text text-transparent text-center">
               {title}
-            </h1>
+            </div>
           </div>
           <div className="w-20" />
         </div>
@@ -55,8 +55,9 @@ export default function TreatmentPageContent({ slug, onAppointmentClick, onConsu
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
             <div>
-              <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 leading-tight">{title}</h2>
+              <h1 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 leading-tight">{title}</h1>
               <p className="text-base md:text-lg text-gray-600 leading-relaxed">{description}</p>
+              {reviewer && <p className="mt-3 text-sm font-semibold text-gray-700">Reviewed by {reviewer}</p>}
             </div>
 
             {/* Uses Section */}
@@ -245,19 +246,51 @@ export default function TreatmentPageContent({ slug, onAppointmentClick, onConsu
         </div>
       </section>
 
-      {/* CTA Section with Book Appointment Button */}
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="bg-gradient-to-r from-emerald-600 to-green-600 rounded-2xl p-12 text-white text-center space-y-6">
+      {/* FAQs Section (treatment-specific) */}
+      {faqs && Array.isArray(faqs) && faqs.length > 0 && (
+        <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <h2 className="text-2xl md:text-3xl font-extrabold text-gray-900 mb-6 text-center">Frequently Asked Questions</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {faqs.map((f: any, i: number) => (
+              <details key={i} className="bg-white rounded-xl p-6 border border-emerald-100">
+                <summary className="font-semibold text-gray-900 cursor-pointer">{f.q}</summary>
+                <p className="mt-3 text-gray-700">{f.a}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* Contact & Quick Actions */}
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+          <div className="col-span-1 md:col-span-2 bg-gradient-to-br from-emerald-50 to-green-50 rounded-2xl p-8 border border-emerald-200">
+            <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-4">Book an Appointment or Call Us</h3>
+            <p className="text-gray-700 mb-4">To discuss {title} or to request an urgent assessment, use one of the options below.</p>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Button onClick={onAppointmentClick} className="px-6 py-3 bg-emerald-600 text-white font-bold rounded-lg">Book Appointment</Button>
+              <a href="tel:+917794879535" className="inline-flex items-center justify-center px-6 py-3 bg-white text-emerald-600 font-bold rounded-lg hover:bg-emerald-50 transition-colors">Call: 7794879535</a>
+              <a href="https://wa.me/917794879535" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center px-6 py-3 bg-green-700 text-white font-bold rounded-lg hover:opacity-90 transition-opacity">WhatsApp Us</a>
+            </div>
+          </div>
+
+          <div className="col-span-1 bg-white rounded-2xl p-6 border border-emerald-100">
+            <h4 className="text-lg font-bold text-gray-900 mb-2">Clinic Information</h4>
+            <p className="text-sm text-gray-700">Laxmi Face and Multispeciality Dental Hospital</p>
+            <p className="text-sm text-gray-700">1st floor, beside new venkateswara book world, mainroad</p>
+            <p className="text-sm text-gray-700">Vanasthalipuram, Hyderabad 500070</p>
+            <p className="text-sm text-gray-700 mt-2">Phone: <a className="font-semibold" href="tel:+917794879535">7794879535</a></p>
+            <div className="mt-4 text-sm text-gray-600">Please bring any recent X-rays or reports to your appointment. For emergencies, call or WhatsApp for the fastest response.</div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section (kept for visual emphasis) */}
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="bg-gradient-to-r from-emerald-600 to-green-600 rounded-2xl p-10 text-white text-center space-y-4">
           <h2 className="text-2xl md:text-3xl font-extrabold">Ready to Get Started?</h2>
-          <p className="text-base md:text-lg text-emerald-50 max-w-2xl mx-auto">
-            Schedule a consultation with our dental experts to learn more about {title}
-          </p>
-          <Button
-            onClick={onAppointmentClick}
-            className="px-10 py-5 bg-white text-emerald-600 font-extrabold rounded-lg hover:bg-emerald-50 transition-colors text-xl"
-          >
-            Book Appointment
-          </Button>
+          <p className="text-base md:text-lg text-emerald-50 max-w-2xl mx-auto">Schedule a consultation with our dental experts to learn more about {title}</p>
+          <Button onClick={onAppointmentClick} className="px-8 py-3 bg-white text-emerald-600 font-extrabold rounded-lg hover:bg-emerald-50 transition-colors">Book Appointment</Button>
         </div>
       </section>
     </div>

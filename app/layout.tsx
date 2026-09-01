@@ -3,10 +3,12 @@ import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 import AnimatedBackground from '@/components/animated-background'
 import VideoBackground from '@/components/video-background'
+import StructuredData from '@/components/structured-data'
 
 export const metadata: Metadata = {
-  title: 'Laxmi Face and Multispeciality Dental Hospital',
-  description: 'Transforming Smiles, Enhancing Lives: Your Trusted Destination for Complete Dental & Facial Care.',
+  metadataBase: new URL('https://laxmifaceanddental.com'),
+  title: 'Dentist in Vanasthalipuram | Laxmi Face Dental Hospital',
+  description: 'Visit Laxmi Face and Multispeciality Dental Hospital in Vanasthalipuram for root canal treatment, braces, clear aligners, implants, wisdom tooth removal and emergency dental care.',
   generator: 'v0.app',
   icons: {
     icon: '/finalclinicc.jpg',
@@ -32,6 +34,7 @@ export default function RootLayout({
         <VideoBackground />
         <AnimatedBackground />
         {children}
+        <StructuredData />
         <Analytics />
       </body>
     </html>

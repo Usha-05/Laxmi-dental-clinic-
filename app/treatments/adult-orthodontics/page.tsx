@@ -157,19 +157,60 @@ export default function AdultOrthodonticsPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="bg-gradient-to-r from-emerald-600 to-green-600 rounded-2xl p-12 text-white text-center space-y-6">
-          <h2 className="text-4xl font-bold">Transform Your Smile at Any Age</h2>
-          <p className="text-xl text-emerald-50 max-w-2xl mx-auto">
-            Schedule a consultation to discover the best orthodontic solution for your adult needs
-          </p>
-          <Link
-            href="/#appointment"
-            className="inline-block px-8 py-4 bg-white text-emerald-600 font-bold rounded-lg hover:bg-emerald-50 transition-colors"
-          >
-            Book Your Consultation
-          </Link>
+      {/* FAQs Section (generated) */}
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <h2 className="text-2xl md:text-3xl font-extrabold text-gray-900 mb-6 text-center">Frequently Asked Questions</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <details className="bg-white rounded-xl p-6 border border-emerald-100">
+            <summary className="font-semibold text-gray-900">How long does adult orthodontic treatment usually take?</summary>
+            <p className="mt-3 text-gray-700">Treatment time varies by complexity but typically ranges from 12 to 30 months. Your orthodontist will provide an individualized estimate.</p>
+          </details>
+          <details className="bg-white rounded-xl p-6 border border-emerald-100">
+            <summary className="font-semibold text-gray-900">Are braces or clear aligners better for adults?</summary>
+            <p className="mt-3 text-gray-700">Choice depends on case complexity and patient preference; aligners work well for many adults, while braces may be needed for more complex movements.</p>
+          </details>
+          <details className="bg-white rounded-xl p-6 border border-emerald-100">
+            <summary className="font-semibold text-gray-900">Will orthodontic treatment be painful?</summary>
+            <p className="mt-3 text-gray-700">Mild discomfort after adjustments is normal and usually managed with over-the-counter pain relief. Most patients tolerate treatment well.</p>
+          </details>
+          <details className="bg-white rounded-xl p-6 border border-emerald-100">
+            <summary className="font-semibold text-gray-900">Do I need retainers after treatment?</summary>
+            <p className="mt-3 text-gray-700">Yes — retainers are essential to maintain results. Your orthodontist will advise on the retention schedule.</p>
+          </details>
+        </div>
+      </section>
+
+      {/* Contact & Quick Actions */}
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+          <div className="col-span-1 md:col-span-2 bg-gradient-to-br from-emerald-50 to-green-50 rounded-2xl p-8 border border-emerald-200">
+            <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-4">Book an Appointment or Call Us</h3>
+            <p className="text-gray-700 mb-4">To discuss orthodontic options or request a consultation, choose an option below.</p>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Link href="/#appointment" className="inline-flex items-center justify-center px-6 py-3 bg-emerald-600 text-white font-bold rounded-lg">Book Appointment</Link>
+              <a href="tel:+917794879535" className="inline-flex items-center justify-center px-6 py-3 bg-white text-emerald-600 font-bold rounded-lg hover:bg-emerald-50 transition-colors">Call: 7794879535</a>
+              <a href="https://wa.me/917794879535" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center px-6 py-3 bg-green-700 text-white font-bold rounded-lg hover:opacity-90 transition-opacity">WhatsApp Us</a>
+            </div>
+          </div>
+
+          <div className="col-span-1 bg-white rounded-2xl p-6 border border-emerald-100">
+            <h4 className="text-lg font-bold text-gray-900 mb-2">Clinic Information</h4>
+            <p className="text-sm text-gray-700">Laxmi Face and Multispeciality Dental Hospital</p>
+            <p className="text-sm text-gray-700">1st floor, beside new venkateswara book world, mainroad</p>
+            <p className="text-sm text-gray-700">Vanasthalipuram, Hyderabad 500070</p>
+            <p className="text-sm text-gray-700 mt-2">Phone: <a className="font-semibold" href="tel:+917794879535">7794879535</a></p>
+            <p className="text-sm text-gray-700">Opening Hours: 9 AM - 9 PM</p>
+            <div className="mt-4 text-sm text-gray-600">Please bring any recent X-rays or reports to your appointment. For emergencies, call or WhatsApp for the fastest response.</div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section (kept for emphasis) */}
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="bg-gradient-to-r from-emerald-600 to-green-600 rounded-2xl p-10 text-white text-center space-y-4">
+          <h2 className="text-2xl md:text-3xl font-extrabold">Ready to Transform Your Smile?</h2>
+          <p className="text-base md:text-lg text-emerald-50 max-w-2xl mx-auto">Schedule a consultation with our orthodontic team to learn more.</p>
+          <Link href="/#appointment" className="inline-block px-8 py-3 bg-white text-emerald-600 font-extrabold rounded-lg hover:bg-emerald-50 transition-colors">Book Appointment</Link>
         </div>
       </section>
     </div>

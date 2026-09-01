@@ -7,6 +7,10 @@ module.exports = {
   generateRobotsTxt: true,
   sitemapSize: 7000,
   exclude: ['/api/*'],
+  additionalPaths: async () => [
+    { loc: '/treatments/surgical-treatments/wisdom-tooth-removal' },
+    { loc: '/treatments/emergency-dentist' },
+  ],
   robotsTxtOptions: {
     policies: [
       {

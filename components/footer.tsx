@@ -19,9 +19,8 @@ export default function Footer() {
                 className="object-contain"
               />
             </div>
-            <p className="opacity-90">
-              Transforming Smiles, Enhancing Lives: Your Trusted Destination for Complete Dental & Facial Care.
-            </p>
+            <p className="font-semibold text-white">Laxmi Face and Multispeciality Dental Hospital</p>
+            <p className="mt-1 opacity-90">Complete dental and facial care in Vanasthalipuram, Hyderabad.</p>
           </div>
 
           {/* Quick Links */}
@@ -36,11 +35,6 @@ export default function Footer() {
               <li>
                 <a href="#about" className="opacity-90 hover:opacity-100 transition">
                   About Us
-                </a>
-              </li>
-              <li>
-                <a href="#testimonials" className="opacity-90 hover:opacity-100 transition">
-                  Testimonials
                 </a>
               </li>
             </ul>
@@ -95,6 +89,10 @@ export default function Footer() {
                 </a>
               </div>
               <div className="flex gap-1.5">
+                <span className="font-semibold">Hours:</span>
+                <span className="opacity-90">Mon-Sun, 9 AM-9 PM</span>
+              </div>
+              <div className="flex gap-1.5">
                 <MapPin size={14} className="sm:w-3.5 sm:h-3.5 md:w-4 md:h-4 flex-shrink-0 mt-0.5" />
                 <a 
                   href="https://maps.app.goo.gl/WSmG37qqRPK42Lpt8?g_st=iw"
@@ -102,7 +100,7 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   className="opacity-90 hover:opacity-100 transition"
                 >
-                  1st floor, beside new venkateswara book world, mainroad, vanasthalipuram, hyderabad 500070
+                  Main road, beside new Venkateswara Book World, Hastina Puram Colony, TV Colony, Vanasthalipuram, Hyderabad, Telangana 500070, India
                 </a>
               </div>
             </div>
