@@ -14,8 +14,7 @@ const data: LocalSeoTreatment = {
   intro: "Persistent tooth pain, pain while biting, sensitivity that lingers, swelling or a deeply decayed tooth may indicate irritation or infection inside the tooth. A root canal assessment helps determine whether the tooth can be preserved and what treatment is required.",
   image: "/c1.jpg",
   imageAlt: "Dental treatment room at Laxmi Face and Multispeciality Dental Hospital",
-  reviewer: "Treating dentist — full name and verified qualifications to be confirmed by the clinic before publication.",
-  reviewerNote: "Do not publish a named reviewer until the treating dentist confirms the attribution and credentials.",
+  reviewer: "Laxmi Face and Multispeciality Dental Hospital, Vanasthalipuram, Hyderabad",
   sections: [
     { heading: "When should you book an assessment?", bullets: ["Spontaneous or severe tooth pain", "Pain while chewing or biting", "Lingering sensitivity to hot or cold", "Swelling, gum boil or recurrent discharge near a tooth", "Deep decay, a fractured tooth or a large old filling"] },
     { heading: "How the tooth is evaluated", paragraphs: ["The dentist takes a history, examines the tooth and surrounding gums, and performs appropriate clinical tests. A dental X-ray is advised when required to evaluate the roots and surrounding bone. The findings, restorability of the tooth, treatment sequence and estimated cost are explained before starting."] },

@@ -1,5 +1,12 @@
+import type { Metadata } from "next"
 import { ArrowLeft, CheckCircle2, Zap } from "lucide-react"
 import Link from "next/link"
+
+export const metadata: Metadata = {
+  title: "Dental Crowns in Vanasthalipuram | Laxmi Face",
+  description: "Dental crowns in Vanasthalipuram help protect and restore damaged teeth after decay, fracture or root canal treatment. Book a consultation at Laxmi Face and Multispeciality Dental Hospital.",
+  alternates: { canonical: "/treatments/crowns" },
+}
 
 export default function CrownsPage() {
   return (
@@ -15,7 +22,7 @@ export default function CrownsPage() {
             Back to Treatments
           </Link>
           <h1 className="text-2xl font-bold bg-gradient-to-r from-emerald-700 to-green-600 bg-clip-text text-transparent">
-            Crowns
+            Dental Crowns in Vanasthalipuram
           </h1>
           <div className="w-20" />
         </div>
@@ -29,6 +36,9 @@ export default function CrownsPage() {
               <h2 className="text-5xl font-bold text-gray-900 mb-4 leading-tight">Protect and Restore with Dental Crowns</h2>
               <p className="text-lg text-gray-600 leading-relaxed">
                 Dental crowns are custom-made caps that completely cover damaged or weakened teeth. They restore strength, function, and appearance while protecting the underlying tooth structure.
+              </p>
+              <p className="text-base text-gray-700 leading-relaxed">
+                At Laxmi Face and Multispeciality Dental Hospital in Vanasthalipuram, a dental assessment helps determine whether a crown is suitable. <a href="tel:+917794879535" className="font-semibold text-emerald-700">Call 7794879535</a> or <Link href="/#appointment" className="font-semibold text-emerald-700 underline">book an appointment</Link> to discuss your tooth restoration needs. You can also explore <Link href="/treatments/root-canal" className="font-semibold text-emerald-700 underline">root canal treatment</Link> when relevant.
               </p>
             </div>
 

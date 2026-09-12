@@ -1,5 +1,12 @@
+import type { Metadata } from "next"
 import { ArrowLeft, CheckCircle2, Zap } from "lucide-react"
 import Link from "next/link"
+
+export const metadata: Metadata = {
+  title: "Dental Implants in Vanasthalipuram | Laxmi Face",
+  description: "Dental implants in Vanasthalipuram provide a fixed option to replace missing teeth and support long-term oral function. Book a consultation at Laxmi Face and Multispeciality Dental Hospital.",
+  alternates: { canonical: "/treatments/implants" },
+}
 
 export default function ImplantsPage() {
   return (
@@ -15,7 +22,7 @@ export default function ImplantsPage() {
             Back to Treatments
           </Link>
           <h1 className="text-2xl font-bold bg-gradient-to-r from-emerald-700 to-green-600 bg-clip-text text-transparent">
-            Implants
+            Dental Implants in Vanasthalipuram
           </h1>
           <div className="w-20" />
         </div>
@@ -29,6 +36,9 @@ export default function ImplantsPage() {
               <h2 className="text-5xl font-bold text-gray-900 mb-4 leading-tight">Permanent Solution for Missing Teeth</h2>
               <p className="text-lg text-gray-600 leading-relaxed">
                 Dental implants are the gold standard for replacing missing teeth. They provide a permanent, natural-looking solution that functions like your own teeth and preserves jaw bone health.
+              </p>
+              <p className="text-base text-gray-700 leading-relaxed">
+                Laxmi Face and Multispeciality Dental Hospital in Vanasthalipuram can assess the teeth, gums and available bone before discussing dental implant options. <a href="tel:+917794879535" className="font-semibold text-emerald-700">Call 7794879535</a> or <Link href="/#appointment" className="font-semibold text-emerald-700 underline">book an appointment</Link> for a consultation. For a non-implant replacement option, explore <Link href="/treatments/bridges" className="font-semibold text-emerald-700 underline">dental bridges</Link>.
               </p>
             </div>
 

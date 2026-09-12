@@ -14,7 +14,6 @@ const priority: Record<string, { title: string; description: string; data: Local
       image: "/c6.jpg",
       imageAlt: "Dental treatment area at Laxmi Face and Multispeciality Dental Hospital",
       reviewer: "Dr. Vishnu Gowtham Marella, BDS, MDS – Oral and Maxillofacial Surgeon",
-      reviewerNote: "Verify all credentials and registration details before publication.",
       sections: [
         { heading: "Common reasons for assessment", bullets: ["Pain or swelling behind the last tooth", "Food trapping and repeated gum inflammation", "Difficulty opening the mouth or discomfort while chewing", "Decay in the wisdom tooth or adjacent tooth", "An impacted tooth seen on an X-ray"] },
         { heading: "What happens during assessment?", paragraphs: ["The surgeon examines the mouth and reviews a suitable dental X-ray or OPG when required. The tooth angle, root shape, available space and relationship to nearby structures are considered. The need for removal, expected complexity, aftercare and estimated cost are explained before the procedure."] },
@@ -39,8 +38,7 @@ const priority: Record<string, { title: string; description: string; data: Local
       intro: "A sudden toothache, swelling, broken tooth, bleeding or dental injury needs timely assessment. The first priority is to identify the cause, control urgent symptoms and decide what treatment is required.",
       image: "/c2.jpg",
       imageAlt: "Dental clinic interior at Laxmi Face and Multispeciality Dental Hospital",
-      reviewer: "Treating dentist — full name and verified qualifications to be confirmed by the clinic before publication.",
-      reviewerNote: "Do not publish a named reviewer until the treating dentist confirms the attribution and credentials.",
+      reviewer: "Laxmi Face and Multispeciality Dental Hospital, Vanasthalipuram, Hyderabad",
       sections: [
         { heading: "Common dental emergencies", bullets: ["Severe or persistent tooth pain", "Swelling of the gum, face or jaw", "Broken or fractured teeth", "Dental injury or a knocked-out permanent tooth", "Bleeding or signs of infection requiring prompt assessment"] },
         { heading: "What to expect", steps: ["Clinical triage and examination to understand the immediate problem.", "Dental X-ray or other imaging when clinically required.", "Urgent treatment to stabilise the condition and control symptoms.", "A plan for definitive treatment and follow-up when the first visit is not sufficient."] },
@@ -53,6 +51,31 @@ const priority: Record<string, { title: string; description: string; data: Local
         { q: "Will the complete treatment be performed at the first visit?", a: "The first priority is diagnosis and appropriate urgent care. Definitive treatment timing depends on the condition, available records, swelling, medical factors and procedure required." },
       ],
       cta: "Call 7794879535 for urgent dental guidance and appointment availability. Breathing or swallowing difficulty requires immediate emergency medical care.",
+    },
+  },
+  "orthodontics/traditional-braces": {
+    title: "Traditional Braces in Vanasthalipuram | Laxmi Face",
+    description: "Traditional braces help correct crowding, spacing and bite issues in Vanasthalipuram. Explore orthodontic assessment and care at Laxmi Face and Multispeciality Dental Hospital.",
+    data: {
+      title: "Traditional Braces in Vanasthalipuram | Laxmi Face",
+      description: "Traditional braces help correct crowding, spacing and bite issues in Vanasthalipuram. Explore orthodontic assessment and care at Laxmi Face and Multispeciality Dental Hospital.",
+      h1: "Traditional Braces in Vanasthalipuram",
+      intro: "Traditional braces remain a dependable option for correcting overcrowding, spacing, bite problems and more complex tooth movement. A thorough orthodontic assessment helps decide whether fixed braces or another appliance is most suitable.",
+      image: "/c5.jpg",
+      imageAlt: "Orthodontic consultation at Laxmi Face and Multispeciality Dental Hospital",
+      reviewer: "Dr. Sri Lakshmi Swetha, BDS, MDS – Orthodontist & Aligner Specialist",
+      sections: [
+        { heading: "When traditional braces are considered", bullets: ["Complex crowding or spacing issues", "Overbite, underbite or open bite concerns", "Teeth that require more significant movement than aligners alone may provide", "Patients who prefer a fixed, time-tested orthodontic option"] },
+        { heading: "What happens at the first visit?", steps: ["Review the main concerns and expected outcome.", "Examine teeth, bite, gum support and facial profile.", "Take photographs, scans or X-rays when required.", "Discuss the appliance choice, estimated duration and retention plan."] },
+        { heading: "Aftercare and retention", paragraphs: ["Active treatment is followed by retention to help maintain tooth positions. Retainers are typically recommended after braces are removed, and regular follow-up supports long-term stability."] },
+      ],
+      faqs: [
+        { q: "Who is a good candidate for traditional braces?", a: "Traditional braces are often considered for more complex orthodontic problems, especially when fixed appliance therapy is needed to guide tooth and jaw alignment." },
+        { q: "How long will treatment take?", a: "Treatment length varies with the case. An individual estimate is explained after the orthodontic exam and planning review." },
+        { q: "Do braces affect eating and speech?", a: "There may be an adjustment period, but most patients adapt quickly. Eating a careful diet and maintaining oral hygiene are important during treatment." },
+        { q: "Are retainers required after braces?", a: "Yes, retainers are usually recommended to help maintain the corrected positions of the teeth after active treatment." },
+      ],
+      cta: "Book an orthodontic consultation in Vanasthalipuram. Call or WhatsApp 7794879535.",
     },
   },
 }

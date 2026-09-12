@@ -1,5 +1,12 @@
+import type { Metadata } from "next"
 import { ArrowLeft, CheckCircle2, Zap } from "lucide-react"
 import Link from "next/link"
+
+export const metadata: Metadata = {
+  title: "Dental Bridges in Vanasthalipuram | Laxmi Face",
+  description: "Dental bridges in Vanasthalipuram replace missing teeth and support chewing, speech and smile balance. Learn more at Laxmi Face and Multispeciality Dental Hospital.",
+  alternates: { canonical: "/treatments/bridges" },
+}
 
 export default function BridgesPage() {
   return (
@@ -15,7 +22,7 @@ export default function BridgesPage() {
             Back to Treatments
           </Link>
           <h1 className="text-2xl font-bold bg-gradient-to-r from-emerald-700 to-green-600 bg-clip-text text-transparent">
-            Bridges
+            Dental Bridges in Vanasthalipuram
           </h1>
           <div className="w-20" />
         </div>
@@ -29,6 +36,9 @@ export default function BridgesPage() {
               <h2 className="text-5xl font-bold text-gray-900 mb-4 leading-tight">Replace Missing Teeth with Dental Bridges</h2>
               <p className="text-lg text-gray-600 leading-relaxed">
                 Dental bridges are fixed prosthetic devices used to replace one or more missing teeth. They are anchored to adjacent natural teeth or implants, restoring your smile, ability to chew, and maintaining facial structure.
+              </p>
+              <p className="text-base text-gray-700 leading-relaxed">
+                At Laxmi Face and Multispeciality Dental Hospital in Vanasthalipuram, a consultation can review whether a dental bridge suits the missing-tooth area and surrounding teeth. <a href="tel:+917794879535" className="font-semibold text-emerald-700">Call 7794879535</a> or <Link href="/#appointment" className="font-semibold text-emerald-700 underline">book an appointment</Link> to discuss replacement options. You can also compare <Link href="/treatments/implants" className="font-semibold text-emerald-700 underline">dental implants</Link> as another treatment pathway.
               </p>
             </div>
 

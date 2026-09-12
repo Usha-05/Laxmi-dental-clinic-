@@ -10,6 +10,7 @@ module.exports = {
   additionalPaths: async () => [
     { loc: '/treatments/surgical-treatments/wisdom-tooth-removal' },
     { loc: '/treatments/emergency-dentist' },
+    { loc: '/treatments/orthodontics/traditional-braces' },
   ],
   robotsTxtOptions: {
     policies: [

@@ -1,5 +1,12 @@
+import type { Metadata } from "next"
 import { ArrowLeft, CheckCircle2, Zap } from "lucide-react"
 import Link from "next/link"
+
+export const metadata: Metadata = {
+  title: "Tooth Extraction in Vanasthalipuram | Laxmi Face",
+  description: "Tooth extraction in Vanasthalipuram is for damaged, infected, crowded or problematic teeth. Get a clinical assessment and treatment plan at Laxmi Face and Multispeciality Dental Hospital.",
+  alternates: { canonical: "/treatments/extractions" },
+}
 
 export default function ExtractionsPage() {
   return (
@@ -15,7 +22,7 @@ export default function ExtractionsPage() {
             Back to Treatments
           </Link>
           <h1 className="text-2xl font-bold bg-gradient-to-r from-emerald-700 to-green-600 bg-clip-text text-transparent">
-            Extractions
+            Tooth Extraction in Vanasthalipuram
           </h1>
           <div className="w-20" />
         </div>
@@ -29,6 +36,9 @@ export default function ExtractionsPage() {
               <h2 className="text-5xl font-bold text-gray-900 mb-4 leading-tight">Safe and Comfortable Tooth Extractions</h2>
               <p className="text-lg text-gray-600 leading-relaxed">
                 Tooth extraction is sometimes necessary to protect your oral health. We perform extractions with care, using modern techniques to ensure your comfort and quick recovery.
+              </p>
+              <p className="text-base text-gray-700 leading-relaxed">
+                Laxmi Face and Multispeciality Dental Hospital provides tooth extraction assessments in Vanasthalipuram for damaged, infected or problematic teeth. <a href="tel:+917794879535" className="font-semibold text-emerald-700">Call 7794879535</a> or <Link href="/#appointment" className="font-semibold text-emerald-700 underline">book an appointment</Link> for an evaluation. For wisdom-tooth concerns, see <Link href="/treatments/surgical-treatments/wisdom-tooth-removal" className="font-semibold text-emerald-700 underline">wisdom tooth removal</Link>.
               </p>
             </div>
 

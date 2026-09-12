@@ -14,8 +14,7 @@ const data: LocalSeoTreatment = {
   intro: "Tartar, surface stains, bleeding gums, bad breath, swollen or tender gums, recession and loose teeth all warrant an assessment. Professional cleaning removes deposits and helps the dental team identify when deeper gum care may be needed.",
   image: "/c3.jpg",
   imageAlt: "Dental treatment area at Laxmi Face and Multispeciality Dental Hospital",
-  reviewer: "Treating dentist — full name and verified qualifications to be confirmed by the clinic before publication.",
-  reviewerNote: "Do not publish a named reviewer until the treating dentist confirms the attribution and credentials.",
+  reviewer: "Laxmi Face and Multispeciality Dental Hospital, Vanasthalipuram, Hyderabad",
   sections: [
     { heading: "What is assessed?", bullets: ["Visible tartar and plaque deposits", "Surface stains and areas that are difficult to clean", "Bleeding, swollen or tender gums", "Bad breath and oral-hygiene concerns", "Recession, loose teeth or signs that may need further periodontal assessment"] },
     { heading: "What happens during cleaning?", steps: ["Clinical examination of the teeth and gums.", "Assessment of deposits and gum condition.", "Professional removal of plaque and calculus with appropriate instruments.", "Polishing when indicated to remove surface stains.", "Advice on home cleaning and whether further gum assessment is required."] },

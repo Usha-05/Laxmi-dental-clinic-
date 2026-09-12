@@ -52,8 +52,7 @@ export default function LocalSeoTreatmentPage({ data }: { data: LocalSeoTreatmen
       <section className="mx-auto max-w-6xl px-4 pb-10 sm:px-6">
         <div className="rounded-2xl border border-emerald-100 bg-white p-6 shadow-sm">
           <h2 className="text-2xl font-extrabold">Clinical review</h2>
-          <p className="mt-2 text-gray-700">{data.reviewer || "The treating dentist's verified name and qualifications must be confirmed by the clinic before publication."}</p>
-          {data.reviewerNote && <p className="mt-2 text-sm text-gray-600">{data.reviewerNote}</p>}
+          <p className="mt-2 text-gray-700">{data.reviewer}</p>
         </div>
       </section>
 

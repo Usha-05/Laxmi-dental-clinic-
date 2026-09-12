@@ -14,8 +14,7 @@ const data: LocalSeoTreatment = {
   intro: "Crooked teeth, crowding, gaps, forwardly placed teeth and bite concerns can affect appearance, cleaning and function. Orthodontic treatment planning begins with a clinical examination of the teeth, jaws, bite and facial profile.",
   image: "/c5.jpg",
   imageAlt: "Dental treatment area at Laxmi Face and Multispeciality Dental Hospital",
-  reviewer: "Dr. Sri Lakshmi Swetha, BDS, MDS – Orthodontist and Aligner Specialist",
-  reviewerNote: "Verify all credentials and registration details before publication.",
+  reviewer: "Dr. Sri Lakshmi Swetha, BDS, MDS – Orthodontist & Aligner Specialist",
   sections: [
     { heading: "Treatment options", bullets: ["Metal braces: A fixed option that can manage a wide range of orthodontic problems.", "Ceramic braces: A less visible fixed option for suitable patients.", "Clear aligners: Removable trays for selected cases, requiring consistent daily wear.", "Growth modification: Age-appropriate assessment for selected jaw and bite concerns in growing children."] },
     { heading: "What happens at the first orthodontic visit?", steps: ["Discuss the patient’s main concern and expectations.", "Examine tooth alignment, bite, jaw relationship and oral health.", "Advise records such as photographs, scans or X-rays when required.", "Explain suitable options, limitations, expected duration and retention.", "Discuss the treatment fee and payment plan before starting."] },
