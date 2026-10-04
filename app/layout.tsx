@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from 'next'
+import Script from 'next/script'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 import AnimatedBackground from '@/components/animated-background'
@@ -36,6 +37,18 @@ export default function RootLayout({
         {children}
         <StructuredData />
         <Analytics />
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-18400783044"
+          strategy="afterInteractive"
+        />
+        <Script id="google-ads-tag" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){window.dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-18400783044');
+          `}
+        </Script>
       </body>
     </html>
   )
