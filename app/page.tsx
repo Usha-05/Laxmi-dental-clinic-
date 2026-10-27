@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Navbar from "@/components/navbar"
 import Hero from "@/components/hero"
 import TreatmentsGrid from "@/components/treatments-grid"
@@ -23,6 +23,30 @@ export default function Home() {
   const [appointmentOpen, setAppointmentOpen] = useState(false)
   const [consultationOpen, setConsultationOpen] = useState(false)
   const [selectedService, setSelectedService] = useState<string>("")
+  const openAppointment = () => setAppointmentOpen(true)
+
+  const closeAppointment = () => {
+    setAppointmentOpen(false)
+    if (window.location.hash === "#appointment") {
+      window.history.replaceState(
+        window.history.state,
+        "",
+        `${window.location.pathname}${window.location.search}`,
+      )
+    }
+  }
+
+  useEffect(() => {
+    const openAppointmentFromHash = () => {
+      if (window.location.hash === "#appointment") {
+        setAppointmentOpen(true)
+      }
+    }
+
+    openAppointmentFromHash()
+    window.addEventListener("hashchange", openAppointmentFromHash)
+    return () => window.removeEventListener("hashchange", openAppointmentFromHash)
+  }, [])
 
   const handleConsultationClick = (serviceName?: string) => {
     setSelectedService(serviceName || "")
@@ -31,8 +55,8 @@ export default function Home() {
 
   return (
     <div className="min-h-screen relative pt-16 sm:pt-20 md:pt-20 lg:pt-20">
-      <Navbar onAppointmentClick={() => setAppointmentOpen(true)} />
-      <Hero onAppointmentClick={() => setAppointmentOpen(true)} />
+      <Navbar onAppointmentClick={openAppointment} />
+      <Hero onAppointmentClick={openAppointment} />
       <nav aria-label="Priority dental services" className="bg-white py-5">
         <div className="mx-auto flex max-w-7xl flex-wrap justify-center gap-x-6 gap-y-2 px-4 text-sm font-semibold text-emerald-700 sm:px-6 lg:px-8">
           <Link href="/treatments/root-canal" className="hover:text-emerald-900 hover:underline">Root Canal Treatment</Link>
@@ -56,7 +80,7 @@ export default function Home() {
       </section>
       <TreatmentsGrid />
       <Services
-        onAppointmentClick={() => setAppointmentOpen(true)}
+        onAppointmentClick={openAppointment}
         onConsultationClick={handleConsultationClick}
       />
       <About />
@@ -67,7 +91,7 @@ export default function Home() {
       <VirtualConsultation />
       <Testimonials />
       <ContactUs />
-      <Appointment isOpen={appointmentOpen} onClose={() => setAppointmentOpen(false)} />
+      <Appointment isOpen={appointmentOpen} onClose={closeAppointment} />
       <ConsultationModal
         isOpen={consultationOpen}
         onClose={() => {
